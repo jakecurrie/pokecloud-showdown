@@ -12,3 +12,6 @@ sam.yaml
 
 /cypress/screenshots
 /cypress/videos
+
+.idea
+.vscode
