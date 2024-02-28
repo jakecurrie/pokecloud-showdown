@@ -1,9 +1,14 @@
 node_modules
 
-/.cache
-/server/build
-/public/static
+/public/build
+/server/index.mjs
+/server/index.mjs.map
+/server/metafile.*
+/server/version.txt
+preferences.arc
+sam.json
+sam.yaml
+.env
 
-.serverless
-
-.idea
+/cypress/screenshots
+/cypress/videos
