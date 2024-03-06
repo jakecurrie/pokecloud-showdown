@@ -27,6 +27,25 @@ user
 password
   pk *String # userId
 
+pokemon
+  id *String # pokeid
+  name **String # pokename
+  type1 String
+  type2 String
+  attack String
+  hp Number
+  image_url String
+
+collection
+  pk *String  # userId
+  sk **String # cardId
+
+currency
+  pk *String  # userId
+  balance Number
+
 note
   pk *String  # userId
   sk **String # noteId
+
+
