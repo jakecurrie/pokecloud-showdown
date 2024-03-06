@@ -30,9 +30,8 @@ password
 pokemon
   id *String # pokeid
   name **String # pokename
-  type1 String
-  type2 String
-  attack String
+  type String
+  move String
   hp Number
   image_url String
 
