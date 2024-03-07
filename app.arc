@@ -35,7 +35,7 @@ pokemon
   hp Number
   image_url String
 
-collection
+collections
   pk *String  # userId
   sk **String # cardId
 
