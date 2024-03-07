@@ -1,4 +1,3 @@
-// app/models/pokemon.server.ts
 import arc from '@architect/functions';
 
 export interface Pokemon {
