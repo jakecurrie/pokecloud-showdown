@@ -34,7 +34,7 @@ export default function Index() {
               <div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center">
                 {user ? (
                   <Link
-                    to="/notes"
+                    to="/collections"
                     className="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-3 text-base font-medium text-red-700 shadow-sm hover:bg-red-50 sm:px-8"
                   >
                     Enter the showdown
