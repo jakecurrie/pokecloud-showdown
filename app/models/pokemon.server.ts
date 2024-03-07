@@ -24,17 +24,31 @@ export async function getAllPokemon(): Promise<Pokemon[]> {
 
 export async function getPokemonById(id: string): Promise<Pokemon | null> {
   const db = await arc.tables();
-  const result = await db.pokemon.get({ id });
-  if (result) {
-    return {
-      id: result.id,
-      name: result.name,
-      type: result.type,
-      attack: result.attack,
-      hp: result.hp,
-      image_url: result.image_url,
-    };
+  try {
+    const result = await db.pokemon.query({
+      KeyConditionExpression: '#id = :id',
+      ExpressionAttributeNames: { '#id': 'id' },
+      ExpressionAttributeValues: { ':id': id },
+    });
+    if (result.Items && result.Items.length > 0) {
+      const item = result.Items[0];
+      return {
+        id: item.id,
+        name: item.name,
+        type: item.type,
+        attack: item.attack,
+        hp: item.hp,
+        image_url: item.image_url,
+      };
+    }
+    return null;
+  } catch (error) {
+    console.error('getPokemonById: error:', error);
+    return null;
   }
-  return null;
 }
+
+
+
+
 
