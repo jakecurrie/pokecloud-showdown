@@ -68,6 +68,7 @@ export async function createUser(
       userId: user.id,
       quantity: 1,
     });
+
   }
 
   return user;
