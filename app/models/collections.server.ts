@@ -44,7 +44,7 @@ export async function getCollectionItem({
 }
 
 export async function getCollectionItems({
-   userId,
+  userId,
 }: Pick<CollectionItem, 'userId'>): Promise<CollectionItem[]> {
   const db = await arc.tables();
 
@@ -61,9 +61,19 @@ export async function getCollectionItems({
   }));
 }
 
-export async function getCollectionWithPokemonDetails(email: User['email']): Promise<CollectionItemWithPokemon[]> {
-  const userId: User['id'] = `email#${email}`;
-  const collectionItems = await getCollectionItems({ userId });
+export async function getCollectionWithPokemonDetails(userId: User['id']): Promise<CollectionItemWithPokemon[]> {
+  const db = await arc.tables();
+  const result = await db.collections.query({
+    KeyConditionExpression: 'pk = :pk',
+    ExpressionAttributeValues: { ':pk': userId },
+  });
+
+  const collectionItems = result.Items.map((item) => ({
+    userId: item.pk,
+    id: skToId(item.sk),
+    cardId: item.cardId,
+    quantity: item.quantity,
+  }));
 
   const pokemonDetails = await Promise.all(
     collectionItems.map((item) => getPokemonById(item.cardId))
@@ -71,7 +81,6 @@ export async function getCollectionWithPokemonDetails(email: User['email']): Pro
 
   return collectionItems.map((item, index) => ({
     ...item,
-    userId,
     pokemon: pokemonDetails[index] || null,
   }));
 }
@@ -105,5 +114,4 @@ export async function removeCollectionItem({
   const db = await arc.tables();
   return db.collections.delete({ pk: userId, sk: idToSk(id) });
 }
-
 
