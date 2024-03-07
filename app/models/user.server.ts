@@ -2,6 +2,8 @@ import arc from "@architect/functions";
 import bcrypt from "bcryptjs";
 import invariant from "tiny-invariant";
 
+import { addCollectionItem } from "~/models/collections.server";
+
 export interface User {
   id: `email#${string}`;
   email: string;
@@ -57,6 +59,16 @@ export async function createUser(
 
   const user = await getUserByEmail(email);
   invariant(user, `User not found after being created. This should not happen`);
+
+  const starterPokemonIds = ['1', '25', '150', '151', '133'];
+
+  for (const pokemonId of starterPokemonIds) {
+    await addCollectionItem({
+      cardId: pokemonId,
+      userId: user.id,
+      quantity: 1,
+    });
+  }
 
   return user;
 }
