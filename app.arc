@@ -40,7 +40,7 @@ collections
   sk **String # cardId
 
 currency
-  pk *String  # userId
+  userId *String
   balance Number
 
 note
