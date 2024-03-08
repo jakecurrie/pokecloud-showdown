@@ -28,10 +28,11 @@ This will run a local version of the project with a temporary local database for
 have hot reloading so changes to the code will appear in the browser in real-time.
 
 ### Repo Structure
-- .github - Files related to Github Actions, which automates deployment to the cloud if you push to main. (haven't set this up yet)
+- .github - Files related to Github Actions, which automates deployment to the cloud if you push to main/master. (haven't set this up yet)
 - app - Main code for the remix application
+  - components - For re-usable react components which we can use across many pages in our app.
   - models - This is where we store functions related to backend functionality.
-  - routes - This one is where our front end react code goes. Our app's URLs are automatically setup based on the names of files placed in here.
+  - routes - This one is where our frontend react code goes. Our app's frontend routes are automatically setup based on the names of files placed in here.
 - cypress - Files related to running tests on our app using Cypress (will probably delete)
 - mocks - For mock stuff to be used in tests (will probably delete)
 - public - This is where our static front end code is stored. Files from /app will be transpiled and automatically placed here whenever we run the build command so that they can be deployed to s3
