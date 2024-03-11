@@ -6,10 +6,9 @@ interface PokemonCardProps {
   type: string;
   hp: number;
   attack: string;
-  defense: string;
 }
 
-const PokemonCard: FC<PokemonCardProps> = ({ name, imageUrl, type, hp, attack, defense }) => {
+const PokemonCard: FC<PokemonCardProps> = ({ name, imageUrl, type, hp, attack}) => {
   return (
     <div className="group relative border-2 border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow w-48 h-72">
       <img src={imageUrl} alt={name} className="w-full h-3/4 object-contain" />
@@ -20,7 +19,6 @@ const PokemonCard: FC<PokemonCardProps> = ({ name, imageUrl, type, hp, attack, d
         <p className="text-white">Type: {type}</p>
         <p className="text-white">HP: {hp}</p>
         <p className="text-white">Attack: {attack}</p>
-        <p className="text-white">Defense: {defense}</p>
       </div>
     </div>
   );

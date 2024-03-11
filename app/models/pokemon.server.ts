@@ -16,7 +16,7 @@ export async function getAllPokemon(): Promise<Pokemon[]> {
     id: item.id,
     name: item.name,
     type: item.type,
-    attack: item.attack,
+    attack: item.move,
     hp: item.hp,
     image_url: item.image_url,
   }));
@@ -36,7 +36,7 @@ export async function getPokemonById(id: string): Promise<Pokemon | null> {
         id: item.id,
         name: item.name,
         type: item.type,
-        attack: item.attack,
+        attack: item.move,
         hp: item.hp,
         image_url: item.image_url,
       };
