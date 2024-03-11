@@ -1,13 +1,15 @@
 import { MetaFunction } from "@remix-run/node";
 
+import SignInForm from "~/components/signInForm";
+
 import logoPic from "../../public/images/logo.png";
-import homePic from "../../public/images/poke3.webp";
+import homePic from "../../public/images/main_bg.jpg";
 
 export const meta: MetaFunction = () => [{ title: "PokeCloud Showdown" }];
 
 export default function Index() {
   return (
-    <body className="bg-onyx">
+    <body className="bg-biceblue">
       <div className="h-screen flex flex-col items-center justify-center overflow-hidden relative">
         <div className="w-11/12 md:w-3/4 lg:w-2/3 xl:w-full h-5/6 rounded-lg overflow-hidden relative border border-4 border-charcoal">
           <img
@@ -25,25 +27,26 @@ export default function Index() {
               />
             </div>
             <div>
-              <form className="relative mt-8 flex flex-col items-end ">
-                <input
-                  type="text"
-                  className="w-64 h-10 border border-sage rounded-lg px-4 py-2 mb-4"
-                  placeholder="Username"
-                />
-                <input
-                  type="password"
-                  className="w-64 h-10 border border-sage rounded-lg px-4 py-2 mb-4"
-                  placeholder="Password"
-                />
-                <button className="w-64 h-10 bg-charcoal border border-sage text-honeydew rounded-lg px-4 py-2 mb-4">
-                  Sign In
-                </button>
-                <br />
-                <button className="w-64 h-10 bg-charcoal border border-sage text-honeydew rounded-lg px-4 py-2">
-                  Not a member? Sign Up
-                </button>
-              </form>
+              <SignInForm />
+              {/*<form className="relative mt-8 flex flex-col items-end ">*/}
+              {/*  <input*/}
+              {/*    type="text"*/}
+              {/*    className="w-64 h-10 border border-charcoal rounded-lg px-4 py-2 mb-4"*/}
+              {/*    placeholder="Username"*/}
+              {/*  />*/}
+              {/*  <input*/}
+              {/*    type="password"*/}
+              {/*    className="w-64 h-10 border border-charcoal rounded-lg px-4 py-2 mb-4"*/}
+              {/*    placeholder="Password"*/}
+              {/*  />*/}
+              {/*  <button className="w-64 h-10 bg-biceblue border border-charcoal text-honeydew rounded-lg px-4 py-2 mb-4">*/}
+              {/*    Sign In*/}
+              {/*  </button>*/}
+              {/*  <br />*/}
+              {/*  <button className="w-64 h-10 bg-biceblue border border-charcoal text-honeydew rounded-lg px-4 py-2">*/}
+              {/*    Not a member? Sign Up*/}
+              {/*  </button>*/}
+              {/*</form>*/}
             </div>
           </div>
         </div>
