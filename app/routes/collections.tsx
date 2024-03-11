@@ -34,7 +34,6 @@ export default function Collections() {
               type={pokemon?.type || 'Unknown'}
               hp={pokemon?.hp || 0}
               attack={pokemon?.attack || 'Unknown'}
-              defense="yeah"
             />
           ))}
         </div>
