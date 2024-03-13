@@ -7,18 +7,22 @@ General:
 - redesign the pokemon card component
 - add a navbar
 - swap the default remix favicon.ico file for some pokemon related one (this is the icon displayed on a browser tab)
+- maybe add more pokemon (151 could be slightly limited but this is very low priority if we even decide to do it)
 
 Trainers:
 - come up with names, images for trainers
 - seed database with trainers + their pokemon collections
+- write server functions for fetching trainers (done, not tested)
 
 Battles:
-- write all server functions related to battles
+- write all server functions related to battles (done, not tested)
 - create a pre-battle page where user can first select a trainer, then select the pokemon they want to use
 - create the actual battle page layout
+- figure out battle win rewards and implement
 
 Store:
-- write server logic for generating store card bundles
+- write server logic for generating store card bundles (done, not tested)
+- write server logic for purchasing bundles, adding pokemon to collection, deducting cost from balance
 - create the shop page
 - make a sub component for displaying the card bundle in-store pre purchase
 - make a component to display contents of a bundle post-purchase
