@@ -8,6 +8,7 @@ export interface User {
   id: `email#${string}`;
   email: string;
 }
+
 export interface Password {
   password: string;
 }
@@ -60,7 +61,21 @@ export async function createUser(
   const user = await getUserByEmail(email);
   invariant(user, `User not found after being created. This should not happen`);
 
-  const starterPokemonIds = ['1', '25', '150', '151', '133'];
+  const starterPokemonIds = [
+    "1",
+    "25",
+    "150",
+    "151",
+    "133",
+    "2",
+    "10",
+    "10",
+    "10",
+    "10",
+    "10",
+    "10",
+    "10",
+  ];
 
   for (const pokemonId of starterPokemonIds) {
     await addCollectionItem({
@@ -68,7 +83,6 @@ export async function createUser(
       userId: user.id,
       quantity: 1,
     });
-
   }
 
   return user;

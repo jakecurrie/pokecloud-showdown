@@ -1,9 +1,19 @@
-import { json, LoaderFunctionArgs } from '@remix-run/node';
-import { useLoaderData } from '@remix-run/react';
+import { json, LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
 
-import PokemonCard from '~/components/pokecard';
-import { getCollectionWithPokemonDetails, CollectionItemWithPokemon } from '~/models/collections.server';
-import { requireUserId } from '~/session.server';
+import Button from "~/components/button";
+import GameStats from "~/components/gameStats";
+import PokemonGrid from "~/components/pokemonGrid";
+import {
+  CollectionItemWithPokemon,
+  getCollectionWithPokemonDetails,
+} from "~/models/collections.server";
+import { requireUserId } from "~/session.server";
+
+import homePic from "../../public/images/battle.jpg";
+import logoPic from "../../public/images/logo.png";
+
+export const meta: MetaFunction = () => [{ title: "PokeCloud Showdown" }];
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   try {
@@ -16,35 +26,46 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 };
 
 export default function Collections() {
-  const { collection } = useLoaderData<{ collection: CollectionItemWithPokemon[]}>();
+  const { collection } = useLoaderData<{
+    collection: CollectionItemWithPokemon[];
+  }>();
 
   if (!collection || collection.length === 0) {
     return <div>No collection items found.</div>;
   }
 
   return (
-    <div className="flex justify-center min-h-screen">
-      <div className="max-w-screen-lg w-full px-4">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 justify-center">
-          {collection.map(({ id, pokemon }) => (
-            <PokemonCard
-              key={id}
-              name={pokemon?.name || 'Unknown'}
-              imageUrl={pokemon?.image_url || ''}
-              type={pokemon?.type || 'Unknown'}
-              hp={pokemon?.hp || 0}
-              attack={pokemon?.attack || 'Unknown'}
-            />
-          ))}
+    <body className="bg-biceblue">
+      <div className="h-screen flex flex-col items-center justify-center overflow-hidden relative">
+        <div className="w-full md:w-3/4 lg:w-2/3 xl:w-full h-5/6 rounded-lg overflow-hidden relative border border-t-4 border-charcoal">
+          <img
+            className="absolute inset-0 blur-sm w-full h-full object-cover"
+            src={homePic}
+            alt=""
+          />
+
+          <img
+            className="relative w-20 object-cover  m-4"
+            src={logoPic}
+            alt=""
+          />
+          <div className="top-1/4 w-full flex justify-evenly">
+            <div className="relative flex flex-col gap-4">
+              <div>
+                <Button name="BATTLE" clickURL="/battle" />
+              </div>
+              <div>
+                <Button name="MY CARDS" clickURL="/collections" />
+              </div>
+              <div>
+                <Button name="SHOP" clickURL="/shop" />
+              </div>
+            </div>
+            <PokemonGrid />
+          </div>
+          <GameStats />
         </div>
       </div>
-    </div>
+    </body>
   );
 }
-
-
-
-
-
-
-
