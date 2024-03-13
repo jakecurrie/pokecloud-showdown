@@ -8,7 +8,7 @@ export interface CardBundle {
 
 type Rarity = 'Common' | 'Uncommon' | 'Rare' | 'Legendary';
 
-const HP_RARITY_THRESHOLDS: Record<Rarity, number> = {
+export const HP_RARITY_THRESHOLDS: Record<Rarity, number> = {
   Common: 1,
   Uncommon: 70,
   Rare: 90,
@@ -45,7 +45,7 @@ export async function generateCardBundle(tier: number): Promise<CardBundle> {
   };
 }
 
-function determineCardRarity(distribution: Record<Rarity, number>): Rarity {
+export function determineCardRarity(distribution: Record<Rarity, number>): Rarity {
   const randomNum = Math.random() * 100;
   let cumulativeProbability = 0;
 
@@ -59,7 +59,7 @@ function determineCardRarity(distribution: Record<Rarity, number>): Rarity {
   return 'Common';
 }
 
-function getRarityByHp(hp: number): Rarity {
+export function getRarityByHp(hp: number): Rarity {
   for (const rarity of ['Common', 'Uncommon', 'Rare', 'Legendary'] as Rarity[]) {
     if (hp <= HP_RARITY_THRESHOLDS[rarity]) {
       return rarity;
