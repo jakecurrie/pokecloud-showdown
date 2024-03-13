@@ -3,7 +3,7 @@ import arc from '@architect/functions';
 export async function getBalance(userId: string): Promise<number> {
   const db = await arc.tables();
   try {
-    const result = await db.currency.query({
+    const result = await db.pokecoins.query({
       KeyConditionExpression: '#userId = :userId',
       ExpressionAttributeNames: { '#userId': 'userId' },
       ExpressionAttributeValues: { ':userId': userId },
@@ -24,7 +24,7 @@ export async function changeBalance(userId: string, amount: number): Promise<voi
   const db = await arc.tables();
 
   try {
-    const result = await db.currency.query({
+    const result = await db.pokecoins.query({
       KeyConditionExpression: '#userId = :userId',
       ExpressionAttributeNames: { '#userId': 'userId' },
       ExpressionAttributeValues: { ':userId': userId },
@@ -35,7 +35,7 @@ export async function changeBalance(userId: string, amount: number): Promise<voi
       const newBalance = currentBalance + amount;
 
       if (newBalance >= 0) {
-        await db.currency.put({
+        await db.pokecoins.put({
           userId: userId,
           balance: newBalance,
         });
