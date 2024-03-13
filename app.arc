@@ -39,9 +39,27 @@ collections
   pk *String  # userId
   sk **String # cardId
 
-currency
+pokecoins
   userId *String
   balance Number
+
+trainers
+  id *String
+  name String
+  collectionId String
+  imageURL String
+
+battles
+  userId *String
+  battleId **String
+  trainerId String
+  won Number # 1 if won, else 0
+
+achievements
+  userId *String
+  achievementId **String
+  name String
+  badgeURL String # if we want to display a badge image somewhere for each achievement
 
 note
   pk *String  # userId
