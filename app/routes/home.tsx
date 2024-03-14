@@ -5,10 +5,12 @@ import GameStats from "~/components/gameStats";
 
 import homePic from "../../public/images/battle.jpg";
 import logoPic from "../../public/images/logo.png";
+import { Link, useSearchParams } from "@remix-run/react";
 
 export const meta: MetaFunction = () => [{ title: "PokeCloud Showdown" }];
 
 export default function Home() {
+  const [searchParams] = useSearchParams();
   return (
     <body className="bg-biceblue">
       <div className="h-screen flex flex-col items-center justify-center overflow-hidden relative">
@@ -24,6 +26,18 @@ export default function Home() {
             src={logoPic}
             alt=""
           />
+
+          <div className="absolute right-4 top-4 w-64 h-10 bg-biceblue border border-charcoal text-honeydew text-center rounded-lg px-4 py-2 mb-4">
+            <Link
+              to={{
+                pathname: "/join",
+                search: searchParams.toString(),
+              }}
+            >
+              Logout
+            </Link>
+          </div>
+
           <div className="absolute top-1/4 w-full flex justify-evenly">
             <div>
               <Button name="BATTLE" clickURL="/battle" />

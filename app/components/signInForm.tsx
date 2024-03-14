@@ -1,23 +1,29 @@
+import { Link, useSearchParams } from "@remix-run/react";
+
 function SignInForm() {
+  const [searchParams] = useSearchParams();
+
   return (
     <form className="relative mt-8 flex flex-col items-end ">
-      <input
-        type="text"
-        className="w-64 h-10 border border-charcoal bg-honeydew rounded-lg px-4 py-2 mb-4"
-        placeholder="Username"
-      />
-      <input
-        type="password"
-        className="w-64 h-10 border border-charcoal bg-honeydew rounded-lg px-4 py-2 mb-4"
-        placeholder="Password"
-      />
-      <button className="w-64 h-10 bg-biceblue border border-charcoal text-honeydew rounded-lg px-4 py-2 mb-4">
+      <Link
+        className="w-64 h-10 bg-biceblue border border-charcoal text-honeydew text-center rounded-lg px-4 py-2 mb-4"
+        to={{
+          pathname: "/login",
+          search: searchParams.toString(),
+        }}
+      >
         Sign In
-      </button>
+      </Link>
       <br />
-      <button className="w-64 h-10 bg-biceblue border border-charcoal text-honeydew rounded-lg px-4 py-2">
+      <Link
+        className="w-64 h-10 bg-biceblue border border-charcoal text-honeydew text-center rounded-lg px-4 py-2"
+        to={{
+          pathname: "/join",
+          search: searchParams.toString(),
+        }}
+      >
         Not a member? Sign Up
-      </button>
+      </Link>
     </form>
   );
 }
