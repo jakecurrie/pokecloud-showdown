@@ -47,7 +47,6 @@ pokecoins
 trainers
   id *String
   name String
-  collectionId String
   imageURL String
 
 battles
