@@ -13,7 +13,7 @@ export async function getAllTrainers(): Promise<Trainer[]> {
   if (!result.Items) {
     return [];
   }
-  return result.Items.map(item => item as Trainer);
+  return result.Items.map((item) => item as Trainer);
 }
 
 export async function getTrainerById(id: string): Promise<Trainer | null> {
