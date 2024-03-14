@@ -7,6 +7,7 @@ export interface Pokemon {
   attack: string;
   hp: number;
   image_url: string;
+  rarity: string;
 }
 
 export async function getAllPokemon(): Promise<Pokemon[]> {
@@ -19,6 +20,7 @@ export async function getAllPokemon(): Promise<Pokemon[]> {
     attack: item.move,
     hp: item.hp,
     image_url: item.image_url,
+    rarity: item.rarity
   }));
 }
 
@@ -39,6 +41,7 @@ export async function getPokemonById(id: string): Promise<Pokemon | null> {
         attack: item.move,
         hp: item.hp,
         image_url: item.image_url,
+        rarity: item.rarity
       };
     }
     return null;
