@@ -34,6 +34,7 @@ pokemon
   move String
   hp Number
   image_url String
+  rarity String
 
 collections
   pk *String  # userId
