@@ -17,7 +17,31 @@ const TrainerCard: FC<TrainerCardProps> = ({
   difficulty,
   details,
 }) => {
-  const stars = Array.from({ length: difficulty }, (_, index) => index);
+  // Calculate the number of filled stars
+  const filledStars = difficulty > 0 ? Math.min(difficulty, 5) : 0;
+  // Calculate the number of hollow stars
+  const hollowStars = Math.max(5 - filledStars, 0);
+
+  // Create an array of filled stars
+  const filledStarArray = Array.from({ length: filledStars }, (_, index) => (
+    <span key={index} style={{ fontSize: "24px", color: "yellow" }}>
+      ★
+    </span>
+  ));
+
+  // Create an array of hollow stars
+  const hollowStarArray = Array.from({ length: hollowStars }, (_, index) => (
+    <span
+      key={index}
+      style={{
+        fontSize: "24px",
+        color: "transparent",
+        textShadow: "0 0 0 white",
+      }}
+    >
+      ☆
+    </span>
+  ));
 
   return (
     <div className="group relative border-2 border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow w-48 h-72">
@@ -34,9 +58,8 @@ const TrainerCard: FC<TrainerCardProps> = ({
         />
         <div className="absolute top-1/2 left-0 w-full p-2 text-center">
           <div>
-            {stars.map((_, index) => (
-              <span key={index}>⭐️</span>
-            ))}
+            {filledStarArray}
+            {hollowStarArray}
           </div>
           <h2 className="text-lg font-bold">{name}</h2>
           <p>Type: {type}</p>
