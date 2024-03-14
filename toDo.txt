@@ -10,18 +10,18 @@ General:
 - maybe add more pokemon (151 could be slightly limited but this is very low priority if we even decide to do it)
 
 Trainers:
-- come up with names, images for trainers
-- seed database with trainers + their pokemon collections
+- come up with names, images for trainers (done-ish, temp pictures for now)
+- seed database with trainers + their pokemon collections (done)
 - write server functions for fetching trainers (done, not tested)
 
 Battles:
-- write all server functions related to battles (done, not tested)
+- write all server functions related to battles (done, but has bugs)
 - create a pre-battle page where user can first select a trainer, then select the pokemon they want to use
 - create the actual battle page layout
 - figure out battle win rewards and implement
 
 Store:
-- write server logic for generating store card bundles (done, not tested)
+- write server logic for generating store card bundles (done)
 - write server logic for purchasing bundles, adding pokemon to collection, deducting cost from balance
 - create the shop page
 - make a sub component for displaying the card bundle in-store pre purchase
