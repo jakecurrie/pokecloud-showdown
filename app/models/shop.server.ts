@@ -6,20 +6,13 @@ export interface CardBundle {
   price: number;
 }
 
-type Rarity = 'Common' | 'Uncommon' | 'Rare' | 'Legendary';
-
-export const HP_RARITY_THRESHOLDS: Record<Rarity, number> = {
-  Common: 1,
-  Uncommon: 70,
-  Rare: 90,
-  Legendary: 110,
-};
+type Rarity = 'Common' | 'Uncommon' | 'Rare' | 'Legendary' | 'Epic';
 
 const BUNDLE_TIERS: { tier: number; price: number; distribution: Record<Rarity, number> }[] = [
-  { tier: 1, price: 100, distribution: { Common: 80, Uncommon: 15, Rare: 4, Legendary: 1 } },
-  { tier: 2, price: 200, distribution: { Common: 60, Uncommon: 25, Rare: 10, Legendary: 5 } },
-  { tier: 3, price: 300, distribution: { Common: 40, Uncommon: 30, Rare: 20, Legendary: 10 } },
-  { tier: 4, price: 500, distribution: { Common: 20, Uncommon: 30, Rare: 30, Legendary: 20 } },
+  { tier: 1, price: 100, distribution: { Common: 75, Uncommon: 15, Rare: 5, Legendary: 4, Epic: 1 } },
+  { tier: 2, price: 200, distribution: { Common: 55, Uncommon: 25, Rare: 10, Legendary: 8, Epic: 2 } },
+  { tier: 3, price: 300, distribution: { Common: 35, Uncommon: 30, Rare: 20, Legendary: 12, Epic: 3 } },
+  { tier: 4, price: 500, distribution: { Common: 15, Uncommon: 30, Rare: 25, Legendary: 20, Epic: 10 } },
 ];
 
 export async function generateCardBundle(tier: number): Promise<CardBundle> {
@@ -31,9 +24,9 @@ export async function generateCardBundle(tier: number): Promise<CardBundle> {
   const allPokemon = await getAllPokemon();
   const bundle: Pokemon[] = [];
 
-  for (let i = 0; i < 5; i++) {
-    const rarity = determineCardRarity(distribution);
-    const filteredPokemon = allPokemon.filter(pokemon => getRarityByHp(pokemon.hp) === rarity);
+  for (let i = 0; i < 5; i++) { // Assuming a bundle contains 5 cards
+    const rarity = selectRarityBasedOnDistribution(distribution);
+    const filteredPokemon = allPokemon.filter(pokemon => pokemon.rarity === rarity);
     const randomIndex = Math.floor(Math.random() * filteredPokemon.length);
     bundle.push(filteredPokemon[randomIndex]);
   }
@@ -45,11 +38,11 @@ export async function generateCardBundle(tier: number): Promise<CardBundle> {
   };
 }
 
-export function determineCardRarity(distribution: Record<Rarity, number>): Rarity {
+function selectRarityBasedOnDistribution(distribution: Record<Rarity, number>): Rarity {
   const randomNum = Math.random() * 100;
   let cumulativeProbability = 0;
 
-  for (const rarity of ['Common', 'Uncommon', 'Rare', 'Legendary'] as Rarity[]) {
+  for (const rarity of ['Common', 'Uncommon', 'Rare', 'Legendary', 'Epic'] as Rarity[]) {
     cumulativeProbability += distribution[rarity];
     if (randomNum <= cumulativeProbability) {
       return rarity;
@@ -59,13 +52,5 @@ export function determineCardRarity(distribution: Record<Rarity, number>): Rarit
   return 'Common';
 }
 
-export function getRarityByHp(hp: number): Rarity {
-  for (const rarity of ['Common', 'Uncommon', 'Rare', 'Legendary'] as Rarity[]) {
-    if (hp <= HP_RARITY_THRESHOLDS[rarity]) {
-      return rarity;
-    }
-  }
-  return 'Common';
-}
 
 
