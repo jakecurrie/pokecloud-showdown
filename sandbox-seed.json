@@ -1359,5 +1359,128 @@
             "image_url": "https://www.serebii.net/card/151/151.jpg",
             "rarity": "Epic"
         }
-    ]
+    ],
+    "trainers": [
+        {
+            "id": "trainer-1",
+            "name": "Ash Ketchum",
+            "collectionId": "tc-1",
+            "imageURL": "https://example.com/ash-ketchum.png"
+        },
+        {
+            "id": "trainer-2",
+            "name": "Misty",
+            "collectionId": "tc-2",
+            "imageURL": "https://example.com/misty.png"
+        },
+        {
+            "id": "trainer-3",
+            "name": "Brock",
+            "collectionId": "tc-3",
+            "imageURL": "https://example.com/brock.png"
+        },
+        {
+            "id": "trainer-4",
+            "name": "Cynthia",
+            "collectionId": "tc-4",
+            "imageURL": "https://example.com/cynthia.png"
+        },
+        {
+            "id": "trainer-5",
+            "name": "Lance",
+            "collectionId": "tc-5",
+            "imageURL": "https://example.com/lance.png"
+        },
+        {
+            "id": "trainer-6",
+            "name": "Steven Stone",
+            "collectionId": "tc-6",
+            "imageURL": "https://example.com/steven-stone.png"
+        },
+        {
+            "id": "trainer-7",
+            "name": "Red",
+            "collectionId": "tc-7",
+            "imageURL": "https://example.com/red.png"
+        },
+        {
+            "id": "trainer-8",
+            "name": "Blue",
+            "collectionId": "tc-8",
+            "imageURL": "https://example.com/blue.png"
+        },
+        {
+            "id": "trainer-9",
+            "name": "Erika",
+            "collectionId": "tc-9",
+            "imageURL": "https://example.com/erika.png"
+        },
+        {
+            "id": "trainer-10",
+            "name": "Sabrina",
+            "collectionId": "tc-10",
+            "imageURL": "https://example.com/sabrina.png"
+        }
+    ],
+    "collections": [
+        {"pk": "trainer-1", "sk": "1"},
+        {"pk": "trainer-1", "sk": "2"},
+        {"pk": "trainer-1", "sk": "3"},
+        {"pk": "trainer-1", "sk": "4"},
+        {"pk": "trainer-1", "sk": "5"},
+
+        {"pk": "trainer-2", "sk": "6"},
+        {"pk": "trainer-2", "sk": "7"},
+        {"pk": "trainer-2", "sk": "8"},
+        {"pk": "trainer-2", "sk": "9"},
+        {"pk": "trainer-2", "sk": "10"},
+
+        {"pk": "trainer-3", "sk": "11"},
+        {"pk": "trainer-3", "sk": "12"},
+        {"pk": "trainer-3", "sk": "13"},
+        {"pk": "trainer-3", "sk": "14"},
+        {"pk": "trainer-3", "sk": "15"},
+
+        {"pk": "trainer-4", "sk": "16"},
+        {"pk": "trainer-4", "sk": "17"},
+        {"pk": "trainer-4", "sk": "18"},
+        {"pk": "trainer-4", "sk": "19"},
+        {"pk": "trainer-4", "sk": "20"},
+
+        {"pk": "trainer-5", "sk": "21"},
+        {"pk": "trainer-5", "sk": "22"},
+        {"pk": "trainer-5", "sk": "23"},
+        {"pk": "trainer-5", "sk": "24"},
+        {"pk": "trainer-5", "sk": "25"},
+
+        {"pk": "trainer-6", "sk": "26"},
+        {"pk": "trainer-6", "sk": "27"},
+        {"pk": "trainer-6", "sk": "28"},
+        {"pk": "trainer-6", "sk": "29"},
+        {"pk": "trainer-6", "sk": "30"},
+
+        {"pk": "trainer-7", "sk": "31"},
+        {"pk": "trainer-7", "sk": "32"},
+        {"pk": "trainer-7", "sk": "33"},
+        {"pk": "trainer-7", "sk": "34"},
+        {"pk": "trainer-7", "sk": "35"},
+
+        {"pk": "trainer-8", "sk": "36"},
+        {"pk": "trainer-8", "sk": "37"},
+        {"pk": "trainer-8", "sk": "38"},
+        {"pk": "trainer-8", "sk": "39"},
+        {"pk": "trainer-8", "sk": "40"},
+
+        {"pk": "trainer-9", "sk": "41"},
+        {"pk": "trainer-9", "sk": "42"},
+        {"pk": "trainer-9", "sk": "43"},
+        {"pk": "trainer-9", "sk": "44"},
+        {"pk": "trainer-9", "sk": "45"},
+
+        {"pk": "trainer-10", "sk": "46"},
+        {"pk": "trainer-10", "sk": "47"},
+        {"pk": "trainer-10", "sk": "48"},
+        {"pk": "trainer-10", "sk": "49"},
+        {"pk": "trainer-10", "sk": "50"}
+        ]
 }
