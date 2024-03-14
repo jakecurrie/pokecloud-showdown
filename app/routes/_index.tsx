@@ -26,6 +26,9 @@ export default function Index() {
                 alt=""
               />
             </div>
+            <br />
+            <br />
+            <br />
             <div>
               <SignInForm />
             </div>

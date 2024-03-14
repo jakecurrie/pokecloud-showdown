@@ -1,7 +1,7 @@
 User auth:
 - add join page to index + redesign it
-- make join page redirect to /home
-- add a logout button (already have user function to logout user)
+- make join page redirect to /home (done)
+- add a logout button (already have user function to logout user) (added to home only)
 
 General:
 - redesign the pokemon card component

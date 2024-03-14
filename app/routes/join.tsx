@@ -60,7 +60,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
   const user = await createUser(email, password);
 
   return createUserSession({
-    redirectTo,
+    redirectTo: "/home",
     remember: false,
     request,
     userId: user.id,
