@@ -19,15 +19,16 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   try {
     const userId = await requireUserId(request);
     const collection = await getCollectionWithPokemonDetails(userId);
-    return json({ collection });
+    return json({ collection, userId });
   } catch (error) {
     return json({ collection: [] });
   }
 };
 
 export default function Collections() {
-  const { collection } = useLoaderData<{
+  const { collection, userId } = useLoaderData<{
     collection: CollectionItemWithPokemon[];
+    userId: `email#${string}`;
   }>();
 
   if (!collection || collection.length === 0) {

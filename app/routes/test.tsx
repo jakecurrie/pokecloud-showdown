@@ -1,5 +1,7 @@
 import TrainerCard from "~/components/trainercard";
 
+import cardPic from "../../public/images/pokemon_card_back.png";
+
 export default function Test() {
   return (
     <>
@@ -26,6 +28,50 @@ export default function Test() {
           "Behold Steven Stone, the Bug Baron! His insect army packs a punch. Dare to challenge his buzzing brigade?"
         }
       />
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 justify-center">
+          <div className="card bg-black rounded-3xl shadow-2xl shadow-black">
+            <img
+              src={cardPic}
+              alt="Pokemon Card Back"
+              className="filter grayscale rounded-3xl"
+            />
+          </div>
+          <div className="card bg-green-500 rounded-3xl shadow-2xl shadow-green-400">
+            <img
+              src={cardPic}
+              alt="Pokemon Card Back"
+              className="filter mix-blend-multiply grayscale rounded-3xl"
+            />
+          </div>
+          <div className="card bg-blue-500 rounded-3xl shadow-2xl shadow-blue-500">
+            <img
+              src={cardPic}
+              alt="Pokemon Card Back"
+              className="filter mix-blend-multiply grayscale rounded-3xl"
+            />
+          </div>
+          <div className="card bg-yellow-500 rounded-3xl shadow-2xl shadow-yellow-500">
+            <img
+              src={cardPic}
+              alt="Pokemon Card Back"
+              className="filter mix-blend-multiply grayscale rounded-3xl"
+            />
+          </div>
+          <div className="card bg-red-500 rounded-3xl shadow-2xl shadow-red-500">
+            <img
+              src={cardPic}
+              alt="Pokemon Card Back"
+              className="filter mix-blend-multiply grayscale rounded-3xl"
+            />
+          </div>
+        </div>
+      </div>
     </>
   );
 }
