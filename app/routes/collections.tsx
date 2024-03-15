@@ -45,12 +45,12 @@ export default function Collections() {
           />
 
           <img
-            className="relative w-20 object-cover  m-4"
+            className="absolute w-20 object-cover  m-4"
             src={logoPic}
             alt=""
           />
-          <div className="top-1/4 w-full flex justify-evenly">
-            <div className="relative flex flex-col gap-4">
+          <div className="relative top-5 w-full flex justify-evenly">
+            <div className="relative top-20 flex flex-col gap-4">
               <div>
                 <Button name="BATTLE" clickURL="/battle" />
               </div>
