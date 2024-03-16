@@ -1,12 +1,10 @@
 import arc from '@architect/functions';
-import { createId } from '@paralleldrive/cuid2';
 
 import { getPokemonById, Pokemon } from "~/models/pokemon.server";
 
 import type { User } from './user.server';
 
 export interface CollectionItem {
-  id: ReturnType<typeof createId>;
   userId: User['id'];
   cardId: string;
   quantity: number;
@@ -14,33 +12,6 @@ export interface CollectionItem {
 
 export interface CollectionItemWithPokemon extends CollectionItem {
   pokemon: Pokemon | null;
-}
-
-interface CollectionItemRecord {
-  pk: User['id'];
-  sk: `card#${CollectionItem['id']}`;
-}
-
-const skToId = (sk: CollectionItemRecord['sk']): CollectionItem['id'] => sk.replace(/^card#/, '');
-const idToSk = (id: CollectionItem['id']): CollectionItemRecord['sk'] => `card#${id}`;
-
-export async function getCollectionItem({
-  id,
-  userId,
-}: Pick<CollectionItem, 'id' | 'userId'>): Promise<CollectionItem | null> {
-  const db = await arc.tables();
-
-  const result = await db.collections.get({ pk: userId, sk: idToSk(id) });
-
-  if (result) {
-    return {
-      userId: result.pk,
-      id: result.sk,
-      cardId: result.cardId,
-      quantity: result.quantity,
-    };
-  }
-  return null;
 }
 
 export async function getCollectionItems({
@@ -55,25 +26,13 @@ export async function getCollectionItems({
 
   return result.Items.map((item) => ({
     userId: item.pk,
-    id: skToId(item.sk),
-    cardId: item.cardId,
+    cardId: item.sk,
     quantity: item.quantity,
   }));
 }
 
 export async function getCollectionWithPokemonDetails(userId: User['id']): Promise<CollectionItemWithPokemon[]> {
-  const db = await arc.tables();
-  const result = await db.collections.query({
-    KeyConditionExpression: 'pk = :pk',
-    ExpressionAttributeValues: { ':pk': userId },
-  });
-
-  const collectionItems = result.Items.map((item) => ({
-    userId: item.pk,
-    id: skToId(item.sk),
-    cardId: item.cardId,
-    quantity: item.quantity,
-  }));
+  const collectionItems = await getCollectionItems({ userId });
 
   const pokemonDetails = await Promise.all(
     collectionItems.map((item) => getPokemonById(item.cardId))
@@ -85,33 +44,46 @@ export async function getCollectionWithPokemonDetails(userId: User['id']): Promi
   }));
 }
 
-
 export async function addCollectionItem({
   cardId,
   userId,
   quantity = 1,
-}: Pick<CollectionItem, 'cardId' | 'userId'> & { quantity?: number }): Promise<CollectionItem> {
+}: Pick<CollectionItem, 'cardId' | 'userId'> & { quantity?: number }): Promise<void> {
   const db = await arc.tables();
 
-  const result = await db.collections.put({
+  const existingItem = await db.collections.get({
     pk: userId,
-    sk: idToSk(createId()),
-    cardId: cardId,
-    quantity: quantity,
+    sk: cardId,
   });
-  return {
-    id: skToId(result.sk),
-    userId: result.pk,
-    cardId: result.cardId,
-    quantity: result.quantity,
-  };
+
+  if (existingItem) {
+    await db.collections.update({
+      Key: {
+        pk: userId,
+        sk: cardId,
+      },
+      UpdateExpression: 'SET #quantity = #quantity + :increment',
+      ExpressionAttributeNames: {
+        '#quantity': 'quantity',
+      },
+      ExpressionAttributeValues: {
+        ':increment': quantity,
+      },
+    });
+  } else {
+    await db.collections.put({
+      pk: userId,
+      sk: cardId,
+      quantity: quantity,
+    });
+  }
 }
 
 export async function removeCollectionItem({
-  id,
   userId,
-}: Pick<CollectionItem, 'id' | 'userId'>) {
+  cardId,
+}: Pick<CollectionItem, 'cardId' | 'userId'>): Promise<void> {
   const db = await arc.tables();
-  return db.collections.delete({ pk: userId, sk: idToSk(id) });
+  await db.collections.delete({ pk: userId, sk: cardId });
 }
 
