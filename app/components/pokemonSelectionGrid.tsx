@@ -8,13 +8,18 @@ interface PokemonSelectionGridProps {
 }
 
 export default function PokemonSelectionGrid({ collection }: PokemonSelectionGridProps) {
-  const [selectedPokemonIds, setSelectedPokemonIds] = useState<string[]>([]);
+  const [selectedItems, setSelectedItems] = useState<Set<string>>(new Set());
 
-  const handleSelectPokemon = (pokemonId: string) => {
-    if (selectedPokemonIds.includes(pokemonId)) {
-      setSelectedPokemonIds(selectedPokemonIds.filter((id) => id !== pokemonId));
-    } else if (selectedPokemonIds.length < 5) {
-      setSelectedPokemonIds([...selectedPokemonIds, pokemonId]);
+  const handleSelectPokemon = (userId: string, cardId: string) => {
+    const key = `${userId}#${cardId}`;
+    if (selectedItems.has(key)) {
+      const newSelectedItems = new Set(selectedItems);
+      newSelectedItems.delete(key);
+      setSelectedItems(newSelectedItems);
+    } else if (selectedItems.size < 5) {
+      const newSelectedItems = new Set(selectedItems);
+      newSelectedItems.add(key);
+      setSelectedItems(newSelectedItems);
     }
   };
 
@@ -26,14 +31,14 @@ export default function PokemonSelectionGrid({ collection }: PokemonSelectionGri
     <div className="flex justify-center">
       <div className="max-w-screen-lg w-full px-4 h-2/3 overflow-y-scroll scroll">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 justify-center">
-          {collection.map(({ id, pokemon }) => (
+          {collection.map(({ userId, cardId, pokemon }) => (
             <div
-              key={id}
-              onClick={() => handleSelectPokemon(id)}
-              onKeyDown={(e) => e.key === 'Enter' && handleSelectPokemon(id)}
+              key={`${userId}#${cardId}`}
+              onClick={() => handleSelectPokemon(userId, cardId)}
+              onKeyDown={(e) => e.key === 'Enter' && handleSelectPokemon(userId, cardId)}
               role="button"
               tabIndex={0}
-              className={`cursor-pointer p-1 ${selectedPokemonIds.includes(id) ? "border-2 border-blue-500 rounded" : ""}`}
+              className={`cursor-pointer p-1 ${selectedItems.has(`${userId}#${cardId}`) ? "border-2 border-blue-500 rounded" : ""}`}
             >
               {pokemon && (
                 <PokemonCard
