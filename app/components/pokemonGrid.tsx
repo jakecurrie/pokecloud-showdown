@@ -35,9 +35,9 @@ export default function PokemonGrid() {
     <div className="flex justify-center">
       <div className="max-w-screen-lg w-full px-4 h-2/3 overflow-y-scroll scroll">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 justify-center">
-          {collection.map(({ id, pokemon }) => (
+          {collection.map(({ userId, cardId, pokemon }) => (
             <PokemonCard
-              key={id}
+              key={`${userId}#${cardId}`}
               name={pokemon?.name || "Unknown"}
               imageUrl={pokemon?.image_url || ""}
               type={pokemon?.type || "Unknown"}
