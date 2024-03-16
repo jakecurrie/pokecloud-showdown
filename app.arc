@@ -39,6 +39,7 @@ pokemon
 collections
   pk *String  # userId
   sk **String # cardId
+  quantity Number
 
 pokecoins
   userId *String
