@@ -2,7 +2,7 @@ import { json, LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData, useNavigate } from "@remix-run/react";
 import { useState } from "react";
 
-import PokemonSelectionGrid from "~/components/pokemonSelectionGrid"; // Moved up for import order
+import PokemonSelectionGrid from "~/components/pokemonSelectionGrid";
 import TrainerCard from "~/components/trainercard";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "~/components/ui/carousel";
 import { CollectionItemWithPokemon, getCollectionWithPokemonDetails } from "~/models/collections.server";
@@ -31,7 +31,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   }
 }
 
-export default function Setup() {
+export default function BattleSetup() {
   const { trainers, collection } = useLoaderData<BattleSetupProps>();
   const [selectedTrainer, setSelectedTrainer] = useState<Trainer | null>(null);
   const [selectedPokemon, setSelectedPokemon] = useState<CollectionItemWithPokemon[]>([]);
