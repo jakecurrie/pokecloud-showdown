@@ -1,13 +1,13 @@
 import { json, LoaderFunctionArgs } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, useNavigate } from "@remix-run/react";
 import { useState } from "react";
 
+import PokemonSelectionGrid from "~/components/pokemonSelectionGrid"; // Moved up for import order
 import TrainerCard from "~/components/trainercard";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "~/components/ui/carousel";
 import { CollectionItemWithPokemon, getCollectionWithPokemonDetails } from "~/models/collections.server";
 import { getAllTrainers, Trainer } from "~/models/trainers.server";
 import { requireUserId } from "~/session.server";
-import PokemonSelectionGrid from "~/components/pokemonSelectionGrid";
 
 interface BattleSetupProps {
   trainers: Trainer[];
@@ -31,13 +31,24 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   }
 }
 
-export default function BattleSetup() {
+export default function Setup() {
   const { trainers, collection } = useLoaderData<BattleSetupProps>();
-  console.log(`Component data:`, { trainers, collection });
   const [selectedTrainer, setSelectedTrainer] = useState<Trainer | null>(null);
+  const [selectedPokemon, setSelectedPokemon] = useState<CollectionItemWithPokemon[]>([]);
+  const navigate = useNavigate();
 
   const handleSelectTrainer = (trainer: Trainer) => {
     setSelectedTrainer(trainer);
+  };
+
+  const handlePokemonSelectionChange = (selectedPokemon: CollectionItemWithPokemon[]) => {
+    setSelectedPokemon(selectedPokemon);
+  };
+
+  const handleStartBattle = () => {
+    if (selectedTrainer && selectedPokemon.length === 5) {
+      navigate('/battle', { state: { selectedTrainer, selectedPokemon } });
+    }
   };
 
   return (
@@ -54,7 +65,12 @@ export default function BattleSetup() {
           <CarouselContent className="-mt-1 h-[300px]">
             {trainers.map((trainer) => (
               <CarouselItem key={trainer.id} className="pt-1">
-                <div onClick={() => handleSelectTrainer(trainer)}>
+                <div
+                  onClick={() => handleSelectTrainer(trainer)}
+                  onKeyDown={(e) => e.key === 'Enter' && handleSelectTrainer(trainer)}
+                  role="button"
+                  tabIndex={0}
+                >
                   <TrainerCard
                     name={trainer.name}
                     imageURL={trainer.imageURL}
@@ -74,7 +90,10 @@ export default function BattleSetup() {
         <div>
           <h3>Selected Trainer: {selectedTrainer.name}</h3>
           <h4>Select up to 5 Pokémon for Battle</h4>
-          <PokemonSelectionGrid collection={collection} />
+          <PokemonSelectionGrid collection={collection} onSelectionChange={handlePokemonSelectionChange} />
+          {selectedPokemon.length === 5 && (
+            <button onClick={handleStartBattle}>Start Battle</button>
+          )}
         </div>
       )}
     </div>

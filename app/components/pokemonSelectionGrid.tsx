@@ -5,22 +5,25 @@ import { CollectionItemWithPokemon } from "~/models/collections.server";
 
 interface PokemonSelectionGridProps {
   collection: CollectionItemWithPokemon[];
+  onSelectionChange: (selectedPokemon: CollectionItemWithPokemon[]) => void;
 }
 
-export default function PokemonSelectionGrid({ collection }: PokemonSelectionGridProps) {
-  const [selectedItems, setSelectedItems] = useState<Set<string>>(new Set());
+export default function PokemonSelectionGrid({ collection, onSelectionChange }: PokemonSelectionGridProps) {
+  const [selectedPokemonIds, setSelectedPokemonIds] = useState<string[]>([]);
 
-  const handleSelectPokemon = (userId: string, cardId: string) => {
-    const key = `${userId}#${cardId}`;
-    if (selectedItems.has(key)) {
-      const newSelectedItems = new Set(selectedItems);
-      newSelectedItems.delete(key);
-      setSelectedItems(newSelectedItems);
-    } else if (selectedItems.size < 5) {
-      const newSelectedItems = new Set(selectedItems);
-      newSelectedItems.add(key);
-      setSelectedItems(newSelectedItems);
+  const handleSelectPokemon = (pokemonId: string) => {
+    let newSelectedPokemonIds: string[];
+    if (selectedPokemonIds.includes(pokemonId)) {
+      newSelectedPokemonIds = selectedPokemonIds.filter((id) => id !== pokemonId);
+    } else if (selectedPokemonIds.length < 5) {
+      newSelectedPokemonIds = [...selectedPokemonIds, pokemonId];
+    } else {
+      return;
     }
+
+    setSelectedPokemonIds(newSelectedPokemonIds);
+    const selectedPokemon = collection.filter((item) => newSelectedPokemonIds.includes(item.cardId));
+    onSelectionChange(selectedPokemon);
   };
 
   if (!collection || collection.length === 0) {
@@ -34,13 +37,13 @@ export default function PokemonSelectionGrid({ collection }: PokemonSelectionGri
           {collection.map(({ userId, cardId, pokemon }) => (
             <div
               key={`${userId}#${cardId}`}
-              onClick={() => handleSelectPokemon(userId, cardId)}
-              onKeyDown={(e) => e.key === 'Enter' && handleSelectPokemon(userId, cardId)}
+              onClick={() => handleSelectPokemon(cardId)}
+              onKeyDown={(e) => e.key === 'Enter' && handleSelectPokemon(cardId)}
               role="button"
               tabIndex={0}
-              className={`cursor-pointer p-1 ${selectedItems.has(`${userId}#${cardId}`) ? "border-2 border-blue-500 rounded" : ""}`}
+              className={`cursor-pointer p-1 ${selectedPokemonIds.includes(cardId) ? "border-2 border-blue-500 rounded" : ""}`}
             >
-              {pokemon && (
+              {pokemon ? (
                 <PokemonCard
                   name={pokemon.name || "Unknown"}
                   imageUrl={pokemon.image_url || ""}
@@ -48,6 +51,8 @@ export default function PokemonSelectionGrid({ collection }: PokemonSelectionGri
                   hp={pokemon.hp || 0}
                   attack={pokemon.attack || "Unknown"}
                 />
+              ) : (
+                <div>Missing Pokemon Data</div>
               )}
             </div>
           ))}
@@ -56,6 +61,7 @@ export default function PokemonSelectionGrid({ collection }: PokemonSelectionGri
     </div>
   );
 }
+
 
 
 
