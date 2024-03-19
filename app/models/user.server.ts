@@ -61,21 +61,7 @@ export async function createUser(
   const user = await getUserByEmail(email);
   invariant(user, `User not found after being created. This should not happen`);
 
-  const starterPokemonIds = [
-    "1",
-    "25",
-    "150",
-    "151",
-    "133",
-    "2",
-    "10",
-    "10",
-    "10",
-    "10",
-    "10",
-    "10",
-    "10",
-  ];
+  const starterPokemonIds = ["1"];
 
   for (const pokemonId of starterPokemonIds) {
     await addCollectionItem({

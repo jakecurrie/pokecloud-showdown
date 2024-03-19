@@ -62,7 +62,9 @@ export default function Collections() {
                 <Button name="SHOP" clickURL="/shop" />
               </div>
             </div>
-            <PokemonGrid />
+            <div className="max-w-screen-lg w-full px-4 h-96 overflow-y-scroll scroll">
+              <PokemonGrid />
+            </div>
           </div>
           <GameStats />
         </div>

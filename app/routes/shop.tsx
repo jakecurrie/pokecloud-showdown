@@ -1,10 +1,11 @@
-import { json, LoaderFunction, LoaderFunctionArgs } from "@remix-run/node";
 import {
-  Link,
-  useLoaderData,
-  useNavigate,
-  useSearchParams,
-} from "@remix-run/react";
+  ActionFunctionArgs,
+  json,
+  LoaderFunction,
+  LoaderFunctionArgs,
+  redirect,
+} from "@remix-run/node";
+import { Form, Link, useLoaderData, useSearchParams } from "@remix-run/react";
 
 import CardPack from "~/components/cardPack";
 import {
@@ -19,10 +20,10 @@ import {
 } from "~/components/ui/alert-dialog";
 import { CardBundle, generateCardBundle } from "~/models/shop.server";
 import { requireUserId } from "~/session.server";
-import { useState } from "react";
 import homePic from "../../public/images/battle.jpg";
 import logoPic from "../../public/images/logo.png";
 import GameStats from "~/components/gameStats";
+import { addCollectionItem } from "~/models/collections.server";
 
 export const loader: LoaderFunction = async ({
   request,
@@ -36,19 +37,36 @@ export const loader: LoaderFunction = async ({
   return json({ bundles, userId });
 };
 
+export async function action({ request }: ActionFunctionArgs) {
+  const userId = await requireUserId(request);
+  const formData = await request.formData();
+  const cardData = Object.fromEntries(formData);
+
+  await addCollectionItem({
+    cardId: cardData.card1.toString(),
+    userId: userId,
+  });
+  await addCollectionItem({
+    cardId: cardData.card2.toString(),
+    userId: userId,
+  });
+  await addCollectionItem({
+    cardId: cardData.card3.toString(),
+    userId: userId,
+  });
+  await addCollectionItem({
+    cardId: cardData.card4.toString(),
+    userId: userId,
+  });
+  await addCollectionItem({
+    cardId: cardData.card5.toString(),
+    userId: userId,
+  });
+  return redirect("/collections");
+}
+
 export default function Shop() {
   const [searchParams] = useSearchParams();
-
-  const navigate = useNavigate();
-
-  const [selectedCards, setSelectedCards] = useState<CardBundle[]>([]); // State to hold selected cards
-
-  const handleContinueClick = (bundle: CardBundle) => {
-    setSelectedCards([...selectedCards, bundle]); // Add selected bundle to state
-    navigate("/add_cards", {
-      state: { selectedCards: [...selectedCards, bundle] },
-    }); // Redirect with selectedCards in route state
-  };
 
   const { bundles, userId } = useLoaderData<{
     bundles: CardBundle[];
@@ -110,10 +128,40 @@ export default function Shop() {
                     </AlertDialogHeader>
                     <AlertDialogFooter>
                       <AlertDialogCancel>Cancel</AlertDialogCancel>
-                      <AlertDialogAction
-                        onClick={() => handleContinueClick(bundle)}
-                      >
-                        Continue
+                      <AlertDialogAction>
+                        <Form method={"post"} action={"/shop"}>
+                          <input
+                            type={"hidden"}
+                            id={"card1"}
+                            name={"card1"}
+                            value={bundle.cards[0].id}
+                          />
+                          <input
+                            type={"hidden"}
+                            id={"card2"}
+                            name={"card2"}
+                            value={bundle.cards[1].id}
+                          />
+                          <input
+                            type={"hidden"}
+                            id={"card3"}
+                            name={"card3"}
+                            value={bundle.cards[2].id}
+                          />
+                          <input
+                            type={"hidden"}
+                            id={"card4"}
+                            name={"card4"}
+                            value={bundle.cards[3].id}
+                          />
+                          <input
+                            type={"hidden"}
+                            id={"card5"}
+                            name={"card5"}
+                            value={bundle.cards[4].id}
+                          />
+                          <button type="submit">Confirm</button>
+                        </Form>
                       </AlertDialogAction>
                     </AlertDialogFooter>
                   </AlertDialogContent>
