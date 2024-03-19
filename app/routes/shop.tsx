@@ -3,7 +3,6 @@ import {
   json,
   LoaderFunction,
   LoaderFunctionArgs,
-  redirect,
 } from "@remix-run/node";
 import { Form, Link, useLoaderData, useSearchParams } from "@remix-run/react";
 
@@ -13,6 +12,7 @@ import {
   AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
+  AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
@@ -25,6 +25,9 @@ import logoPic from "../../public/images/logo.png";
 import GameStats from "~/components/gameStats";
 import { addCollectionItem } from "~/models/collections.server";
 import { changeBalance, getBalance } from "~/models/pokecoins.server";
+import { useState } from "react";
+import PokemonCard from "~/components/pokecard";
+import { timeout } from "rxjs";
 
 export const loader: LoaderFunction = async ({
   request,
@@ -67,17 +70,23 @@ export async function action({ request }: ActionFunctionArgs) {
     cardId: cardData.card5.toString(),
     userId: userId,
   });
-  return redirect("/collections");
+  return null;
 }
 
 export default function Shop() {
   const [searchParams] = useSearchParams();
+  const [parentDialogDisabled, setParentDialogDisabled] = useState(false);
 
   const { bundles, userId, availablePokecoins } = useLoaderData<{
     bundles: CardBundle[];
     userId: `email#${string}`;
     availablePokecoins: number;
   }>();
+
+  const handlePurchaseClick = () => {
+    // Disable the parent dialog
+    setParentDialogDisabled(true);
+  };
 
   return (
     <body className="bg-biceblue">
@@ -94,6 +103,10 @@ export default function Shop() {
             src={logoPic}
             alt=""
           />
+
+          <h4 className={"relative bg-honeydew p-4 w-auto inline"}>
+            Available Pokecoins : {availablePokecoins}
+          </h4>
 
           <div className="absolute right-4 top-4 w-64 h-10 bg-biceblue border border-charcoal text-honeydew text-center rounded-lg px-4 py-2 mb-4">
             <Link
@@ -134,62 +147,149 @@ export default function Shop() {
                     </AlertDialogHeader>
                     <AlertDialogFooter>
                       <AlertDialogCancel>Cancel</AlertDialogCancel>
-                      <Form method={"post"} action={"/shop"}>
-                        <input
-                          type={"hidden"}
-                          id={"price"}
-                          name={"price"}
-                          value={bundle.price}
-                        />
-                        <input
-                          type={"hidden"}
-                          id={"card1"}
-                          name={"card1"}
-                          value={bundle.cards[0].id}
-                        />
-                        <input
-                          type={"hidden"}
-                          id={"card2"}
-                          name={"card2"}
-                          value={bundle.cards[1].id}
-                        />
-                        <input
-                          type={"hidden"}
-                          id={"card3"}
-                          name={"card3"}
-                          value={bundle.cards[2].id}
-                        />
-                        <input
-                          type={"hidden"}
-                          id={"card4"}
-                          name={"card4"}
-                          value={bundle.cards[3].id}
-                        />
-                        <input
-                          type={"hidden"}
-                          id={"card5"}
-                          name={"card5"}
-                          value={bundle.cards[4].id}
-                        />
-                        {bundle.price > availablePokecoins ? (
-                          <div>
-                            <p>not enough pokecoins</p>
-                            <AlertDialogAction
-                              type={"submit"}
-                              disabled={true}
-                              className={
-                                "bg-gray-300 text-gray-500 py-2 px-4 rounded cursor-not-allowed"
-                              }
-                            >
-                              Confirm
-                            </AlertDialogAction>
-                          </div>
-                        ) : (
-                          <AlertDialogAction type={"submit"}>
-                            Confirm
+
+                      {bundle.price > availablePokecoins ? (
+                        <div>
+                          <AlertDialogAction
+                            type={"submit"}
+                            disabled={true}
+                            className={
+                              "bg-gray-300 text-gray-500 py-2 px-4 rounded cursor-not-allowed"
+                            }
+                          >
+                            not enough pokecoins
                           </AlertDialogAction>
-                        )}
-                      </Form>
+                        </div>
+                      ) : (
+                        <AlertDialog>
+                          <AlertDialogTrigger>
+                            {parentDialogDisabled ? (
+                              <AlertDialogAction
+                                disabled={true}
+                                className={
+                                  "bg-gray-300 text-gray-500 py-2 px-4 rounded cursor-not-allowed"
+                                }
+                                onClick={handlePurchaseClick}
+                              >
+                                Purchase
+                              </AlertDialogAction>
+                            ) : (
+                              <AlertDialogAction onClick={() => timeout(5000)}>
+                                Purchase
+                              </AlertDialogAction>
+                            )}
+                          </AlertDialogTrigger>
+                          <AlertDialogContent>
+                            <AlertDialogHeader>
+                              <AlertDialogTitle>
+                                You opened Cards!
+                              </AlertDialogTitle>
+                              <AlertDialogDescription>
+                                <div className={"grid grid-cols-3"}>
+                                  <div>
+                                    <PokemonCard
+                                      name={bundle.cards[0].name || "Unknown"}
+                                      imageUrl={bundle.cards[0].image_url || ""}
+                                      type={bundle.cards[0].type || "Unknown"}
+                                      hp={bundle.cards[0].hp || 0}
+                                      attack={
+                                        bundle.cards[0].attack || "Unknown"
+                                      }
+                                    />
+                                  </div>
+                                  <div>
+                                    <PokemonCard
+                                      name={bundle.cards[1].name || "Unknown"}
+                                      imageUrl={bundle.cards[1].image_url || ""}
+                                      type={bundle.cards[1].type || "Unknown"}
+                                      hp={bundle.cards[1].hp || 0}
+                                      attack={
+                                        bundle.cards[1].attack || "Unknown"
+                                      }
+                                    />
+                                  </div>
+                                  <div>
+                                    <PokemonCard
+                                      name={bundle.cards[2].name || "Unknown"}
+                                      imageUrl={bundle.cards[2].image_url || ""}
+                                      type={bundle.cards[2].type || "Unknown"}
+                                      hp={bundle.cards[2].hp || 0}
+                                      attack={
+                                        bundle.cards[2].attack || "Unknown"
+                                      }
+                                    />
+                                  </div>
+                                  <div>
+                                    <PokemonCard
+                                      name={bundle.cards[3].name || "Unknown"}
+                                      imageUrl={bundle.cards[3].image_url || ""}
+                                      type={bundle.cards[3].type || "Unknown"}
+                                      hp={bundle.cards[3].hp || 0}
+                                      attack={
+                                        bundle.cards[3].attack || "Unknown"
+                                      }
+                                    />
+                                  </div>
+                                  <div>
+                                    <PokemonCard
+                                      name={bundle.cards[4].name || "Unknown"}
+                                      imageUrl={bundle.cards[4].image_url || ""}
+                                      type={bundle.cards[4].type || "Unknown"}
+                                      hp={bundle.cards[4].hp || 0}
+                                      attack={
+                                        bundle.cards[4].attack || "Unknown"
+                                      }
+                                    />
+                                  </div>
+                                </div>
+                              </AlertDialogDescription>
+                            </AlertDialogHeader>
+                            <AlertDialogFooter>
+                              <Form method={"post"} action={"/shop"}>
+                                <input
+                                  type={"hidden"}
+                                  id={"price"}
+                                  name={"price"}
+                                  value={bundle.price}
+                                />
+                                <input
+                                  type={"hidden"}
+                                  id={"card1"}
+                                  name={"card1"}
+                                  value={bundle.cards[0].id}
+                                />
+                                <input
+                                  type={"hidden"}
+                                  id={"card2"}
+                                  name={"card2"}
+                                  value={bundle.cards[1].id}
+                                />
+                                <input
+                                  type={"hidden"}
+                                  id={"card3"}
+                                  name={"card3"}
+                                  value={bundle.cards[2].id}
+                                />
+                                <input
+                                  type={"hidden"}
+                                  id={"card4"}
+                                  name={"card4"}
+                                  value={bundle.cards[3].id}
+                                />
+                                <input
+                                  type={"hidden"}
+                                  id={"card5"}
+                                  name={"card5"}
+                                  value={bundle.cards[4].id}
+                                />
+                                <AlertDialogAction type={"submit"}>
+                                  Continue
+                                </AlertDialogAction>
+                              </Form>
+                            </AlertDialogFooter>
+                          </AlertDialogContent>
+                        </AlertDialog>
+                      )}
                     </AlertDialogFooter>
                   </AlertDialogContent>
                 </AlertDialog>

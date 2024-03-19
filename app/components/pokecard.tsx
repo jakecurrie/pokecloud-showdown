@@ -16,7 +16,7 @@ const PokemonCard: FC<PokemonCardProps> = ({
   attack,
 }) => {
   return (
-    <div className="group relative border-2 border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow w-48 h-72">
+    <div className="group relative border-2 border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow w-full">
       <img src={imageUrl} alt={name} className="w-full h-full rounded-lg" />
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-black bg-opacity-75 p-4 flex flex-col justify-center items-center">
         <p className="text-white">Type: {type.toUpperCase()}</p>

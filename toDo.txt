@@ -23,6 +23,6 @@ Battles:
 Store:
 - write server logic for generating store card bundles (done)
 - write server logic for purchasing bundles (done), adding pokemon to collection (done), deducting cost from balance (done)
-- create the shop page
+- create the shop page (done)
 - make a sub component for displaying the card bundle in-store pre purchase (done)
 - make a component to display contents of a bundle post-purchase
