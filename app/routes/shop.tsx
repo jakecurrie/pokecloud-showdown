@@ -24,23 +24,28 @@ import homePic from "../../public/images/battle.jpg";
 import logoPic from "../../public/images/logo.png";
 import GameStats from "~/components/gameStats";
 import { addCollectionItem } from "~/models/collections.server";
+import { changeBalance, getBalance } from "~/models/pokecoins.server";
 
 export const loader: LoaderFunction = async ({
   request,
 }: LoaderFunctionArgs) => {
   const userId = await requireUserId(request);
+  const availablePokecoins = await getBalance(userId);
   const bundles: CardBundle[] = [];
   for (let tier = 1; tier <= 4; tier++) {
     const bundle = await generateCardBundle(tier);
     bundles.push(bundle);
   }
-  return json({ bundles, userId });
+  return json({ bundles, userId, availablePokecoins });
 };
 
 export async function action({ request }: ActionFunctionArgs) {
   const userId = await requireUserId(request);
   const formData = await request.formData();
   const cardData = Object.fromEntries(formData);
+  const price = -+cardData.price;
+
+  await changeBalance(userId, price);
 
   await addCollectionItem({
     cardId: cardData.card1.toString(),
@@ -68,9 +73,10 @@ export async function action({ request }: ActionFunctionArgs) {
 export default function Shop() {
   const [searchParams] = useSearchParams();
 
-  const { bundles, userId } = useLoaderData<{
+  const { bundles, userId, availablePokecoins } = useLoaderData<{
     bundles: CardBundle[];
     userId: `email#${string}`;
+    availablePokecoins: number;
   }>();
 
   return (
@@ -128,41 +134,62 @@ export default function Shop() {
                     </AlertDialogHeader>
                     <AlertDialogFooter>
                       <AlertDialogCancel>Cancel</AlertDialogCancel>
-                      <AlertDialogAction>
-                        <Form method={"post"} action={"/shop"}>
-                          <input
-                            type={"hidden"}
-                            id={"card1"}
-                            name={"card1"}
-                            value={bundle.cards[0].id}
-                          />
-                          <input
-                            type={"hidden"}
-                            id={"card2"}
-                            name={"card2"}
-                            value={bundle.cards[1].id}
-                          />
-                          <input
-                            type={"hidden"}
-                            id={"card3"}
-                            name={"card3"}
-                            value={bundle.cards[2].id}
-                          />
-                          <input
-                            type={"hidden"}
-                            id={"card4"}
-                            name={"card4"}
-                            value={bundle.cards[3].id}
-                          />
-                          <input
-                            type={"hidden"}
-                            id={"card5"}
-                            name={"card5"}
-                            value={bundle.cards[4].id}
-                          />
-                          <button type="submit">Confirm</button>
-                        </Form>
-                      </AlertDialogAction>
+                      <Form method={"post"} action={"/shop"}>
+                        <input
+                          type={"hidden"}
+                          id={"price"}
+                          name={"price"}
+                          value={bundle.price}
+                        />
+                        <input
+                          type={"hidden"}
+                          id={"card1"}
+                          name={"card1"}
+                          value={bundle.cards[0].id}
+                        />
+                        <input
+                          type={"hidden"}
+                          id={"card2"}
+                          name={"card2"}
+                          value={bundle.cards[1].id}
+                        />
+                        <input
+                          type={"hidden"}
+                          id={"card3"}
+                          name={"card3"}
+                          value={bundle.cards[2].id}
+                        />
+                        <input
+                          type={"hidden"}
+                          id={"card4"}
+                          name={"card4"}
+                          value={bundle.cards[3].id}
+                        />
+                        <input
+                          type={"hidden"}
+                          id={"card5"}
+                          name={"card5"}
+                          value={bundle.cards[4].id}
+                        />
+                        {bundle.price > availablePokecoins ? (
+                          <div>
+                            <p>not enough pokecoins</p>
+                            <AlertDialogAction
+                              type={"submit"}
+                              disabled={true}
+                              className={
+                                "bg-gray-300 text-gray-500 py-2 px-4 rounded cursor-not-allowed"
+                              }
+                            >
+                              Confirm
+                            </AlertDialogAction>
+                          </div>
+                        ) : (
+                          <AlertDialogAction type={"submit"}>
+                            Confirm
+                          </AlertDialogAction>
+                        )}
+                      </Form>
                     </AlertDialogFooter>
                   </AlertDialogContent>
                 </AlertDialog>

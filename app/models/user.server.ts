@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import invariant from "tiny-invariant";
 
 import { addCollectionItem } from "~/models/collections.server";
+import { initializeBalance } from "~/models/pokecoins.server";
 
 export interface User {
   id: `email#${string}`;
@@ -70,6 +71,8 @@ export async function createUser(
       quantity: 1,
     });
   }
+
+  await initializeBalance(user.id);
 
   return user;
 }
