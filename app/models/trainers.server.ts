@@ -3,8 +3,11 @@ import arc from "@architect/functions";
 export interface Trainer {
   id: string;
   name: string;
-  collectionId: string;
   imageURL: string;
+  type: string;
+  difficulty: number;
+  details: string;
+  collectionId: string;
 }
 
 export async function getAllTrainers(): Promise<Trainer[]> {

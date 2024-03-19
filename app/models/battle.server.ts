@@ -8,11 +8,13 @@ export interface Battle {
 }
 
 export async function getBattlesByUserId(userId: string): Promise<Battle[]> {
+  console.log(`Getting battles for user ID: ${userId}`);
   const db = await arc.tables();
   const result = await db.battles.query({
     KeyConditionExpression: "userId = :userId",
     ExpressionAttributeValues: { ":userId": userId },
   });
+  console.log(`Battles for user ID ${userId}:`, result.Items);
   return result.Items as Battle[];
 }
 
@@ -36,6 +38,7 @@ export async function deleteBattle(userId: string, battleId: string): Promise<vo
 }
 
 export async function getBattleStatsByUserId(userId: string): Promise<{ wins: number; losses: number; currentWinStreak: number }> {
+  console.log(`Getting battle stats for user ID: ${userId}`);
   const battles = await getBattlesByUserId(userId);
 
   let wins = 0;
@@ -55,6 +58,6 @@ export async function getBattleStatsByUserId(userId: string): Promise<{ wins: nu
       currentWinStreak = 0;
     }
   }
-
+  console.log(`Battle stats for user ID ${userId}:`, { wins, losses, currentWinStreak });
   return { wins, losses, currentWinStreak };
 }
