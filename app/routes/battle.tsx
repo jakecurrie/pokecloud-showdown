@@ -1,5 +1,5 @@
 import { json, LoaderFunctionArgs } from "@remix-run/node";
-import { useLoaderData, useNavigate } from "@remix-run/react";
+import { useLoaderData, Form } from "@remix-run/react";
 import { useState } from "react";
 
 import PokemonSelectionGrid from "~/components/pokemonSelectionGrid";
@@ -19,15 +19,17 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
     const userId = await requireUserId(request);
     const collection = await getCollectionWithPokemonDetails(userId);
     const trainers = await getAllTrainers();
+    console.log("Loader: Successfully loaded trainers and collection");
     return json({
       trainers,
       collection
     });
   } catch (error) {
+    console.error("Loader Error:", error);
     return json({
       trainers: [],
       collection: []
-    });
+    }, { status: 500 });
   }
 }
 
@@ -35,20 +37,15 @@ export default function BattleSetup() {
   const { trainers, collection } = useLoaderData<BattleSetupProps>();
   const [selectedTrainer, setSelectedTrainer] = useState<Trainer | null>(null);
   const [selectedPokemon, setSelectedPokemon] = useState<CollectionItemWithPokemon[]>([]);
-  const navigate = useNavigate();
 
   const handleSelectTrainer = (trainer: Trainer) => {
     setSelectedTrainer(trainer);
+    console.log("Selected Trainer:", trainer);
   };
 
   const handlePokemonSelectionChange = (selectedPokemon: CollectionItemWithPokemon[]) => {
     setSelectedPokemon(selectedPokemon);
-  };
-
-  const handleStartBattle = () => {
-    if (selectedTrainer && selectedPokemon.length === 5) {
-      navigate('/battle', { state: { selectedTrainer, selectedPokemon } });
-    }
+    console.log("Selected Pokémon:", selectedPokemon);
   };
 
   return (
@@ -87,15 +84,24 @@ export default function BattleSetup() {
         </Carousel>
       </div>
       {selectedTrainer && (
-        <div>
+        <Form method="post" action={`/battle/${selectedTrainer.id}`}>
           <h3>Selected Trainer: {selectedTrainer.name}</h3>
           <h4>Select up to 5 Pokémon for Battle</h4>
           <PokemonSelectionGrid collection={collection} onSelectionChange={handlePokemonSelectionChange} />
+          {selectedPokemon.map((pokemon, index) => (
+            <input key={index} type="hidden" name={`pokemonIds`} value={pokemon.cardId} />
+          ))}
           {selectedPokemon.length === 5 && (
-            <button onClick={handleStartBattle}>Start Battle</button>
+            <button type="submit">Start Battle</button>
           )}
-        </div>
+        </Form>
       )}
     </div>
   );
 }
+
+
+
+
+
+
