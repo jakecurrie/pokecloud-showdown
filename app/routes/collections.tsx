@@ -29,6 +29,7 @@ import {
   AlertDialogFooter,
   AlertDialogTitle,
 } from "~/components/ui/alert-dialog";
+import { getBattleStatsByUserId } from "~/models/battle.server";
 
 export const meta: MetaFunction = () => [{ title: "PokeCloud Showdown" }];
 
@@ -36,7 +37,8 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   try {
     const userId = await requireUserId(request);
     const collection = await getCollectionWithPokemonDetails(userId);
-    return json({ collection, userId });
+    const battleStats = await getBattleStatsByUserId(userId);
+    return json({ collection, userId, battleStats });
   } catch (error) {
     return json({ collection: [] });
   }
@@ -91,12 +93,25 @@ export async function action({ request }: ActionFunctionArgs) {
 }
 
 export default function Collections() {
-  const { collection, userId } = useLoaderData<{
+  const { collection, userId, battleStats } = useLoaderData<{
     collection: CollectionItemWithPokemon[];
     userId: `email#${string}`;
+    battleStats: { wins: number; losses: number; currentWinStreak: number };
   }>();
 
   const bundle = useActionData<typeof action>();
+
+  console.log(battleStats);
+
+  const wins = battleStats.wins;
+  const losses = battleStats.losses;
+  const currentWinStreak = battleStats.currentWinStreak;
+  let totalBattles: number;
+  if (wins + losses > 0) {
+    totalBattles = wins + losses;
+  } else {
+    totalBattles = 1;
+  }
 
   console.log(bundle?.cardData);
 
@@ -196,7 +211,15 @@ export default function Collections() {
               <div></div>
             )}
           </div>
-          <GameStats />
+          <GameStats
+            name={userId}
+            wins={wins}
+            losses={losses}
+            winPercent={wins / totalBattles}
+            winStreak={currentWinStreak}
+            badges={0}
+            pokemonCollected={collection.length}
+          />
         </div>
       </div>
     </body>
