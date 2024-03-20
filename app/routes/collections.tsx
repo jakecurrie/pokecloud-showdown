@@ -101,8 +101,6 @@ export default function Collections() {
 
   const bundle = useActionData<typeof action>();
 
-  console.log(battleStats);
-
   const wins = battleStats.wins;
   const losses = battleStats.losses;
   const currentWinStreak = battleStats.currentWinStreak;

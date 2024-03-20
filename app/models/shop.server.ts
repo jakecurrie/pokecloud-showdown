@@ -1,4 +1,4 @@
-import { Pokemon, getAllPokemon } from "./pokemon.server";
+import { getAllPokemon, Pokemon } from "./pokemon.server";
 
 export interface CardBundle {
   cards: Pokemon[];
@@ -6,27 +6,63 @@ export interface CardBundle {
   price: number;
 }
 
-type Rarity = 'Common' | 'Uncommon' | 'Rare' | 'Legendary' | 'Epic';
+export type Rarity = "Common" | "Uncommon" | "Rare" | "Legendary" | "Epic";
 
-const BUNDLE_TIERS: { tier: number; price: number; distribution: Record<Rarity, number> }[] = [
-  { tier: 1, price: 100, distribution: { Common: 75, Uncommon: 15, Rare: 5, Legendary: 4, Epic: 1 } },
-  { tier: 2, price: 200, distribution: { Common: 55, Uncommon: 25, Rare: 10, Legendary: 8, Epic: 2 } },
-  { tier: 3, price: 300, distribution: { Common: 35, Uncommon: 30, Rare: 20, Legendary: 12, Epic: 3 } },
-  { tier: 4, price: 500, distribution: { Common: 15, Uncommon: 30, Rare: 25, Legendary: 20, Epic: 10 } },
+export const BUNDLE_TIERS: {
+  tier: number;
+  price: number;
+  distribution: Record<Rarity, number>;
+  description: string;
+}[] = [
+  {
+    tier: 1,
+    price: 100,
+    distribution: { Common: 75, Uncommon: 15, Rare: 5, Legendary: 4, Epic: 1 },
+    description:
+      "Mix of common, rare, legendary, and epic cards with common being the most frequent.",
+  },
+  {
+    tier: 2,
+    price: 200,
+    distribution: { Common: 0, Uncommon: 60, Rare: 30, Legendary: 8, Epic: 2 },
+    description:
+      "No common cards, focuses on uncommon, rare, legendary, and epic cards.",
+  },
+  {
+    tier: 3,
+    price: 500,
+    distribution: { Common: 0, Uncommon: 30, Rare: 30, Legendary: 35, Epic: 5 },
+    description:
+      "Higher chance of getting legendary cards, alongside rare and epic cards.",
+  },
+  {
+    tier: 4,
+    price: 1000,
+    distribution: { Common: 0, Uncommon: 0, Rare: 50, Legendary: 30, Epic: 20 },
+    description:
+      "No common or uncommon cards, provides a higher chance of rare, legendary, and epic cards.",
+  },
 ];
+
+export function getBundleTiersConstant() {
+  return BUNDLE_TIERS;
+}
 
 export async function generateCardBundle(tier: number): Promise<CardBundle> {
   if (tier < 1 || tier > BUNDLE_TIERS.length) {
-    throw new Error('Invalid bundle tier');
+    throw new Error("Invalid bundle tier");
   }
 
   const { price, distribution } = BUNDLE_TIERS[tier - 1];
   const allPokemon = await getAllPokemon();
   const bundle: Pokemon[] = [];
 
-  for (let i = 0; i < 5; i++) { // Assuming a bundle contains 5 cards
+  for (let i = 0; i < 5; i++) {
+    // Assuming a bundle contains 5 cards
     const rarity = selectRarityBasedOnDistribution(distribution);
-    const filteredPokemon = allPokemon.filter(pokemon => pokemon.rarity === rarity);
+    const filteredPokemon = allPokemon.filter(
+      (pokemon) => pokemon.rarity === rarity,
+    );
     const randomIndex = Math.floor(Math.random() * filteredPokemon.length);
     bundle.push(filteredPokemon[randomIndex]);
   }
@@ -38,19 +74,24 @@ export async function generateCardBundle(tier: number): Promise<CardBundle> {
   };
 }
 
-function selectRarityBasedOnDistribution(distribution: Record<Rarity, number>): Rarity {
+function selectRarityBasedOnDistribution(
+  distribution: Record<Rarity, number>,
+): Rarity {
   const randomNum = Math.random() * 100;
   let cumulativeProbability = 0;
 
-  for (const rarity of ['Common', 'Uncommon', 'Rare', 'Legendary', 'Epic'] as Rarity[]) {
+  for (const rarity of [
+    "Common",
+    "Uncommon",
+    "Rare",
+    "Legendary",
+    "Epic",
+  ] as Rarity[]) {
     cumulativeProbability += distribution[rarity];
     if (randomNum <= cumulativeProbability) {
       return rarity;
     }
   }
 
-  return 'Common';
+  return "Common";
 }
-
-
-

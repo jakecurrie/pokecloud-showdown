@@ -12,25 +12,45 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "~/components/ui/alert-dialog";
-import { CardBundle, generateCardBundle } from "~/models/shop.server";
+import {
+  CardBundle,
+  generateCardBundle,
+  getBundleTiersConstant,
+  Rarity,
+} from "~/models/shop.server";
 import { requireUserId } from "~/session.server";
 import homePic from "../../public/images/battle.jpg";
 import logoPic from "../../public/images/logo.png";
 import GameStats from "~/components/gameStats";
 import { getBalance } from "~/models/pokecoins.server";
 import { useState } from "react";
+import { getBattleStatsByUserId } from "~/models/battle.server";
+import {
+  CollectionItemWithPokemon,
+  getCollectionWithPokemonDetails,
+} from "~/models/collections.server";
 
 export const loader: LoaderFunction = async ({
   request,
 }: LoaderFunctionArgs) => {
   const userId = await requireUserId(request);
   const availablePokecoins = await getBalance(userId);
+  const bundleTiers = getBundleTiersConstant();
+  const battleStats = await getBattleStatsByUserId(userId);
+  const collection = await getCollectionWithPokemonDetails(userId);
   const bundles: CardBundle[] = [];
   for (let tier = 1; tier <= 4; tier++) {
     const bundle = await generateCardBundle(tier);
     bundles.push(bundle);
   }
-  return json({ bundles, userId, availablePokecoins });
+  return json({
+    bundles,
+    userId,
+    availablePokecoins,
+    bundleTiers,
+    battleStats,
+    collection,
+  });
 };
 
 // export async function action({ request }: ActionFunctionArgs) {
@@ -68,11 +88,36 @@ export default function Shop() {
   const [searchParams] = useSearchParams();
   const [parentDialogDisabled, setParentDialogDisabled] = useState(false);
 
-  const { bundles, userId, availablePokecoins } = useLoaderData<{
+  const {
+    bundles,
+    userId,
+    availablePokecoins,
+    bundleTiers,
+    battleStats,
+    collection,
+  } = useLoaderData<{
     bundles: CardBundle[];
     userId: `email#${string}`;
     availablePokecoins: number;
+    bundleTiers: {
+      tier: number;
+      price: number;
+      distribution: Record<Rarity, number>;
+      description: string;
+    }[];
+    battleStats: { wins: number; losses: number; currentWinStreak: number };
+    collection: CollectionItemWithPokemon[];
   }>();
+
+  const wins = battleStats.wins;
+  const losses = battleStats.losses;
+  const currentWinStreak = battleStats.currentWinStreak;
+  let totalBattles: number;
+  if (wins + losses > 0) {
+    totalBattles = wins + losses;
+  } else {
+    totalBattles = 1;
+  }
 
   const handlePurchaseClick = () => {
     // Disable the parent dialog
@@ -120,7 +165,19 @@ export default function Shop() {
                   <AlertDialog>
                     <AlertDialogTrigger disabled={parentDialogDisabled}>
                       <div className="">
-                        <CardPack tier={bundle.tier} />
+                        <CardPack
+                          tier={bundle.tier}
+                          commonChance={bundleTiers[index].distribution.Common}
+                          uncommonChance={
+                            bundleTiers[index].distribution.Uncommon
+                          }
+                          rareChance={bundleTiers[index].distribution.Rare}
+                          legendaryChance={
+                            bundleTiers[index].distribution.Legendary
+                          }
+                          epicChance={bundleTiers[index].distribution.Epic}
+                          description={bundleTiers[index].description}
+                        />
                         <div className="bg-honeydew rounded-3xl text-onyx border-4 border-onyx">
                           <h3>Tier {bundle.tier} Pack</h3>
                           <h2>Cost: {bundle.price} PokeCoins</h2>
@@ -134,7 +191,7 @@ export default function Shop() {
                             Are you sure you want to purchase this TIER{" "}
                             {bundle.tier} pack?
                             <div className="w-16">
-                              <CardPack tier={bundle.tier} />
+                              {/*<CardPack tier={bundle.tier} />*/}
                             </div>
                             <p>Price: {bundle.price} PokeCoins</p>
                           </div>
@@ -209,7 +266,15 @@ export default function Shop() {
                 </div>
               ))}
             </div>
-            <GameStats />
+            <GameStats
+              name={userId}
+              wins={wins}
+              losses={losses}
+              winPercent={wins / totalBattles}
+              winStreak={currentWinStreak}
+              badges={0}
+              pokemonCollected={collection.length}
+            />
           </div>
         </div>
       </div>
