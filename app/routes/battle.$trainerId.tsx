@@ -62,7 +62,7 @@ export default function BattleTrainerId() {
 
   useEffect(() => {
     if (!selectedTrainer) {
-      throw redirect("/battle-setup");
+      throw redirect("/battle");
     }
   }, [selectedTrainer]);
 
