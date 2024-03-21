@@ -2,16 +2,6 @@ import arc from '@architect/functions';
 
 import { getPokemonById, Pokemon } from "~/models/pokemon.server";
 import { Trainer } from "~/models/trainers.server";
-
-export async function removeCollectionItem({
-                                             userId,
-                                             cardId,
-                                           }: Pick<CollectionItem, 'cardId' | 'userId'>): Promise<void> {
-  const db = await arc.tables();
-  await db.collections.delete({ pk: userId, sk: cardId });
-}
-
-
 import type { User } from './user.server';
 
 export interface CollectionItem {
@@ -97,4 +87,10 @@ export async function addCollectionItem({
       quantity: quantity,
     });
   }
+}
+
+export async function removeCollectionItem({ userId, cardId,
+                                           }: Pick<CollectionItem, 'cardId' | 'userId'>): Promise<void> {
+  const db = await arc.tables();
+  await db.collections.delete({ pk: userId, sk: cardId });
 }
