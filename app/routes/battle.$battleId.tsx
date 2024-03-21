@@ -5,6 +5,7 @@ import { getTrainerCollectionWithPokemonDetails } from "~/models/trainers.server
 import { requireUserId } from "~/session.server";
 import { getPokemonById, Pokemon } from "~/models/pokemon.server";
 import { createBattle } from "~/models/battle.server";
+import PokemonCard from "~/components/pokecard";
 
 export const action: ActionFunction = async ({ request }) => {
   const userId = await requireUserId(request);
@@ -58,6 +59,84 @@ export default function BattleTrainerId() {
       <h1> Hello </h1>
       <h1>{actionData.trainerCollection[0].pokemon.name}</h1>
       <h1>{actionData.userCollection[0].name}</h1>
+
+      <h4>YOUR POKEMON:</h4>
+      <div className={"grid grid-cols-5"}>
+        <PokemonCard
+          name={actionData.userCollection[0].name}
+          imageUrl={actionData.userCollection[0].image_url}
+          type={actionData.userCollection[0].type}
+          hp={actionData.userCollection[0].hp}
+          attack={actionData.userCollection[0].attack}
+        />
+        <PokemonCard
+          name={actionData.userCollection[1].name}
+          imageUrl={actionData.userCollection[1].image_url}
+          type={actionData.userCollection[1].type}
+          hp={actionData.userCollection[1].hp}
+          attack={actionData.userCollection[1].attack}
+        />
+        <PokemonCard
+          name={actionData.userCollection[2].name}
+          imageUrl={actionData.userCollection[2].image_url}
+          type={actionData.userCollection[2].type}
+          hp={actionData.userCollection[2].hp}
+          attack={actionData.userCollection[2].attack}
+        />
+        <PokemonCard
+          name={actionData.userCollection[3].name}
+          imageUrl={actionData.userCollection[3].image_url}
+          type={actionData.userCollection[3].type}
+          hp={actionData.userCollection[3].hp}
+          attack={actionData.userCollection[3].attack}
+        />
+        <PokemonCard
+          name={actionData.userCollection[4].name}
+          imageUrl={actionData.userCollection[4].image_url}
+          type={actionData.userCollection[4].type}
+          hp={actionData.userCollection[4].hp}
+          attack={actionData.userCollection[4].attack}
+        />
+      </div>
+
+      <h4>TRAINER POKEMON:</h4>
+      <div className={"grid grid-cols-5"}>
+        <PokemonCard
+          name={actionData.trainerCollection[0].pokemon.name}
+          imageUrl={actionData.trainerCollection[0].pokemon.image_url}
+          type={actionData.trainerCollection[0].pokemon.type}
+          hp={actionData.trainerCollection[0].pokemon.hp}
+          attack={actionData.trainerCollection[0].pokemon.attack}
+        />
+        <PokemonCard
+          name={actionData.trainerCollection[1].pokemon.name}
+          imageUrl={actionData.trainerCollection[1].pokemon.image_url}
+          type={actionData.trainerCollection[1].pokemon.type}
+          hp={actionData.trainerCollection[1].pokemon.hp}
+          attack={actionData.trainerCollection[1].pokemon.attack}
+        />
+        <PokemonCard
+          name={actionData.trainerCollection[2].pokemon.name}
+          imageUrl={actionData.trainerCollection[2].pokemon.image_url}
+          type={actionData.trainerCollection[2].pokemon.type}
+          hp={actionData.trainerCollection[2].pokemon.hp}
+          attack={actionData.trainerCollection[2].pokemon.attack}
+        />{" "}
+        <PokemonCard
+          name={actionData.trainerCollection[3].pokemon.name}
+          imageUrl={actionData.trainerCollection[3].pokemon.image_url}
+          type={actionData.trainerCollection[3].pokemon.type}
+          hp={actionData.trainerCollection[3].pokemon.hp}
+          attack={actionData.trainerCollection[3].pokemon.attack}
+        />{" "}
+        <PokemonCard
+          name={actionData.trainerCollection[4].pokemon.name}
+          imageUrl={actionData.trainerCollection[4].pokemon.image_url}
+          type={actionData.trainerCollection[4].pokemon.type}
+          hp={actionData.trainerCollection[4].pokemon.hp}
+          attack={actionData.trainerCollection[4].pokemon.attack}
+        />
+      </div>
     </div>
   );
 }

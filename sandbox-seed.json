@@ -1,1476 +1,1697 @@
 {
-    "pokemon": [
-        {
-            "id": "1",
-            "name": "bulbasaur",
-            "type": "grass/poison",
-            "move": "razor-wind",
-            "hp": 70,
-            "image_url": "https://www.serebii.net/card/151/1.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "2",
-            "name": "ivysaur",
-            "type": "grass/poison",
-            "move": "swords-dance",
-            "hp": 100,
-            "image_url": "https://www.serebii.net/card/151/2.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "3",
-            "name": "venusaur",
-            "type": "grass/poison",
-            "move": "swords-dance",
-            "hp": 340,
-            "image_url": "https://www.serebii.net/card/151/3.jpg",
-            "rarity": "Epic"
-        },
-        {
-            "id": "4",
-            "name": "charmander",
-            "type": "fire",
-            "move": "mega-punch",
-            "hp": 70,
-            "image_url": "https://www.serebii.net/card/151/4.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "5",
-            "name": "charmeleon",
-            "type": "fire",
-            "move": "mega-punch",
-            "hp": 100,
-            "image_url": "https://www.serebii.net/card/151/5.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "6",
-            "name": "charizard",
-            "type": "fire/flying",
-            "move": "mega-punch",
-            "hp": 330,
-            "image_url": "https://www.serebii.net/card/151/6.jpg",
-            "rarity": "Epic"
-        },
-        {
-            "id": "7",
-            "name": "squirtle",
-            "type": "water",
-            "move": "mega-punch",
-            "hp": 60,
-            "image_url": "https://www.serebii.net/card/151/7.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "8",
-            "name": "wartortle",
-            "type": "water",
-            "move": "mega-punch",
-            "hp": 100,
-            "image_url": "https://www.serebii.net/card/151/8.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "9",
-            "name": "blastoise",
-            "type": "water",
-            "move": "mega-punch",
-            "hp": 330,
-            "image_url": "https://www.serebii.net/card/151/9.jpg",
-            "rarity": "Epic"
-        },
-        {
-            "id": "10",
-            "name": "caterpie",
-            "type": "bug",
-            "move": "tackle",
-            "hp": 50,
-            "image_url": "https://www.serebii.net/card/151/10.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "11",
-            "name": "metapod",
-            "type": "bug",
-            "move": "string-shot",
-            "hp": 90,
-            "image_url": "https://www.serebii.net/card/151/11.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "12",
-            "name": "butterfree",
-            "type": "bug/flying",
-            "move": "razor-wind",
-            "hp": 130,
-            "image_url": "https://www.serebii.net/card/151/12.jpg",
-            "rarity": "Legendary"
-        },
-        {
-            "id": "13",
-            "name": "weedle",
-            "type": "bug/poison",
-            "move": "poison-sting",
-            "hp": 50,
-            "image_url": "https://www.serebii.net/card/151/13.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "14",
-            "name": "kakuna",
-            "type": "bug/poison",
-            "move": "string-shot",
-            "hp": 80,
-            "image_url": "https://www.serebii.net/card/151/14.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "15",
-            "name": "beedrill",
-            "type": "bug/poison",
-            "move": "swords-dance",
-            "hp": 130,
-            "image_url": "https://www.serebii.net/card/151/15.jpg",
-            "rarity": "Legendary"
-        },
-        {
-            "id": "16",
-            "name": "pidgey",
-            "type": "normal/flying",
-            "move": "razor-wind",
-            "hp": 50,
-            "image_url": "https://www.serebii.net/card/151/16.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "17",
-            "name": "pidgeotto",
-            "type": "normal/flying",
-            "move": "razor-wind",
-            "hp": 80,
-            "image_url": "https://www.serebii.net/card/151/17.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "18",
-            "name": "pidgeot",
-            "type": "normal/flying",
-            "move": "razor-wind",
-            "hp": 130,
-            "image_url": "https://www.serebii.net/card/151/18.jpg",
-            "rarity": "Legendary"
-        },
-        {
-            "id": "19",
-            "name": "rattata",
-            "type": "normal",
-            "move": "cut",
-            "hp": 40,
-            "image_url": "https://www.serebii.net/card/151/19.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "20",
-            "name": "raticate",
-            "type": "normal",
-            "move": "swords-dance",
-            "hp": 70,
-            "image_url": "https://www.serebii.net/card/151/20.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "21",
-            "name": "spearow",
-            "type": "normal/flying",
-            "move": "razor-wind",
-            "hp": 50,
-            "image_url": "https://www.serebii.net/card/151/21.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "22",
-            "name": "fearow",
-            "type": "normal/flying",
-            "move": "razor-wind",
-            "hp": 90,
-            "image_url": "https://www.serebii.net/card/151/22.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "23",
-            "name": "ekans",
-            "type": "poison",
-            "move": "bind",
-            "hp": 70,
-            "image_url": "https://www.serebii.net/card/151/23.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "24",
-            "name": "arbok",
-            "type": "poison",
-            "move": "bind",
-            "hp": 270,
-            "image_url": "https://www.serebii.net/card/151/24.jpg",
-            "rarity": "Epic"
-        },
-        {
-            "id": "25",
-            "name": "pikachu",
-            "type": "electric",
-            "move": "mega-punch",
-            "hp": 60,
-            "image_url": "https://www.serebii.net/card/151/25.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "26",
-            "name": "raichu",
-            "type": "electric",
-            "move": "mega-punch",
-            "hp": 120,
-            "image_url": "https://www.serebii.net/card/151/26.jpg",
-            "rarity": "Rare"
-        },
-        {
-            "id": "27",
-            "name": "sandshrew",
-            "type": "ground",
-            "move": "scratch",
-            "hp": 60,
-            "image_url": "https://www.serebii.net/card/151/27.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "28",
-            "name": "sandslash",
-            "type": "ground",
-            "move": "scratch",
-            "hp": 120,
-            "image_url": "https://www.serebii.net/card/151/28.jpg",
-            "rarity": "Rare"
-        },
-        {
-            "id": "29",
-            "name": "nidoran-f",
-            "type": "poison",
-            "move": "scratch",
-            "hp": 60,
-            "image_url": "https://www.serebii.net/card/151/29.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "30",
-            "name": "nidorina",
-            "type": "poison",
-            "move": "scratch",
-            "hp": 90,
-            "image_url": "https://www.serebii.net/card/151/30.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "31",
-            "name": "nidoqueen",
-            "type": "poison/ground",
-            "move": "mega-punch",
-            "hp": 170,
-            "image_url": "https://www.serebii.net/card/151/31.jpg",
-            "rarity": "Epic"
-        },
-        {
-            "id": "32",
-            "name": "nidoran-m",
-            "type": "poison",
-            "move": "cut",
-            "hp": 60,
-            "image_url": "https://www.serebii.net/card/151/32.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "33",
-            "name": "nidorino",
-            "type": "poison",
-            "move": "cut",
-            "hp": 90,
-            "image_url": "https://www.serebii.net/card/151/33.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "34",
-            "name": "nidoking",
-            "type": "poison/ground",
-            "move": "mega-punch",
-            "hp": 170,
-            "image_url": "https://www.serebii.net/card/151/34.jpg",
-            "rarity": "Epic"
-        },
-        {
-            "id": "35",
-            "name": "clefairy",
-            "type": "fairy",
-            "move": "pound",
-            "hp": 60,
-            "image_url": "https://www.serebii.net/card/151/35.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "36",
-            "name": "clefable",
-            "type": "fairy",
-            "move": "pound",
-            "hp": 100,
-            "image_url": "https://www.serebii.net/card/151/36.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "37",
-            "name": "vulpix",
-            "type": "fire",
-            "move": "headbutt",
-            "hp": 70,
-            "image_url": "https://www.serebii.net/card/151/37.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "38",
-            "name": "ninetales",
-            "type": "fire",
-            "move": "headbutt",
-            "hp": 260,
-            "image_url": "https://www.serebii.net/card/151/38.jpg",
-            "rarity": "Epic"
-        },
-        {
-            "id": "39",
-            "name": "jigglypuff",
-            "type": "normal/fairy",
-            "move": "pound",
-            "hp": 70,
-            "image_url": "https://www.serebii.net/card/151/39.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "40",
-            "name": "wigglytuff",
-            "type": "normal/fairy",
-            "move": "pound",
-            "hp": 250,
-            "image_url": "https://www.serebii.net/card/151/40.jpg",
-            "rarity": "Epic"
-        },
-        {
-            "id": "41",
-            "name": "zubat",
-            "type": "poison/flying",
-            "move": "razor-wind",
-            "hp": 40,
-            "image_url": "https://www.serebii.net/card/151/41.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "42",
-            "name": "golbat",
-            "type": "poison/flying",
-            "move": "razor-wind",
-            "hp": 80,
-            "image_url": "https://www.serebii.net/card/151/42.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "43",
-            "name": "oddish",
-            "type": "grass/poison",
-            "move": "swords-dance",
-            "hp": 60,
-            "image_url": "https://www.serebii.net/card/151/43.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "44",
-            "name": "gloom",
-            "type": "grass/poison",
-            "move": "swords-dance",
-            "hp": 70,
-            "image_url": "https://www.serebii.net/card/151/44.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "45",
-            "name": "vileplume",
-            "type": "grass/poison",
-            "move": "swords-dance",
-            "hp": 140,
-            "image_url": "https://www.serebii.net/card/151/45.jpg",
-            "rarity": "Legendary"
-        },
-        {
-            "id": "46",
-            "name": "paras",
-            "type": "bug/grass",
-            "move": "scratch",
-            "hp": 70,
-            "image_url": "https://www.serebii.net/card/151/46.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "47",
-            "name": "parasect",
-            "type": "bug/grass",
-            "move": "scratch",
-            "hp": 120,
-            "image_url": "https://www.serebii.net/card/151/47.jpg",
-            "rarity": "Rare"
-        },
-        {
-            "id": "48",
-            "name": "venonat",
-            "type": "bug/poison",
-            "move": "headbutt",
-            "hp": 70,
-            "image_url": "https://www.serebii.net/card/151/48.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "49",
-            "name": "venomoth",
-            "type": "bug/poison",
-            "move": "razor-wind",
-            "hp": 90,
-            "image_url": "https://www.serebii.net/card/151/49.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "50",
-            "name": "diglett",
-            "type": "ground",
-            "move": "scratch",
-            "hp": 50,
-            "image_url": "https://www.serebii.net/card/151/50.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "51",
-            "name": "dugtrio",
-            "type": "ground",
-            "move": "scratch",
-            "hp": 90,
-            "image_url": "https://www.serebii.net/card/151/51.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "52",
-            "name": "meowth",
-            "type": "normal",
-            "move": "pay-day",
-            "hp": 70,
-            "image_url": "https://www.serebii.net/card/151/52.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "53",
-            "name": "persian",
-            "type": "normal",
-            "move": "pay-day",
-            "hp": 110,
-            "image_url": "https://www.serebii.net/card/151/53.jpg",
-            "rarity": "Rare"
-        },
-        {
-            "id": "54",
-            "name": "psyduck",
-            "type": "water",
-            "move": "mega-punch",
-            "hp": 70,
-            "image_url": "https://www.serebii.net/card/151/54.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "55",
-            "name": "golduck",
-            "type": "water",
-            "move": "mega-punch",
-            "hp": 110,
-            "image_url": "https://www.serebii.net/card/151/55.jpg",
-            "rarity": "Rare"
-        },
-        {
-            "id": "56",
-            "name": "mankey",
-            "type": "fighting",
-            "move": "karate-chop",
-            "hp": 60,
-            "image_url": "https://www.serebii.net/card/151/56.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "57",
-            "name": "primeape",
-            "type": "fighting",
-            "move": "karate-chop",
-            "hp": 120,
-            "image_url": "https://www.serebii.net/card/151/57.jpg",
-            "rarity": "Rare"
-        },
-        {
-            "id": "58",
-            "name": "growlithe",
-            "type": "fire",
-            "move": "double-kick",
-            "hp": 80,
-            "image_url": "https://www.serebii.net/card/151/58.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "59",
-            "name": "arcanine",
-            "type": "fire",
-            "move": "headbutt",
-            "hp": 150,
-            "image_url": "https://www.serebii.net/card/151/59.jpg",
-            "rarity": "Legendary"
-        },
-        {
-            "id": "60",
-            "name": "poliwag",
-            "type": "water",
-            "move": "pound",
-            "hp": 60,
-            "image_url": "https://www.serebii.net/card/151/60.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "61",
-            "name": "poliwhirl",
-            "type": "water",
-            "move": "pound",
-            "hp": 90,
-            "image_url": "https://www.serebii.net/card/151/61.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "62",
-            "name": "poliwrath",
-            "type": "water/fighting",
-            "move": "pound",
-            "hp": 160,
-            "image_url": "https://www.serebii.net/card/151/62.jpg",
-            "rarity": "Epic"
-        },
-        {
-            "id": "63",
-            "name": "abra",
-            "type": "psychic",
-            "move": "mega-punch",
-            "hp": 50,
-            "image_url": "https://www.serebii.net/card/151/63.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "64",
-            "name": "kadabra",
-            "type": "psychic",
-            "move": "mega-punch",
-            "hp": 80,
-            "image_url": "https://www.serebii.net/card/151/64.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "65",
-            "name": "alakazam",
-            "type": "psychic",
-            "move": "mega-punch",
-            "hp": 310,
-            "image_url": "https://www.serebii.net/card/151/65.jpg",
-            "rarity": "Epic"
-        },
-        {
-            "id": "66",
-            "name": "machop",
-            "type": "fighting",
-            "move": "karate-chop",
-            "hp": 70,
-            "image_url": "https://www.serebii.net/card/151/66.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "67",
-            "name": "machoke",
-            "type": "fighting",
-            "move": "karate-chop",
-            "hp": 100,
-            "image_url": "https://www.serebii.net/card/151/67.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "68",
-            "name": "machamp",
-            "type": "fighting",
-            "move": "karate-chop",
-            "hp": 180,
-            "image_url": "https://www.serebii.net/card/151/68.jpg",
-            "rarity": "Epic"
-        },
-        {
-            "id": "69",
-            "name": "bellsprout",
-            "type": "grass/poison",
-            "move": "swords-dance",
-            "hp": 60,
-            "image_url": "https://www.serebii.net/card/151/69.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "70",
-            "name": "weepinbell",
-            "type": "grass/poison",
-            "move": "swords-dance",
-            "hp": 90,
-            "image_url": "https://www.serebii.net/card/151/70.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "71",
-            "name": "victreebel",
-            "type": "grass/poison",
-            "move": "swords-dance",
-            "hp": 150,
-            "image_url": "https://www.serebii.net/card/151/71.jpg",
-            "rarity": "Legendary"
-        },
-        {
-            "id": "72",
-            "name": "tentacool",
-            "type": "water/poison",
-            "move": "swords-dance",
-            "hp": 60,
-            "image_url": "https://www.serebii.net/card/151/72.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "73",
-            "name": "tentacruel",
-            "type": "water/poison",
-            "move": "swords-dance",
-            "hp": 120,
-            "image_url": "https://www.serebii.net/card/151/73.jpg",
-            "rarity": "Rare"
-        },
-        {
-            "id": "74",
-            "name": "geodude",
-            "type": "rock/ground",
-            "move": "mega-punch",
-            "hp": 80,
-            "image_url": "https://www.serebii.net/card/151/74.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "75",
-            "name": "graveler",
-            "type": "rock/ground",
-            "move": "mega-punch",
-            "hp": 110,
-            "image_url": "https://www.serebii.net/card/151/75.jpg",
-            "rarity": "Rare"
-        },
-        {
-            "id": "76",
-            "name": "golem",
-            "type": "rock/ground",
-            "move": "mega-punch",
-            "hp": 330,
-            "image_url": "https://www.serebii.net/card/151/76.jpg",
-            "rarity": "Epic"
-        },
-        {
-            "id": "77",
-            "name": "ponyta",
-            "type": "fire",
-            "move": "stomp",
-            "hp": 70,
-            "image_url": "https://www.serebii.net/card/151/77.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "78",
-            "name": "rapidash",
-            "type": "fire",
-            "move": "pay-day",
-            "hp": 100,
-            "image_url": "https://www.serebii.net/card/151/78.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "79",
-            "name": "slowpoke",
-            "type": "water/psychic",
-            "move": "pay-day",
-            "hp": 80,
-            "image_url": "https://www.serebii.net/card/151/79.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "80",
-            "name": "slowbro",
-            "type": "water/psychic",
-            "move": "mega-punch",
-            "hp": 130,
-            "image_url": "https://www.serebii.net/card/151/80.jpg",
-            "rarity": "Legendary"
-        },
-        {
-            "id": "81",
-            "name": "magnemite",
-            "type": "electric/steel",
-            "move": "headbutt",
-            "hp": 60,
-            "image_url": "https://www.serebii.net/card/151/81.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "82",
-            "name": "magneton",
-            "type": "electric/steel",
-            "move": "headbutt",
-            "hp": 90,
-            "image_url": "https://www.serebii.net/card/151/82.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "83",
-            "name": "farfetchd",
-            "type": "normal/flying",
-            "move": "razor-wind",
-            "hp": 90,
-            "image_url": "https://www.serebii.net/card/151/83.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "84",
-            "name": "doduo",
-            "type": "normal/flying",
-            "move": "swords-dance",
-            "hp": 70,
-            "image_url": "https://www.serebii.net/card/151/84.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "85",
-            "name": "dodrio",
-            "type": "normal/flying",
-            "move": "swords-dance",
-            "hp": 100,
-            "image_url": "https://www.serebii.net/card/151/85.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "86",
-            "name": "seel",
-            "type": "water",
-            "move": "pay-day",
-            "hp": 80,
-            "image_url": "https://www.serebii.net/card/151/86.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "87",
-            "name": "dewgong",
-            "type": "water/ice",
-            "move": "pay-day",
-            "hp": 130,
-            "image_url": "https://www.serebii.net/card/151/87.jpg",
-            "rarity": "Legendary"
-        },
-        {
-            "id": "88",
-            "name": "grimer",
-            "type": "poison",
-            "move": "pound",
-            "hp": 80,
-            "image_url": "https://www.serebii.net/card/151/88.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "89",
-            "name": "muk",
-            "type": "poison",
-            "move": "pound",
-            "hp": 150,
-            "image_url": "https://www.serebii.net/card/151/89.jpg",
-            "rarity": "Legendary"
-        },
-        {
-            "id": "90",
-            "name": "shellder",
-            "type": "water",
-            "move": "headbutt",
-            "hp": 70,
-            "image_url": "https://www.serebii.net/card/151/90.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "91",
-            "name": "cloyster",
-            "type": "water/ice",
-            "move": "headbutt",
-            "hp": 130,
-            "image_url": "https://www.serebii.net/card/151/91.jpg",
-            "rarity": "Legendary"
-        },
-        {
-            "id": "92",
-            "name": "gastly",
-            "type": "ghost/poison",
-            "move": "fire-punch",
-            "hp": 35,
-            "image_url": "https://www.serebii.net/card/151/92.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "93",
-            "name": "haunter",
-            "type": "ghost/poison",
-            "move": "fire-punch",
-            "hp": 80,
-            "image_url": "https://www.serebii.net/card/151/93.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "94",
-            "name": "gengar",
-            "type": "ghost/poison",
-            "move": "mega-punch",
-            "hp": 130,
-            "image_url": "https://www.serebii.net/card/151/94.jpg",
-            "rarity": "Legendary"
-        },
-        {
-            "id": "95",
-            "name": "onix",
-            "type": "rock/ground",
-            "move": "bind",
-            "hp": 120,
-            "image_url": "https://www.serebii.net/card/151/95.jpg",
-            "rarity": "Rare"
-        },
-        {
-            "id": "96",
-            "name": "drowzee",
-            "type": "psychic",
-            "move": "pound",
-            "hp": 80,
-            "image_url": "https://www.serebii.net/card/151/96.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "97",
-            "name": "hypno",
-            "type": "psychic",
-            "move": "pound",
-            "hp": 110,
-            "image_url": "https://www.serebii.net/card/151/97.jpg",
-            "rarity": "Rare"
-        },
-        {
-            "id": "98",
-            "name": "krabby",
-            "type": "water",
-            "move": "vice-grip",
-            "hp": 70,
-            "image_url": "https://www.serebii.net/card/151/98.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "99",
-            "name": "kingler",
-            "type": "water",
-            "move": "vice-grip",
-            "hp": 140,
-            "image_url": "https://www.serebii.net/card/151/99.jpg",
-            "rarity": "Legendary"
-        },
-        {
-            "id": "100",
-            "name": "voltorb",
-            "type": "electric",
-            "move": "headbutt",
-            "hp": 60,
-            "image_url": "https://www.serebii.net/card/151/100.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "101",
-            "name": "electrode",
-            "type": "electric",
-            "move": "headbutt",
-            "hp": 90,
-            "image_url": "https://www.serebii.net/card/151/101.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "102",
-            "name": "exeggcute",
-            "type": "grass/psychic",
-            "move": "swords-dance",
-            "hp": 60,
-            "image_url": "https://www.serebii.net/card/151/102.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "103",
-            "name": "exeggutor",
-            "type": "grass/psychic",
-            "move": "swords-dance",
-            "hp": 140,
-            "image_url": "https://www.serebii.net/card/151/103.jpg",
-            "rarity": "Legendary"
-        },
-        {
-            "id": "104",
-            "name": "cubone",
-            "type": "ground",
-            "move": "mega-punch",
-            "hp": 70,
-            "image_url": "https://www.serebii.net/card/151/104.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "105",
-            "name": "marowak",
-            "type": "ground",
-            "move": "mega-punch",
-            "hp": 120,
-            "image_url": "https://www.serebii.net/card/151/105.jpg",
-            "rarity": "Rare"
-        },
-        {
-            "id": "106",
-            "name": "hitmonlee",
-            "type": "fighting",
-            "move": "mega-punch",
-            "hp": 120,
-            "image_url": "https://www.serebii.net/card/151/106.jpg",
-            "rarity": "Rare"
-        },
-        {
-            "id": "107",
-            "name": "hitmonchan",
-            "type": "fighting",
-            "move": "comet-punch",
-            "hp": 120,
-            "image_url": "https://www.serebii.net/card/151/107.jpg",
-            "rarity": "Rare"
-        },
-        {
-            "id": "108",
-            "name": "lickitung",
-            "type": "normal",
-            "move": "mega-punch",
-            "hp": 100,
-            "image_url": "https://www.serebii.net/card/151/108.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "109",
-            "name": "koffing",
-            "type": "poison",
-            "move": "headbutt",
-            "hp": 60,
-            "image_url": "https://www.serebii.net/card/151/109.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "110",
-            "name": "weezing",
-            "type": "poison",
-            "move": "headbutt",
-            "hp": 110,
-            "image_url": "https://www.serebii.net/card/151/110.jpg",
-            "rarity": "Rare"
-        },
-        {
-            "id": "111",
-            "name": "rhyhorn",
-            "type": "ground/rock",
-            "move": "swords-dance",
-            "hp": 100,
-            "image_url": "https://www.serebii.net/card/151/111.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "112",
-            "name": "rhydon",
-            "type": "ground/rock",
-            "move": "mega-punch",
-            "hp": 120,
-            "image_url": "https://www.serebii.net/card/151/112.jpg",
-            "rarity": "Rare"
-        },
-        {
-            "id": "113",
-            "name": "chansey",
-            "type": "normal",
-            "move": "pound",
-            "hp": 110,
-            "image_url": "https://www.serebii.net/card/151/113.jpg",
-            "rarity": "Rare"
-        },
-        {
-            "id": "114",
-            "name": "tangela",
-            "type": "grass",
-            "move": "swords-dance",
-            "hp": 80,
-            "image_url": "https://www.serebii.net/card/151/114.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "115",
-            "name": "kangaskhan",
-            "type": "normal",
-            "move": "pound",
-            "hp": 230,
-            "image_url": "https://www.serebii.net/card/151/115.jpg",
-            "rarity": "Epic"
-        },
-        {
-            "id": "116",
-            "name": "horsea",
-            "type": "water",
-            "move": "razor-wind",
-            "hp": 60,
-            "image_url": "https://www.serebii.net/card/151/116.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "117",
-            "name": "seadra",
-            "type": "water",
-            "move": "headbutt",
-            "hp": 80,
-            "image_url": "https://www.serebii.net/card/151/117.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "118",
-            "name": "goldeen",
-            "type": "water",
-            "move": "swords-dance",
-            "hp": 70,
-            "image_url": "https://www.serebii.net/card/151/118.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "119",
-            "name": "seaking",
-            "type": "water",
-            "move": "swords-dance",
-            "hp": 110,
-            "image_url": "https://www.serebii.net/card/151/119.jpg",
-            "rarity": "Rare"
-        },
-        {
-            "id": "120",
-            "name": "staryu",
-            "type": "water",
-            "move": "headbutt",
-            "hp": 60,
-            "image_url": "https://www.serebii.net/card/151/120.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "121",
-            "name": "starmie",
-            "type": "water/psychic",
-            "move": "headbutt",
-            "hp": 90,
-            "image_url": "https://www.serebii.net/card/151/121.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "122",
-            "name": "mr-mime",
-            "type": "psychic/fairy",
-            "move": "pound",
-            "hp": 90,
-            "image_url": "https://www.serebii.net/card/151/122.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "123",
-            "name": "scyther",
-            "type": "bug/flying",
-            "move": "razor-wind",
-            "hp": 70,
-            "image_url": "https://www.serebii.net/card/151/123.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "124",
-            "name": "jynx",
-            "type": "ice/psychic",
-            "move": "pound",
-            "hp": 200,
-            "image_url": "https://www.serebii.net/card/151/124.jpg",
-            "rarity": "Epic"
-        },
-        {
-            "id": "125",
-            "name": "electabuzz",
-            "type": "electric",
-            "move": "mega-punch",
-            "hp": 90,
-            "image_url": "https://www.serebii.net/card/151/125.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "126",
-            "name": "magmar",
-            "type": "fire",
-            "move": "mega-punch",
-            "hp": 90,
-            "image_url": "https://www.serebii.net/card/151/126.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "127",
-            "name": "pinsir",
-            "type": "bug",
-            "move": "vice-grip",
-            "hp": 120,
-            "image_url": "https://www.serebii.net/card/151/127.jpg",
-            "rarity": "Rare"
-        },
-        {
-            "id": "128",
-            "name": "tauros",
-            "type": "normal",
-            "move": "stomp",
-            "hp": 120,
-            "image_url": "https://www.serebii.net/card/151/128.jpg",
-            "rarity": "Rare"
-        },
-        {
-            "id": "129",
-            "name": "magikarp",
-            "type": "water",
-            "move": "tackle",
-            "hp": 30,
-            "image_url": "https://www.serebii.net/card/151/129.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "130",
-            "name": "gyarados",
-            "type": "water/flying",
-            "move": "bind",
-            "hp": 190,
-            "image_url": "https://www.serebii.net/card/151/130.jpg",
-            "rarity": "Epic"
-        },
-        {
-            "id": "131",
-            "name": "lapras",
-            "type": "water/ice",
-            "move": "headbutt",
-            "hp": 110,
-            "image_url": "https://www.serebii.net/card/151/131.jpg",
-            "rarity": "Rare"
-        },
-        {
-            "id": "132",
-            "name": "ditto",
-            "type": "normal",
-            "move": "transform",
-            "hp": 60,
-            "image_url": "https://www.serebii.net/card/151/132.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "133",
-            "name": "eevee",
-            "type": "normal",
-            "move": "pay-day",
-            "hp": 70,
-            "image_url": "https://www.serebii.net/card/151/133.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "134",
-            "name": "vaporeon",
-            "type": "water",
-            "move": "pay-day",
-            "hp": 130,
-            "image_url": "https://www.serebii.net/card/151/134.jpg",
-            "rarity": "Legendary"
-        },
-        {
-            "id": "135",
-            "name": "jolteon",
-            "type": "electric",
-            "move": "pay-day",
-            "hp": 110,
-            "image_url": "https://www.serebii.net/card/151/135.jpg",
-            "rarity": "Rare"
-        },
-        {
-            "id": "136",
-            "name": "flareon",
-            "type": "fire",
-            "move": "pay-day",
-            "hp": 130,
-            "image_url": "https://www.serebii.net/card/151/136.jpg",
-            "rarity": "Legendary"
-        },
-        {
-            "id": "137",
-            "name": "porygon",
-            "type": "normal",
-            "move": "headbutt",
-            "hp": 60,
-            "image_url": "https://www.serebii.net/card/151/137.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "138",
-            "name": "omanyte",
-            "type": "rock/water",
-            "move": "bind",
-            "hp": 100,
-            "image_url": "https://www.serebii.net/card/151/138.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "139",
-            "name": "omastar",
-            "type": "rock/water",
-            "move": "bind",
-            "hp": 150,
-            "image_url": "https://www.serebii.net/card/151/139.jpg",
-            "rarity": "Legendary"
-        },
-        {
-            "id": "140",
-            "name": "kabuto",
-            "type": "rock/water",
-            "move": "scratch",
-            "hp": 90,
-            "image_url": "https://www.serebii.net/card/151/140.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "141",
-            "name": "kabutops",
-            "type": "rock/water",
-            "move": "scratch",
-            "hp": 160,
-            "image_url": "https://www.serebii.net/card/151/141.jpg",
-            "rarity": "Epic"
-        },
-        {
-            "id": "142",
-            "name": "aerodactyl",
-            "type": "rock/flying",
-            "move": "razor-wind",
-            "hp": 130,
-            "image_url": "https://www.serebii.net/card/151/142.jpg",
-            "rarity": "Legendary"
-        },
-        {
-            "id": "143",
-            "name": "snorlax",
-            "type": "normal",
-            "move": "mega-punch",
-            "hp": 150,
-            "image_url": "https://www.serebii.net/card/151/143.jpg",
-            "rarity": "Legendary"
-        },
-        {
-            "id": "144",
-            "name": "articuno",
-            "type": "ice/flying",
-            "move": "razor-wind",
-            "hp": 120,
-            "image_url": "https://www.serebii.net/card/151/144.jpg",
-            "rarity": "Rare"
-        },
-        {
-            "id": "145",
-            "name": "zapdos",
-            "type": "electric/flying",
-            "move": "razor-wind",
-            "hp": 200,
-            "image_url": "https://www.serebii.net/card/151/145.jpg",
-            "rarity": "Epic"
-        },
-        {
-            "id": "146",
-            "name": "moltres",
-            "type": "fire/flying",
-            "move": "razor-wind",
-            "hp": 120,
-            "image_url": "https://www.serebii.net/card/151/146.jpg",
-            "rarity": "Rare"
-        },
-        {
-            "id": "147",
-            "name": "dratini",
-            "type": "dragon",
-            "move": "bind",
-            "hp": 60,
-            "image_url": "https://www.serebii.net/card/151/147.jpg",
-            "rarity": "Common"
-        },
-        {
-            "id": "148",
-            "name": "dragonair",
-            "type": "dragon",
-            "move": "bind",
-            "hp": 100,
-            "image_url": "https://www.serebii.net/card/151/148.jpg",
-            "rarity": "Uncommon"
-        },
-        {
-            "id": "149",
-            "name": "dragonite",
-            "type": "dragon/flying",
-            "move": "mega-punch",
-            "hp": 180,
-            "image_url": "https://www.serebii.net/card/151/149.jpg",
-            "rarity": "Epic"
-        },
-        {
-            "id": "150",
-            "name": "mewtwo",
-            "type": "psychic",
-            "move": "mega-punch",
-            "hp": 130,
-            "image_url": "https://www.serebii.net/card/151/150.jpg",
-            "rarity": "Legendary"
-        },
-        {
-            "id": "151",
-            "name": "mew",
-            "type": "psychic",
-            "move": "pound",
-            "hp": 180,
-            "image_url": "https://www.serebii.net/card/151/151.jpg",
-            "rarity": "Epic"
-        }
-    ],
-    "trainers": [
-        {
-            "id": "email#trainer-1",
-            "name": "Ash Ketchum",
-            "imageURL": "https://www.guystuffcounseling.com/hs-fs/hubfs/wife-believes-she-is-married-to-an-angry-man.jpg?width=800&height=564&name=wife-believes-she-is-married-to-an-angry-man.jpg"
-        },
-        {
-            "id": "email#trainer-2",
-            "name": "Misty",
-            "imageURL": "https://t4.ftcdn.net/jpg/01/02/10/63/360_F_102106321_OxDJKwiEfkYIlPvbwNdp2HkSMWVMJFPY.jpg"
-        },
-        {
-            "id": "email#trainer-3",
-            "name": "Brock",
-            "imageURL": "https://media.istockphoto.com/id/1080816484/photo/i-warned-you-that-would-happen.jpg?s=612x612&w=0&k=20&c=0jc1YxuoWJXupz2QPmuCFFCqkQLIP6riUhYmep3cXaI="
-        },
-        {
-            "id": "email#trainer-4",
-            "name": "Cynthia",
-            "imageURL": "https://www.guystuffcounseling.com/hs-fs/hubfs/wife-believes-she-is-married-to-an-angry-man.jpg?width=800&height=564&name=wife-believes-she-is-married-to-an-angry-man.jpg"
-        },
-        {
-            "id": "email#trainer-5",
-            "name": "Lance",
-            "imageURL": "https://t4.ftcdn.net/jpg/01/02/10/63/360_F_102106321_OxDJKwiEfkYIlPvbwNdp2HkSMWVMJFPY.jpg"
-        },
-        {
-            "id": "email#trainer-6",
-            "name": "Steven Stone",
-            "imageURL": "https://media.istockphoto.com/id/1080816484/photo/i-warned-you-that-would-happen.jpg?s=612x612&w=0&k=20&c=0jc1YxuoWJXupz2QPmuCFFCqkQLIP6riUhYmep3cXaI="
-        },
-        {
-            "id": "email#trainer-7",
-            "name": "Red",
-            "imageURL": "https://www.guystuffcounseling.com/hs-fs/hubfs/wife-believes-she-is-married-to-an-angry-man.jpg?width=800&height=564&name=wife-believes-she-is-married-to-an-angry-man.jpg"
-        },
-        {
-            "id": "email#trainer-8",
-            "name": "Blue",
-            "imageURL": "https://t4.ftcdn.net/jpg/01/02/10/63/360_F_102106321_OxDJKwiEfkYIlPvbwNdp2HkSMWVMJFPY.jpg"
-        },
-        {
-            "id": "email#trainer-9",
-            "name": "Erika",
-            "imageURL": "https://media.istockphoto.com/id/1080816484/photo/i-warned-you-that-would-happen.jpg?s=612x612&w=0&k=20&c=0jc1YxuoWJXupz2QPmuCFFCqkQLIP6riUhYmep3cXaI="
-        },
-        {
-            "id": "email#trainer-10",
-            "name": "Sabrina",
-            "imageURL": "https://www.guystuffcounseling.com/hs-fs/hubfs/wife-believes-she-is-married-to-an-angry-man.jpg?width=800&height=564&name=wife-believes-she-is-married-to-an-angry-man.jpg"
-        }
-    ],
-    "collections": [
-        {"pk": "email#trainer-1", "sk": "1", "quantity": 1},
-        {"pk": "email#trainer-1", "sk": "2", "quantity": 1},
-        {"pk": "email#trainer-1", "sk": "3", "quantity": 1},
-        {"pk": "email#trainer-1", "sk": "4", "quantity": 1},
-        {"pk": "email#trainer-1", "sk": "5", "quantity": 1},
-
-        {"pk": "email#trainer-2", "sk": "6", "quantity": 1},
-        {"pk": "email#trainer-2", "sk": "7", "quantity": 1},
-        {"pk": "email#trainer-2", "sk": "8", "quantity": 1},
-        {"pk": "email#trainer-2", "sk": "9", "quantity": 1},
-        {"pk": "email#trainer-2", "sk": "10", "quantity": 1},
-
-        {"pk": "email#trainer-3", "sk": "11", "quantity": 1},
-        {"pk": "email#trainer-3", "sk": "12", "quantity": 1},
-        {"pk": "email#trainer-3", "sk": "13", "quantity": 1},
-        {"pk": "email#trainer-3", "sk": "14", "quantity": 1},
-        {"pk": "email#trainer-3", "sk": "15", "quantity": 1},
-
-        {"pk": "email#trainer-4", "sk": "16", "quantity": 1},
-        {"pk": "email#trainer-4", "sk": "17", "quantity": 1},
-        {"pk": "email#trainer-4", "sk": "18", "quantity": 1},
-        {"pk": "email#trainer-4", "sk": "19", "quantity": 1},
-        {"pk": "email#trainer-4", "sk": "20", "quantity": 1},
-
-        {"pk": "email#trainer-5", "sk": "21", "quantity": 1},
-        {"pk": "email#trainer-5", "sk": "22", "quantity": 1},
-        {"pk": "email#trainer-5", "sk": "23", "quantity": 1},
-        {"pk": "email#trainer-5", "sk": "24", "quantity": 1},
-        {"pk": "email#trainer-5", "sk": "25", "quantity": 1},
-
-        {"pk": "email#trainer-6", "sk": "26", "quantity": 1},
-        {"pk": "email#trainer-6", "sk": "27", "quantity": 1},
-        {"pk": "email#trainer-6", "sk": "28", "quantity": 1},
-        {"pk": "email#trainer-6", "sk": "29", "quantity": 1},
-        {"pk": "email#trainer-6", "sk": "30", "quantity": 1},
-
-        {"pk": "email#trainer-7", "sk": "31", "quantity": 1},
-        {"pk": "email#trainer-7", "sk": "32", "quantity": 1},
-        {"pk": "email#trainer-7", "sk": "33", "quantity": 1},
-        {"pk": "email#trainer-7", "sk": "34", "quantity": 1},
-        {"pk": "email#trainer-7", "sk": "35", "quantity": 1},
-
-        {"pk": "email#trainer-8", "sk": "36", "quantity": 1},
-        {"pk": "email#trainer-8", "sk": "37", "quantity": 1},
-        {"pk": "email#trainer-8", "sk": "38", "quantity": 1},
-        {"pk": "email#trainer-8", "sk": "39", "quantity": 1},
-        {"pk": "email#trainer-8", "sk": "40", "quantity": 1},
-
-        {"pk": "email#trainer-9", "sk": "41", "quantity": 1},
-        {"pk": "email#trainer-9", "sk": "42", "quantity": 1},
-        {"pk": "email#trainer-9", "sk": "43", "quantity": 1},
-        {"pk": "email#trainer-9", "sk": "44", "quantity": 1},
-        {"pk": "email#trainer-9", "sk": "45", "quantity": 1},
-
-        {"pk": "email#trainer-10", "sk": "46", "quantity": 1},
-        {"pk": "email#trainer-10", "sk": "47", "quantity": 1},
-        {"pk": "email#trainer-10", "sk": "48", "quantity": 1},
-        {"pk": "email#trainer-10", "sk": "49", "quantity": 1},
-        {"pk": "email#trainer-10", "sk": "50", "quantity": 1}
-        ]
+  "pokemon": [
+    {
+      "id": "1",
+      "name": "bulbasaur",
+      "type": "grass/poison",
+      "move": "razor-wind",
+      "hp": 70,
+      "image_url": "https://www.serebii.net/card/151/1.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "2",
+      "name": "ivysaur",
+      "type": "grass/poison",
+      "move": "swords-dance",
+      "hp": 100,
+      "image_url": "https://www.serebii.net/card/151/2.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "3",
+      "name": "venusaur",
+      "type": "grass/poison",
+      "move": "swords-dance",
+      "hp": 340,
+      "image_url": "https://www.serebii.net/card/151/3.jpg",
+      "rarity": "Epic"
+    },
+    {
+      "id": "4",
+      "name": "charmander",
+      "type": "fire",
+      "move": "mega-punch",
+      "hp": 70,
+      "image_url": "https://www.serebii.net/card/151/4.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "5",
+      "name": "charmeleon",
+      "type": "fire",
+      "move": "mega-punch",
+      "hp": 100,
+      "image_url": "https://www.serebii.net/card/151/5.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "6",
+      "name": "charizard",
+      "type": "fire/flying",
+      "move": "mega-punch",
+      "hp": 330,
+      "image_url": "https://www.serebii.net/card/151/6.jpg",
+      "rarity": "Epic"
+    },
+    {
+      "id": "7",
+      "name": "squirtle",
+      "type": "water",
+      "move": "mega-punch",
+      "hp": 60,
+      "image_url": "https://www.serebii.net/card/151/7.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "8",
+      "name": "wartortle",
+      "type": "water",
+      "move": "mega-punch",
+      "hp": 100,
+      "image_url": "https://www.serebii.net/card/151/8.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "9",
+      "name": "blastoise",
+      "type": "water",
+      "move": "mega-punch",
+      "hp": 330,
+      "image_url": "https://www.serebii.net/card/151/9.jpg",
+      "rarity": "Epic"
+    },
+    {
+      "id": "10",
+      "name": "caterpie",
+      "type": "bug",
+      "move": "tackle",
+      "hp": 50,
+      "image_url": "https://www.serebii.net/card/151/10.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "11",
+      "name": "metapod",
+      "type": "bug",
+      "move": "string-shot",
+      "hp": 90,
+      "image_url": "https://www.serebii.net/card/151/11.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "12",
+      "name": "butterfree",
+      "type": "bug/flying",
+      "move": "razor-wind",
+      "hp": 130,
+      "image_url": "https://www.serebii.net/card/151/12.jpg",
+      "rarity": "Legendary"
+    },
+    {
+      "id": "13",
+      "name": "weedle",
+      "type": "bug/poison",
+      "move": "poison-sting",
+      "hp": 50,
+      "image_url": "https://www.serebii.net/card/151/13.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "14",
+      "name": "kakuna",
+      "type": "bug/poison",
+      "move": "string-shot",
+      "hp": 80,
+      "image_url": "https://www.serebii.net/card/151/14.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "15",
+      "name": "beedrill",
+      "type": "bug/poison",
+      "move": "swords-dance",
+      "hp": 130,
+      "image_url": "https://www.serebii.net/card/151/15.jpg",
+      "rarity": "Legendary"
+    },
+    {
+      "id": "16",
+      "name": "pidgey",
+      "type": "normal/flying",
+      "move": "razor-wind",
+      "hp": 50,
+      "image_url": "https://www.serebii.net/card/151/16.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "17",
+      "name": "pidgeotto",
+      "type": "normal/flying",
+      "move": "razor-wind",
+      "hp": 80,
+      "image_url": "https://www.serebii.net/card/151/17.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "18",
+      "name": "pidgeot",
+      "type": "normal/flying",
+      "move": "razor-wind",
+      "hp": 130,
+      "image_url": "https://www.serebii.net/card/151/18.jpg",
+      "rarity": "Legendary"
+    },
+    {
+      "id": "19",
+      "name": "rattata",
+      "type": "normal",
+      "move": "cut",
+      "hp": 40,
+      "image_url": "https://www.serebii.net/card/151/19.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "20",
+      "name": "raticate",
+      "type": "normal",
+      "move": "swords-dance",
+      "hp": 70,
+      "image_url": "https://www.serebii.net/card/151/20.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "21",
+      "name": "spearow",
+      "type": "normal/flying",
+      "move": "razor-wind",
+      "hp": 50,
+      "image_url": "https://www.serebii.net/card/151/21.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "22",
+      "name": "fearow",
+      "type": "normal/flying",
+      "move": "razor-wind",
+      "hp": 90,
+      "image_url": "https://www.serebii.net/card/151/22.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "23",
+      "name": "ekans",
+      "type": "poison",
+      "move": "bind",
+      "hp": 70,
+      "image_url": "https://www.serebii.net/card/151/23.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "24",
+      "name": "arbok",
+      "type": "poison",
+      "move": "bind",
+      "hp": 270,
+      "image_url": "https://www.serebii.net/card/151/24.jpg",
+      "rarity": "Epic"
+    },
+    {
+      "id": "25",
+      "name": "pikachu",
+      "type": "electric",
+      "move": "mega-punch",
+      "hp": 60,
+      "image_url": "https://www.serebii.net/card/151/25.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "26",
+      "name": "raichu",
+      "type": "electric",
+      "move": "mega-punch",
+      "hp": 120,
+      "image_url": "https://www.serebii.net/card/151/26.jpg",
+      "rarity": "Rare"
+    },
+    {
+      "id": "27",
+      "name": "sandshrew",
+      "type": "ground",
+      "move": "scratch",
+      "hp": 60,
+      "image_url": "https://www.serebii.net/card/151/27.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "28",
+      "name": "sandslash",
+      "type": "ground",
+      "move": "scratch",
+      "hp": 120,
+      "image_url": "https://www.serebii.net/card/151/28.jpg",
+      "rarity": "Rare"
+    },
+    {
+      "id": "29",
+      "name": "nidoran-f",
+      "type": "poison",
+      "move": "scratch",
+      "hp": 60,
+      "image_url": "https://www.serebii.net/card/151/29.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "30",
+      "name": "nidorina",
+      "type": "poison",
+      "move": "scratch",
+      "hp": 90,
+      "image_url": "https://www.serebii.net/card/151/30.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "31",
+      "name": "nidoqueen",
+      "type": "poison/ground",
+      "move": "mega-punch",
+      "hp": 170,
+      "image_url": "https://www.serebii.net/card/151/31.jpg",
+      "rarity": "Epic"
+    },
+    {
+      "id": "32",
+      "name": "nidoran-m",
+      "type": "poison",
+      "move": "cut",
+      "hp": 60,
+      "image_url": "https://www.serebii.net/card/151/32.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "33",
+      "name": "nidorino",
+      "type": "poison",
+      "move": "cut",
+      "hp": 90,
+      "image_url": "https://www.serebii.net/card/151/33.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "34",
+      "name": "nidoking",
+      "type": "poison/ground",
+      "move": "mega-punch",
+      "hp": 170,
+      "image_url": "https://www.serebii.net/card/151/34.jpg",
+      "rarity": "Epic"
+    },
+    {
+      "id": "35",
+      "name": "clefairy",
+      "type": "fairy",
+      "move": "pound",
+      "hp": 60,
+      "image_url": "https://www.serebii.net/card/151/35.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "36",
+      "name": "clefable",
+      "type": "fairy",
+      "move": "pound",
+      "hp": 100,
+      "image_url": "https://www.serebii.net/card/151/36.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "37",
+      "name": "vulpix",
+      "type": "fire",
+      "move": "headbutt",
+      "hp": 70,
+      "image_url": "https://www.serebii.net/card/151/37.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "38",
+      "name": "ninetales",
+      "type": "fire",
+      "move": "headbutt",
+      "hp": 260,
+      "image_url": "https://www.serebii.net/card/151/38.jpg",
+      "rarity": "Epic"
+    },
+    {
+      "id": "39",
+      "name": "jigglypuff",
+      "type": "normal/fairy",
+      "move": "pound",
+      "hp": 70,
+      "image_url": "https://www.serebii.net/card/151/39.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "40",
+      "name": "wigglytuff",
+      "type": "normal/fairy",
+      "move": "pound",
+      "hp": 250,
+      "image_url": "https://www.serebii.net/card/151/40.jpg",
+      "rarity": "Epic"
+    },
+    {
+      "id": "41",
+      "name": "zubat",
+      "type": "poison/flying",
+      "move": "razor-wind",
+      "hp": 40,
+      "image_url": "https://www.serebii.net/card/151/41.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "42",
+      "name": "golbat",
+      "type": "poison/flying",
+      "move": "razor-wind",
+      "hp": 80,
+      "image_url": "https://www.serebii.net/card/151/42.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "43",
+      "name": "oddish",
+      "type": "grass/poison",
+      "move": "swords-dance",
+      "hp": 60,
+      "image_url": "https://www.serebii.net/card/151/43.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "44",
+      "name": "gloom",
+      "type": "grass/poison",
+      "move": "swords-dance",
+      "hp": 70,
+      "image_url": "https://www.serebii.net/card/151/44.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "45",
+      "name": "vileplume",
+      "type": "grass/poison",
+      "move": "swords-dance",
+      "hp": 140,
+      "image_url": "https://www.serebii.net/card/151/45.jpg",
+      "rarity": "Legendary"
+    },
+    {
+      "id": "46",
+      "name": "paras",
+      "type": "bug/grass",
+      "move": "scratch",
+      "hp": 70,
+      "image_url": "https://www.serebii.net/card/151/46.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "47",
+      "name": "parasect",
+      "type": "bug/grass",
+      "move": "scratch",
+      "hp": 120,
+      "image_url": "https://www.serebii.net/card/151/47.jpg",
+      "rarity": "Rare"
+    },
+    {
+      "id": "48",
+      "name": "venonat",
+      "type": "bug/poison",
+      "move": "headbutt",
+      "hp": 70,
+      "image_url": "https://www.serebii.net/card/151/48.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "49",
+      "name": "venomoth",
+      "type": "bug/poison",
+      "move": "razor-wind",
+      "hp": 90,
+      "image_url": "https://www.serebii.net/card/151/49.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "50",
+      "name": "diglett",
+      "type": "ground",
+      "move": "scratch",
+      "hp": 50,
+      "image_url": "https://www.serebii.net/card/151/50.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "51",
+      "name": "dugtrio",
+      "type": "ground",
+      "move": "scratch",
+      "hp": 90,
+      "image_url": "https://www.serebii.net/card/151/51.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "52",
+      "name": "meowth",
+      "type": "normal",
+      "move": "pay-day",
+      "hp": 70,
+      "image_url": "https://www.serebii.net/card/151/52.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "53",
+      "name": "persian",
+      "type": "normal",
+      "move": "pay-day",
+      "hp": 110,
+      "image_url": "https://www.serebii.net/card/151/53.jpg",
+      "rarity": "Rare"
+    },
+    {
+      "id": "54",
+      "name": "psyduck",
+      "type": "water",
+      "move": "mega-punch",
+      "hp": 70,
+      "image_url": "https://www.serebii.net/card/151/54.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "55",
+      "name": "golduck",
+      "type": "water",
+      "move": "mega-punch",
+      "hp": 110,
+      "image_url": "https://www.serebii.net/card/151/55.jpg",
+      "rarity": "Rare"
+    },
+    {
+      "id": "56",
+      "name": "mankey",
+      "type": "fighting",
+      "move": "karate-chop",
+      "hp": 60,
+      "image_url": "https://www.serebii.net/card/151/56.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "57",
+      "name": "primeape",
+      "type": "fighting",
+      "move": "karate-chop",
+      "hp": 120,
+      "image_url": "https://www.serebii.net/card/151/57.jpg",
+      "rarity": "Rare"
+    },
+    {
+      "id": "58",
+      "name": "growlithe",
+      "type": "fire",
+      "move": "double-kick",
+      "hp": 80,
+      "image_url": "https://www.serebii.net/card/151/58.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "59",
+      "name": "arcanine",
+      "type": "fire",
+      "move": "headbutt",
+      "hp": 150,
+      "image_url": "https://www.serebii.net/card/151/59.jpg",
+      "rarity": "Legendary"
+    },
+    {
+      "id": "60",
+      "name": "poliwag",
+      "type": "water",
+      "move": "pound",
+      "hp": 60,
+      "image_url": "https://www.serebii.net/card/151/60.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "61",
+      "name": "poliwhirl",
+      "type": "water",
+      "move": "pound",
+      "hp": 90,
+      "image_url": "https://www.serebii.net/card/151/61.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "62",
+      "name": "poliwrath",
+      "type": "water/fighting",
+      "move": "pound",
+      "hp": 160,
+      "image_url": "https://www.serebii.net/card/151/62.jpg",
+      "rarity": "Epic"
+    },
+    {
+      "id": "63",
+      "name": "abra",
+      "type": "psychic",
+      "move": "mega-punch",
+      "hp": 50,
+      "image_url": "https://www.serebii.net/card/151/63.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "64",
+      "name": "kadabra",
+      "type": "psychic",
+      "move": "mega-punch",
+      "hp": 80,
+      "image_url": "https://www.serebii.net/card/151/64.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "65",
+      "name": "alakazam",
+      "type": "psychic",
+      "move": "mega-punch",
+      "hp": 310,
+      "image_url": "https://www.serebii.net/card/151/65.jpg",
+      "rarity": "Epic"
+    },
+    {
+      "id": "66",
+      "name": "machop",
+      "type": "fighting",
+      "move": "karate-chop",
+      "hp": 70,
+      "image_url": "https://www.serebii.net/card/151/66.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "67",
+      "name": "machoke",
+      "type": "fighting",
+      "move": "karate-chop",
+      "hp": 100,
+      "image_url": "https://www.serebii.net/card/151/67.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "68",
+      "name": "machamp",
+      "type": "fighting",
+      "move": "karate-chop",
+      "hp": 180,
+      "image_url": "https://www.serebii.net/card/151/68.jpg",
+      "rarity": "Epic"
+    },
+    {
+      "id": "69",
+      "name": "bellsprout",
+      "type": "grass/poison",
+      "move": "swords-dance",
+      "hp": 60,
+      "image_url": "https://www.serebii.net/card/151/69.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "70",
+      "name": "weepinbell",
+      "type": "grass/poison",
+      "move": "swords-dance",
+      "hp": 90,
+      "image_url": "https://www.serebii.net/card/151/70.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "71",
+      "name": "victreebel",
+      "type": "grass/poison",
+      "move": "swords-dance",
+      "hp": 150,
+      "image_url": "https://www.serebii.net/card/151/71.jpg",
+      "rarity": "Legendary"
+    },
+    {
+      "id": "72",
+      "name": "tentacool",
+      "type": "water/poison",
+      "move": "swords-dance",
+      "hp": 60,
+      "image_url": "https://www.serebii.net/card/151/72.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "73",
+      "name": "tentacruel",
+      "type": "water/poison",
+      "move": "swords-dance",
+      "hp": 120,
+      "image_url": "https://www.serebii.net/card/151/73.jpg",
+      "rarity": "Rare"
+    },
+    {
+      "id": "74",
+      "name": "geodude",
+      "type": "rock/ground",
+      "move": "mega-punch",
+      "hp": 80,
+      "image_url": "https://www.serebii.net/card/151/74.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "75",
+      "name": "graveler",
+      "type": "rock/ground",
+      "move": "mega-punch",
+      "hp": 110,
+      "image_url": "https://www.serebii.net/card/151/75.jpg",
+      "rarity": "Rare"
+    },
+    {
+      "id": "76",
+      "name": "golem",
+      "type": "rock/ground",
+      "move": "mega-punch",
+      "hp": 330,
+      "image_url": "https://www.serebii.net/card/151/76.jpg",
+      "rarity": "Epic"
+    },
+    {
+      "id": "77",
+      "name": "ponyta",
+      "type": "fire",
+      "move": "stomp",
+      "hp": 70,
+      "image_url": "https://www.serebii.net/card/151/77.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "78",
+      "name": "rapidash",
+      "type": "fire",
+      "move": "pay-day",
+      "hp": 100,
+      "image_url": "https://www.serebii.net/card/151/78.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "79",
+      "name": "slowpoke",
+      "type": "water/psychic",
+      "move": "pay-day",
+      "hp": 80,
+      "image_url": "https://www.serebii.net/card/151/79.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "80",
+      "name": "slowbro",
+      "type": "water/psychic",
+      "move": "mega-punch",
+      "hp": 130,
+      "image_url": "https://www.serebii.net/card/151/80.jpg",
+      "rarity": "Legendary"
+    },
+    {
+      "id": "81",
+      "name": "magnemite",
+      "type": "electric/steel",
+      "move": "headbutt",
+      "hp": 60,
+      "image_url": "https://www.serebii.net/card/151/81.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "82",
+      "name": "magneton",
+      "type": "electric/steel",
+      "move": "headbutt",
+      "hp": 90,
+      "image_url": "https://www.serebii.net/card/151/82.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "83",
+      "name": "farfetchd",
+      "type": "normal/flying",
+      "move": "razor-wind",
+      "hp": 90,
+      "image_url": "https://www.serebii.net/card/151/83.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "84",
+      "name": "doduo",
+      "type": "normal/flying",
+      "move": "swords-dance",
+      "hp": 70,
+      "image_url": "https://www.serebii.net/card/151/84.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "85",
+      "name": "dodrio",
+      "type": "normal/flying",
+      "move": "swords-dance",
+      "hp": 100,
+      "image_url": "https://www.serebii.net/card/151/85.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "86",
+      "name": "seel",
+      "type": "water",
+      "move": "pay-day",
+      "hp": 80,
+      "image_url": "https://www.serebii.net/card/151/86.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "87",
+      "name": "dewgong",
+      "type": "water/ice",
+      "move": "pay-day",
+      "hp": 130,
+      "image_url": "https://www.serebii.net/card/151/87.jpg",
+      "rarity": "Legendary"
+    },
+    {
+      "id": "88",
+      "name": "grimer",
+      "type": "poison",
+      "move": "pound",
+      "hp": 80,
+      "image_url": "https://www.serebii.net/card/151/88.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "89",
+      "name": "muk",
+      "type": "poison",
+      "move": "pound",
+      "hp": 150,
+      "image_url": "https://www.serebii.net/card/151/89.jpg",
+      "rarity": "Legendary"
+    },
+    {
+      "id": "90",
+      "name": "shellder",
+      "type": "water",
+      "move": "headbutt",
+      "hp": 70,
+      "image_url": "https://www.serebii.net/card/151/90.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "91",
+      "name": "cloyster",
+      "type": "water/ice",
+      "move": "headbutt",
+      "hp": 130,
+      "image_url": "https://www.serebii.net/card/151/91.jpg",
+      "rarity": "Legendary"
+    },
+    {
+      "id": "92",
+      "name": "gastly",
+      "type": "ghost/poison",
+      "move": "fire-punch",
+      "hp": 35,
+      "image_url": "https://www.serebii.net/card/151/92.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "93",
+      "name": "haunter",
+      "type": "ghost/poison",
+      "move": "fire-punch",
+      "hp": 80,
+      "image_url": "https://www.serebii.net/card/151/93.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "94",
+      "name": "gengar",
+      "type": "ghost/poison",
+      "move": "mega-punch",
+      "hp": 130,
+      "image_url": "https://www.serebii.net/card/151/94.jpg",
+      "rarity": "Legendary"
+    },
+    {
+      "id": "95",
+      "name": "onix",
+      "type": "rock/ground",
+      "move": "bind",
+      "hp": 120,
+      "image_url": "https://www.serebii.net/card/151/95.jpg",
+      "rarity": "Rare"
+    },
+    {
+      "id": "96",
+      "name": "drowzee",
+      "type": "psychic",
+      "move": "pound",
+      "hp": 80,
+      "image_url": "https://www.serebii.net/card/151/96.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "97",
+      "name": "hypno",
+      "type": "psychic",
+      "move": "pound",
+      "hp": 110,
+      "image_url": "https://www.serebii.net/card/151/97.jpg",
+      "rarity": "Rare"
+    },
+    {
+      "id": "98",
+      "name": "krabby",
+      "type": "water",
+      "move": "vice-grip",
+      "hp": 70,
+      "image_url": "https://www.serebii.net/card/151/98.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "99",
+      "name": "kingler",
+      "type": "water",
+      "move": "vice-grip",
+      "hp": 140,
+      "image_url": "https://www.serebii.net/card/151/99.jpg",
+      "rarity": "Legendary"
+    },
+    {
+      "id": "100",
+      "name": "voltorb",
+      "type": "electric",
+      "move": "headbutt",
+      "hp": 60,
+      "image_url": "https://www.serebii.net/card/151/100.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "101",
+      "name": "electrode",
+      "type": "electric",
+      "move": "headbutt",
+      "hp": 90,
+      "image_url": "https://www.serebii.net/card/151/101.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "102",
+      "name": "exeggcute",
+      "type": "grass/psychic",
+      "move": "swords-dance",
+      "hp": 60,
+      "image_url": "https://www.serebii.net/card/151/102.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "103",
+      "name": "exeggutor",
+      "type": "grass/psychic",
+      "move": "swords-dance",
+      "hp": 140,
+      "image_url": "https://www.serebii.net/card/151/103.jpg",
+      "rarity": "Legendary"
+    },
+    {
+      "id": "104",
+      "name": "cubone",
+      "type": "ground",
+      "move": "mega-punch",
+      "hp": 70,
+      "image_url": "https://www.serebii.net/card/151/104.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "105",
+      "name": "marowak",
+      "type": "ground",
+      "move": "mega-punch",
+      "hp": 120,
+      "image_url": "https://www.serebii.net/card/151/105.jpg",
+      "rarity": "Rare"
+    },
+    {
+      "id": "106",
+      "name": "hitmonlee",
+      "type": "fighting",
+      "move": "mega-punch",
+      "hp": 120,
+      "image_url": "https://www.serebii.net/card/151/106.jpg",
+      "rarity": "Rare"
+    },
+    {
+      "id": "107",
+      "name": "hitmonchan",
+      "type": "fighting",
+      "move": "comet-punch",
+      "hp": 120,
+      "image_url": "https://www.serebii.net/card/151/107.jpg",
+      "rarity": "Rare"
+    },
+    {
+      "id": "108",
+      "name": "lickitung",
+      "type": "normal",
+      "move": "mega-punch",
+      "hp": 100,
+      "image_url": "https://www.serebii.net/card/151/108.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "109",
+      "name": "koffing",
+      "type": "poison",
+      "move": "headbutt",
+      "hp": 60,
+      "image_url": "https://www.serebii.net/card/151/109.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "110",
+      "name": "weezing",
+      "type": "poison",
+      "move": "headbutt",
+      "hp": 110,
+      "image_url": "https://www.serebii.net/card/151/110.jpg",
+      "rarity": "Rare"
+    },
+    {
+      "id": "111",
+      "name": "rhyhorn",
+      "type": "ground/rock",
+      "move": "swords-dance",
+      "hp": 100,
+      "image_url": "https://www.serebii.net/card/151/111.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "112",
+      "name": "rhydon",
+      "type": "ground/rock",
+      "move": "mega-punch",
+      "hp": 120,
+      "image_url": "https://www.serebii.net/card/151/112.jpg",
+      "rarity": "Rare"
+    },
+    {
+      "id": "113",
+      "name": "chansey",
+      "type": "normal",
+      "move": "pound",
+      "hp": 110,
+      "image_url": "https://www.serebii.net/card/151/113.jpg",
+      "rarity": "Rare"
+    },
+    {
+      "id": "114",
+      "name": "tangela",
+      "type": "grass",
+      "move": "swords-dance",
+      "hp": 80,
+      "image_url": "https://www.serebii.net/card/151/114.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "115",
+      "name": "kangaskhan",
+      "type": "normal",
+      "move": "pound",
+      "hp": 230,
+      "image_url": "https://www.serebii.net/card/151/115.jpg",
+      "rarity": "Epic"
+    },
+    {
+      "id": "116",
+      "name": "horsea",
+      "type": "water",
+      "move": "razor-wind",
+      "hp": 60,
+      "image_url": "https://www.serebii.net/card/151/116.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "117",
+      "name": "seadra",
+      "type": "water",
+      "move": "headbutt",
+      "hp": 80,
+      "image_url": "https://www.serebii.net/card/151/117.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "118",
+      "name": "goldeen",
+      "type": "water",
+      "move": "swords-dance",
+      "hp": 70,
+      "image_url": "https://www.serebii.net/card/151/118.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "119",
+      "name": "seaking",
+      "type": "water",
+      "move": "swords-dance",
+      "hp": 110,
+      "image_url": "https://www.serebii.net/card/151/119.jpg",
+      "rarity": "Rare"
+    },
+    {
+      "id": "120",
+      "name": "staryu",
+      "type": "water",
+      "move": "headbutt",
+      "hp": 60,
+      "image_url": "https://www.serebii.net/card/151/120.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "121",
+      "name": "starmie",
+      "type": "water/psychic",
+      "move": "headbutt",
+      "hp": 90,
+      "image_url": "https://www.serebii.net/card/151/121.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "122",
+      "name": "mr-mime",
+      "type": "psychic/fairy",
+      "move": "pound",
+      "hp": 90,
+      "image_url": "https://www.serebii.net/card/151/122.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "123",
+      "name": "scyther",
+      "type": "bug/flying",
+      "move": "razor-wind",
+      "hp": 70,
+      "image_url": "https://www.serebii.net/card/151/123.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "124",
+      "name": "jynx",
+      "type": "ice/psychic",
+      "move": "pound",
+      "hp": 200,
+      "image_url": "https://www.serebii.net/card/151/124.jpg",
+      "rarity": "Epic"
+    },
+    {
+      "id": "125",
+      "name": "electabuzz",
+      "type": "electric",
+      "move": "mega-punch",
+      "hp": 90,
+      "image_url": "https://www.serebii.net/card/151/125.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "126",
+      "name": "magmar",
+      "type": "fire",
+      "move": "mega-punch",
+      "hp": 90,
+      "image_url": "https://www.serebii.net/card/151/126.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "127",
+      "name": "pinsir",
+      "type": "bug",
+      "move": "vice-grip",
+      "hp": 120,
+      "image_url": "https://www.serebii.net/card/151/127.jpg",
+      "rarity": "Rare"
+    },
+    {
+      "id": "128",
+      "name": "tauros",
+      "type": "normal",
+      "move": "stomp",
+      "hp": 120,
+      "image_url": "https://www.serebii.net/card/151/128.jpg",
+      "rarity": "Rare"
+    },
+    {
+      "id": "129",
+      "name": "magikarp",
+      "type": "water",
+      "move": "tackle",
+      "hp": 30,
+      "image_url": "https://www.serebii.net/card/151/129.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "130",
+      "name": "gyarados",
+      "type": "water/flying",
+      "move": "bind",
+      "hp": 190,
+      "image_url": "https://www.serebii.net/card/151/130.jpg",
+      "rarity": "Epic"
+    },
+    {
+      "id": "131",
+      "name": "lapras",
+      "type": "water/ice",
+      "move": "headbutt",
+      "hp": 110,
+      "image_url": "https://www.serebii.net/card/151/131.jpg",
+      "rarity": "Rare"
+    },
+    {
+      "id": "132",
+      "name": "ditto",
+      "type": "normal",
+      "move": "transform",
+      "hp": 60,
+      "image_url": "https://www.serebii.net/card/151/132.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "133",
+      "name": "eevee",
+      "type": "normal",
+      "move": "pay-day",
+      "hp": 70,
+      "image_url": "https://www.serebii.net/card/151/133.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "134",
+      "name": "vaporeon",
+      "type": "water",
+      "move": "pay-day",
+      "hp": 130,
+      "image_url": "https://www.serebii.net/card/151/134.jpg",
+      "rarity": "Legendary"
+    },
+    {
+      "id": "135",
+      "name": "jolteon",
+      "type": "electric",
+      "move": "pay-day",
+      "hp": 110,
+      "image_url": "https://www.serebii.net/card/151/135.jpg",
+      "rarity": "Rare"
+    },
+    {
+      "id": "136",
+      "name": "flareon",
+      "type": "fire",
+      "move": "pay-day",
+      "hp": 130,
+      "image_url": "https://www.serebii.net/card/151/136.jpg",
+      "rarity": "Legendary"
+    },
+    {
+      "id": "137",
+      "name": "porygon",
+      "type": "normal",
+      "move": "headbutt",
+      "hp": 60,
+      "image_url": "https://www.serebii.net/card/151/137.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "138",
+      "name": "omanyte",
+      "type": "rock/water",
+      "move": "bind",
+      "hp": 100,
+      "image_url": "https://www.serebii.net/card/151/138.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "139",
+      "name": "omastar",
+      "type": "rock/water",
+      "move": "bind",
+      "hp": 150,
+      "image_url": "https://www.serebii.net/card/151/139.jpg",
+      "rarity": "Legendary"
+    },
+    {
+      "id": "140",
+      "name": "kabuto",
+      "type": "rock/water",
+      "move": "scratch",
+      "hp": 90,
+      "image_url": "https://www.serebii.net/card/151/140.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "141",
+      "name": "kabutops",
+      "type": "rock/water",
+      "move": "scratch",
+      "hp": 160,
+      "image_url": "https://www.serebii.net/card/151/141.jpg",
+      "rarity": "Epic"
+    },
+    {
+      "id": "142",
+      "name": "aerodactyl",
+      "type": "rock/flying",
+      "move": "razor-wind",
+      "hp": 130,
+      "image_url": "https://www.serebii.net/card/151/142.jpg",
+      "rarity": "Legendary"
+    },
+    {
+      "id": "143",
+      "name": "snorlax",
+      "type": "normal",
+      "move": "mega-punch",
+      "hp": 150,
+      "image_url": "https://www.serebii.net/card/151/143.jpg",
+      "rarity": "Legendary"
+    },
+    {
+      "id": "144",
+      "name": "articuno",
+      "type": "ice/flying",
+      "move": "razor-wind",
+      "hp": 120,
+      "image_url": "https://www.serebii.net/card/151/144.jpg",
+      "rarity": "Rare"
+    },
+    {
+      "id": "145",
+      "name": "zapdos",
+      "type": "electric/flying",
+      "move": "razor-wind",
+      "hp": 200,
+      "image_url": "https://www.serebii.net/card/151/145.jpg",
+      "rarity": "Epic"
+    },
+    {
+      "id": "146",
+      "name": "moltres",
+      "type": "fire/flying",
+      "move": "razor-wind",
+      "hp": 120,
+      "image_url": "https://www.serebii.net/card/151/146.jpg",
+      "rarity": "Rare"
+    },
+    {
+      "id": "147",
+      "name": "dratini",
+      "type": "dragon",
+      "move": "bind",
+      "hp": 60,
+      "image_url": "https://www.serebii.net/card/151/147.jpg",
+      "rarity": "Common"
+    },
+    {
+      "id": "148",
+      "name": "dragonair",
+      "type": "dragon",
+      "move": "bind",
+      "hp": 100,
+      "image_url": "https://www.serebii.net/card/151/148.jpg",
+      "rarity": "Uncommon"
+    },
+    {
+      "id": "149",
+      "name": "dragonite",
+      "type": "dragon/flying",
+      "move": "mega-punch",
+      "hp": 180,
+      "image_url": "https://www.serebii.net/card/151/149.jpg",
+      "rarity": "Epic"
+    },
+    {
+      "id": "150",
+      "name": "mewtwo",
+      "type": "psychic",
+      "move": "mega-punch",
+      "hp": 130,
+      "image_url": "https://www.serebii.net/card/151/150.jpg",
+      "rarity": "Legendary"
+    },
+    {
+      "id": "151",
+      "name": "mew",
+      "type": "psychic",
+      "move": "pound",
+      "hp": 180,
+      "image_url": "https://www.serebii.net/card/151/151.jpg",
+      "rarity": "Epic"
+    }
+  ],
+  "trainers": [
+    {
+      "id": "email#trainer-1",
+      "name": "Bug Catcher",
+      "imageURL": "https://archives.bulbagarden.net/media/upload/7/7f/Spr_RS_Bug_Catcher.png",
+      "type": "Bug Pokémon",
+      "difficulty": 1,
+      "details": "The Bug Catcher specializes in Bug-type Pokémon, providing an accessible challenge for trainers."
+    },
+    {
+      "id": "email#trainer-2",
+      "name": "Swimmer",
+      "imageURL": "https://archives.bulbagarden.net/media/upload/7/77/Spr_RS_Swimmer_F.png",
+      "type": "Water Pokémon",
+      "difficulty": 2,
+      "details": "The Swimmer trains Water-type Pokémon and offers a moderate challenge to trainers."
+    },
+    {
+      "id": "email#trainer-3",
+      "name": "Hiker",
+      "imageURL": "https://archives.bulbagarden.net/media/upload/b/b7/Spr_RS_Hiker.png",
+      "type": "Rock Pokémon",
+      "difficulty": 3,
+      "details": "The Hiker focuses on Rock-type Pokémon and presents a moderate challenge to trainers exploring rocky terrains."
+    },
+    {
+      "id": "email#trainer-4",
+      "name": "Psychic Adept",
+      "imageURL": "https://archives.bulbagarden.net/media/upload/e/ea/Spr_FRLG_Psychic_M.png",
+      "type": "Psychic Pokémon",
+      "difficulty": 4,
+      "details": "The Psychic Adept wields Psychic-type Pokémon, offering a challenging mental battle for trainers."
+    },
+    {
+      "id": "email#trainer-5",
+      "name": "Bird Keeper",
+      "imageURL": "https://archives.bulbagarden.net/media/upload/b/b2/Spr_FRLG_Bird_Keeper.png",
+      "type": "Flying Pokémon",
+      "difficulty": 3,
+      "details": "The Bird Keeper trains Flying-type Pokémon and provides a moderate challenge to skyward-bound trainers."
+    },
+    {
+      "id": "email#trainer-6",
+      "name": "Fire Breather",
+      "imageURL": "https://archives.bulbagarden.net/media/upload/0/07/Spr_RS_Kindler.png",
+      "type": "Fire Pokémon",
+      "difficulty": 3,
+      "details": "The Fire Breather commands Fire-type Pokémon, offering a fiery challenge to trainers with a burning passion."
+    },
+    {
+      "id": "email#trainer-7",
+      "name": "Ace Trainer",
+      "imageURL": "https://archives.bulbagarden.net/media/upload/1/10/Spr_FRLG_Blue_3.png",
+      "type": "Various Pokémon",
+      "difficulty": 4,
+      "details": "The Ace Trainer is skilled in various Pokémon types, offering a versatile and challenging battle experience."
+    },
+    {
+      "id": "email#trainer-8",
+      "name": "Dragon Tamer",
+      "imageURL": "https://archives.bulbagarden.net/media/upload/0/0e/Spr_FRLG_Pok%C3%A9Maniac.png",
+      "type": "Dragon Pokémon",
+      "difficulty": 5,
+      "details": "The Dragon Tamer specializes in Dragon-type Pokémon, presenting a formidable challenge to trainers."
+    },
+    {
+      "id": "email#trainer-9",
+      "name": "Fairy Tale Girl",
+      "imageURL": "https://archives.bulbagarden.net/media/upload/9/91/Spr_FRLG_Lady.png",
+      "type": "Fairy Pokémon",
+      "difficulty": 3,
+      "details": "The Fairy Tale Girl trains Fairy-type Pokémon, offering a whimsical yet moderately challenging battle to trainers."
+    },
+    {
+      "id": "email#trainer-10",
+      "name": "Veteran",
+      "imageURL": "https://archives.bulbagarden.net/media/upload/0/0d/Spr_FRLG_Pok%C3%A9mon_Ranger_M.png",
+      "type": "Diverse Pokémon",
+      "difficulty": 5,
+      "details": "The Veteran is a seasoned trainer with a team of diverse Pokémon types, providing a tough challenge for experienced trainers."
+    }
+  ],
+  "collections": [
+    {
+      "pk": "email#trainer-1",
+      "sk": "1",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-1",
+      "sk": "2",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-1",
+      "sk": "3",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-1",
+      "sk": "4",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-1",
+      "sk": "5",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-2",
+      "sk": "6",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-2",
+      "sk": "7",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-2",
+      "sk": "8",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-2",
+      "sk": "9",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-2",
+      "sk": "10",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-3",
+      "sk": "11",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-3",
+      "sk": "12",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-3",
+      "sk": "13",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-3",
+      "sk": "14",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-3",
+      "sk": "15",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-4",
+      "sk": "16",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-4",
+      "sk": "17",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-4",
+      "sk": "18",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-4",
+      "sk": "19",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-4",
+      "sk": "20",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-5",
+      "sk": "21",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-5",
+      "sk": "22",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-5",
+      "sk": "23",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-5",
+      "sk": "24",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-5",
+      "sk": "25",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-6",
+      "sk": "26",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-6",
+      "sk": "27",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-6",
+      "sk": "28",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-6",
+      "sk": "29",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-6",
+      "sk": "30",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-7",
+      "sk": "31",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-7",
+      "sk": "32",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-7",
+      "sk": "33",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-7",
+      "sk": "34",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-7",
+      "sk": "35",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-8",
+      "sk": "36",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-8",
+      "sk": "37",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-8",
+      "sk": "38",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-8",
+      "sk": "39",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-8",
+      "sk": "40",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-9",
+      "sk": "41",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-9",
+      "sk": "42",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-9",
+      "sk": "43",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-9",
+      "sk": "44",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-9",
+      "sk": "45",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-10",
+      "sk": "46",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-10",
+      "sk": "47",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-10",
+      "sk": "48",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-10",
+      "sk": "49",
+      "quantity": 1
+    },
+    {
+      "pk": "email#trainer-10",
+      "sk": "50",
+      "quantity": 1
+    }
+  ]
 }

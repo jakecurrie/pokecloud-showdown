@@ -53,7 +53,7 @@ const TrainerCard: FC<TrainerCardProps> = ({
           src={imageURL}
           alt={name}
           className={
-            "box-content absolute top-11 w-36 left-5 border-4 border-gray-500"
+            "box-content absolute top-11 h-24 left-5 border-4 border-gray-500 bg-honeydew px-6"
           }
         />
         <div className="absolute top-1/2 left-0 w-full p-2 text-center">
@@ -62,7 +62,7 @@ const TrainerCard: FC<TrainerCardProps> = ({
             {hollowStarArray}
           </div>
           <h2 className="text-lg font-bold">{name}</h2>
-          <p>Type: {type}</p>
+          <p className={"text-sm"}>Type: {type}</p>
         </div>
       </div>
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-black bg-opacity-75 p-4 flex flex-col justify-center items-center">
