@@ -1,9 +1,13 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-export const TimingSlider = () => {
+interface TimingSliderProps {
+  onConfirm: (attackStrength: number) => void;
+  resetKey?: number; // Add a resetKey prop
+}
+
+const TimingSlider: React.FC<TimingSliderProps> = ({ onConfirm, resetKey }) => {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [movingRight, setMovingRight] = useState(true);
-  const [attackStrength, setAttackStrength] = useState(0);
   const [isStopped, setIsStopped] = useState(false);
 
   useEffect(() => {
@@ -26,10 +30,15 @@ export const TimingSlider = () => {
     return () => clearInterval(interval);
   }, [movingRight, isStopped]);
 
+  useEffect(() => {
+    setIsStopped(false);
+    setSliderPosition(50);
+  }, [resetKey]);
+
   const stopSlider = () => {
     setIsStopped(true);
     const strength = 100 - 2 * Math.abs(sliderPosition - 50);
-    setAttackStrength(strength);
+    onConfirm(strength);
     console.log(`Attack strength: ${strength}%`);
   };
 
@@ -39,7 +48,7 @@ export const TimingSlider = () => {
         className="absolute w-2 h-5 bg-red-500"
         style={{ left: `${sliderPosition}%` }}
       ></div>
-      <br/>
+      <br />
       <button
         className="mt-2 px-4 py-2 bg-blue-500 text-white rounded"
         onClick={stopSlider}
@@ -47,7 +56,10 @@ export const TimingSlider = () => {
       >
         Attack
       </button>
-      {isStopped && <div className="mt-2">Attack Strength: {attackStrength}%</div>}
+      {isStopped && <div className="mt-2">Attack Strength: {100 - 2 * Math.abs(sliderPosition - 50)}%</div>}
     </div>
   );
 };
+
+export default TimingSlider;
+
