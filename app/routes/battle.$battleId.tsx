@@ -56,10 +56,6 @@ export default function BattleTrainerId() {
 
   return (
     <div>
-      <h1> Hello </h1>
-      <h1>{actionData.trainerCollection[0].pokemon.name}</h1>
-      <h1>{actionData.userCollection[0].name}</h1>
-
       <h4>YOUR POKEMON:</h4>
       <div className={"grid grid-cols-5"}>
         <PokemonCard
