@@ -1,11 +1,20 @@
 import { json, LoaderFunctionArgs } from "@remix-run/node";
-import { useLoaderData, Form } from "@remix-run/react";
+import { Form, useLoaderData } from "@remix-run/react";
 import { useState } from "react";
 
 import PokemonSelectionGrid from "~/components/pokemonSelectionGrid";
 import TrainerCard from "~/components/trainercard";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "~/components/ui/carousel";
-import { CollectionItemWithPokemon, getCollectionWithPokemonDetails } from "~/models/collections.server";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "~/components/ui/carousel";
+import {
+  CollectionItemWithPokemon,
+  getCollectionWithPokemonDetails,
+} from "~/models/collections.server";
 import { getAllTrainers, Trainer } from "~/models/trainers.server";
 import { requireUserId } from "~/session.server";
 
@@ -22,31 +31,40 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
     console.log("Loader: Successfully loaded trainers and collection");
     return json({
       trainers,
-      collection
+      collection,
     });
   } catch (error) {
     console.error("Loader Error:", error);
-    return json({
-      trainers: [],
-      collection: []
-    }, { status: 500 });
+    return json(
+      {
+        trainers: [],
+        collection: [],
+      },
+      { status: 500 },
+    );
   }
-}
+};
 
 export default function BattleSetup() {
   const { trainers, collection } = useLoaderData<BattleSetupProps>();
   const [selectedTrainer, setSelectedTrainer] = useState<Trainer | null>(null);
-  const [selectedPokemon, setSelectedPokemon] = useState<CollectionItemWithPokemon[]>([]);
+  const [selectedPokemon, setSelectedPokemon] = useState<
+    CollectionItemWithPokemon[]
+  >([]);
 
   const handleSelectTrainer = (trainer: Trainer) => {
     setSelectedTrainer(trainer);
     console.log("Selected Trainer:", trainer);
   };
 
-  const handlePokemonSelectionChange = (selectedPokemon: CollectionItemWithPokemon[]) => {
+  const handlePokemonSelectionChange = (
+    selectedPokemon: CollectionItemWithPokemon[],
+  ) => {
     setSelectedPokemon(selectedPokemon);
     console.log("Selected Pokémon:", selectedPokemon);
   };
+
+  const battleId = Date.now();
 
   return (
     <div>
@@ -64,7 +82,9 @@ export default function BattleSetup() {
               <CarouselItem key={trainer.id} className="pt-1">
                 <div
                   onClick={() => handleSelectTrainer(trainer)}
-                  onKeyDown={(e) => e.key === 'Enter' && handleSelectTrainer(trainer)}
+                  onKeyDown={(e) =>
+                    e.key === "Enter" && handleSelectTrainer(trainer)
+                  }
                   role="button"
                   tabIndex={0}
                 >
@@ -84,24 +104,29 @@ export default function BattleSetup() {
         </Carousel>
       </div>
       {selectedTrainer && (
-        <Form method="post" action={`/battle/${selectedTrainer.id}`}>
+        <Form method="post" action={`/battle/${battleId}`}>
           <h3>Selected Trainer: {selectedTrainer.name}</h3>
           <h4>Select up to 5 Pokémon for Battle</h4>
-          <PokemonSelectionGrid collection={collection} onSelectionChange={handlePokemonSelectionChange} />
+          <PokemonSelectionGrid
+            collection={collection}
+            onSelectionChange={handlePokemonSelectionChange}
+          />
           {selectedPokemon.map((pokemon, index) => (
-            <input key={index} type="hidden" name={`pokemonIds`} value={pokemon.cardId} />
+            <div key={index}>
+              <input
+                type="hidden"
+                name={`pokemonId${index + 1}`}
+                value={pokemon.pokemon?.id}
+              />
+            </div>
           ))}
           {selectedPokemon.length === 5 && (
             <button type="submit">Start Battle</button>
           )}
+          <input type="hidden" name={`battleId`} value={battleId} />
+          <input type="hidden" name={`trainerId`} value={selectedTrainer.id} />
         </Form>
       )}
     </div>
   );
 }
-
-
-
-
-
-

@@ -1,5 +1,11 @@
 import { json, LoaderFunction, LoaderFunctionArgs } from "@remix-run/node";
-import { Form, Link, useLoaderData, useSearchParams } from "@remix-run/react";
+import {
+  Form,
+  Link,
+  useLoaderData,
+  useNavigation,
+  useSearchParams,
+} from "@remix-run/react";
 
 import CardPack from "~/components/cardPack";
 import {
@@ -87,6 +93,8 @@ export const loader: LoaderFunction = async ({
 export default function Shop() {
   const [searchParams] = useSearchParams();
   const [parentDialogDisabled, setParentDialogDisabled] = useState(false);
+  const navigation = useNavigation();
+  const isSubmitting = navigation.formAction === "/collections";
 
   const {
     bundles,
@@ -256,7 +264,7 @@ export default function Shop() {
                                 setParentDialogDisabled((prev) => !prev)
                               }
                             >
-                              Purchase
+                              {isSubmitting ? "Opening..." : "Purchase"}
                             </AlertDialogAction>
                           </Form>
                         )}

@@ -55,8 +55,6 @@ export async function action({ request }: ActionFunctionArgs) {
   const card4 = await getPokemonById(cardData.card4.toString());
   const card5 = await getPokemonById(cardData.card5.toString());
 
-  console.log(cardData[0]);
-
   redirect("/collections");
 
   await changeBalance(userId, price);

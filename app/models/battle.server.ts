@@ -20,10 +20,19 @@ export async function getBattlesByUserId(userId: string): Promise<Battle[]> {
 
 export async function createBattle(battle: Battle): Promise<void> {
   const db = await arc.tables();
-  await db.battles.put(battle);
+  await db.battles.put({
+    battleId: battle.battleId,
+    userId: battle.userId,
+    trainerId: battle.trainerId,
+    won: battle.won,
+  });
 }
 
-export async function updateBattleResult(userId: string, battleId: string, won: number): Promise<void> {
+export async function updateBattleResult(
+  userId: string,
+  battleId: string,
+  won: number,
+): Promise<void> {
   const db = await arc.tables();
   await db.battles.update({
     Key: { userId, battleId },
@@ -32,12 +41,19 @@ export async function updateBattleResult(userId: string, battleId: string, won: 
   });
 }
 
-export async function deleteBattle(userId: string, battleId: string): Promise<void> {
+export async function deleteBattle(
+  userId: string,
+  battleId: string,
+): Promise<void> {
   const db = await arc.tables();
   await db.battles.delete({ userId, battleId });
 }
 
-export async function getBattleStatsByUserId(userId: string): Promise<{ wins: number; losses: number; currentWinStreak: number }> {
+export async function getBattleStatsByUserId(userId: string): Promise<{
+  wins: number;
+  losses: number;
+  currentWinStreak: number;
+}> {
   console.log(`Getting battle stats for user ID: ${userId}`);
   const battles = await getBattlesByUserId(userId);
 
@@ -58,6 +74,10 @@ export async function getBattleStatsByUserId(userId: string): Promise<{ wins: nu
       currentWinStreak = 0;
     }
   }
-  console.log(`Battle stats for user ID ${userId}:`, { wins, losses, currentWinStreak });
+  console.log(`Battle stats for user ID ${userId}:`, {
+    wins,
+    losses,
+    currentWinStreak,
+  });
   return { wins, losses, currentWinStreak };
 }
