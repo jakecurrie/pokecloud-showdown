@@ -7,6 +7,7 @@ import { getPokemonById, Pokemon } from "~/models/pokemon.server";
 import { createBattle } from "~/models/battle.server";
 import PokemonCard from "~/components/pokecard";
 import BattleComponent from "../components/battleDisplay";
+import homePic from "../../public/images/battle.jpg";
 
 interface BattleDetails {
   name: string;
@@ -69,27 +70,27 @@ export const action: ActionFunction = async ({ request }) => {
         {
           name: trainerPokemon[0].pokemon.name,
           hp: trainerPokemon[0].pokemon.hp,
-          attack: trainerPokemon[0].pokemon.hp / 2,
+          attack: (3 * trainerPokemon[0].pokemon.hp) / 4,
         },
         {
           name: trainerPokemon[1].pokemon.name,
           hp: trainerPokemon[1].pokemon.hp,
-          attack: trainerPokemon[1].pokemon.hp / 2,
+          attack: (3 * trainerPokemon[1].pokemon.hp) / 4,
         },
         {
           name: trainerPokemon[2].pokemon.name,
           hp: trainerPokemon[2].pokemon.hp,
-          attack: trainerPokemon[2].pokemon.hp / 2,
+          attack: (3 * trainerPokemon[2].pokemon.hp) / 4,
         },
         {
           name: trainerPokemon[3].pokemon.name,
           hp: trainerPokemon[3].pokemon.hp,
-          attack: trainerPokemon[3].pokemon.hp / 2,
+          attack: (3 * trainerPokemon[3].pokemon.hp) / 4,
         },
         {
           name: trainerPokemon[4].pokemon.name,
           hp: trainerPokemon[4].pokemon.hp,
-          attack: trainerPokemon[4].pokemon.hp / 2,
+          attack: (3 * trainerPokemon[4].pokemon.hp) / 4,
         },
       ];
     }
@@ -98,11 +99,11 @@ export const action: ActionFunction = async ({ request }) => {
 
     if (poke1 && poke2 && poke3 && poke4 && poke5 && trainerBattleCollection) {
       userBattleCollection = [
-        { name: poke1.name, hp: poke1.hp, attack: poke1.hp / 2 },
-        { name: poke2.name, hp: poke2.hp, attack: poke2.hp / 2 },
-        { name: poke3.name, hp: poke3.hp, attack: poke3.hp / 2 },
-        { name: poke4.name, hp: poke4.hp, attack: poke4.hp / 2 },
-        { name: poke5.name, hp: poke5.hp, attack: poke5.hp / 2 },
+        { name: poke1.name, hp: poke1.hp, attack: (3 * poke1.hp) / 4 },
+        { name: poke2.name, hp: poke2.hp, attack: (3 * poke2.hp) / 4 },
+        { name: poke3.name, hp: poke3.hp, attack: (3 * poke3.hp) / 4 },
+        { name: poke4.name, hp: poke4.hp, attack: (3 * poke4.hp) / 4 },
+        { name: poke5.name, hp: poke5.hp, attack: (3 * poke5.hp) / 4 },
       ];
 
       console.log("Creating battle");
@@ -130,89 +131,142 @@ export default function BattleTrainerId() {
   const actionData = useActionData<typeof action>();
 
   return (
-    <div>
-      <h4>YOUR POKEMON:</h4>
-      <div className={"grid grid-cols-5 w-1/2"}>
-        <PokemonCard
-          name={actionData.userCollection[0].name}
-          imageUrl={actionData.userCollection[0].image_url}
-          type={actionData.userCollection[0].type}
-          hp={actionData.userCollection[0].hp}
-          attack={actionData.userCollection[0].attack}
-        />
-        <PokemonCard
-          name={actionData.userCollection[1].name}
-          imageUrl={actionData.userCollection[1].image_url}
-          type={actionData.userCollection[1].type}
-          hp={actionData.userCollection[1].hp}
-          attack={actionData.userCollection[1].attack}
-        />
-        <PokemonCard
-          name={actionData.userCollection[2].name}
-          imageUrl={actionData.userCollection[2].image_url}
-          type={actionData.userCollection[2].type}
-          hp={actionData.userCollection[2].hp}
-          attack={actionData.userCollection[2].attack}
-        />
-        <PokemonCard
-          name={actionData.userCollection[3].name}
-          imageUrl={actionData.userCollection[3].image_url}
-          type={actionData.userCollection[3].type}
-          hp={actionData.userCollection[3].hp}
-          attack={actionData.userCollection[3].attack}
-        />
-        <PokemonCard
-          name={actionData.userCollection[4].name}
-          imageUrl={actionData.userCollection[4].image_url}
-          type={actionData.userCollection[4].type}
-          hp={actionData.userCollection[4].hp}
-          attack={actionData.userCollection[4].attack}
-        />
-      </div>
+    <body className="bg-biceblue">
+      <div className="h-screen flex flex-col items-center justify-center overflow-hidden relative">
+        <div className="w-full md:w-3/4 lg:w-2/3 xl:w-full h-5/6 rounded-lg overflow-hidden relative border border-t-4 border-charcoal">
+          <img
+            className="absolute inset-0 blur-sm w-full h-full object-cover"
+            src={homePic}
+            alt=""
+          />
+          <div
+            className={
+              "absolute left-8 top-36 bg-honeydew rounded-3xl text-onyx border-4 border-onyx p-4 pb-24"
+            }
+          >
+            <BattleComponent
+              enemyTeam={actionData.trainerBattleCollection}
+              playerTeam={actionData.userBattleCollection}
+            />
+          </div>
+          <div
+            className={
+              "absolute w-2/3 right-14 top-4 flex flex-col justify-evenly items-center content-center"
+            }
+          >
+            <div
+              className={
+                "bg-honeydew rounded-3xl text-onyx border-4 border-onyx"
+              }
+            >
+              <h4 className={"p-2 text-xl"}>YOUR POKEMON:</h4>
+            </div>
+            <div className={"flex justify-evenly w-full"}>
+              <div className="p-4">
+                <PokemonCard
+                  name={actionData.userCollection[0].name}
+                  imageUrl={actionData.userCollection[0].image_url}
+                  type={actionData.userCollection[0].type}
+                  hp={actionData.userCollection[0].hp}
+                  attack={actionData.userCollection[0].attack}
+                />
+              </div>
+              <div className="p-4">
+                <PokemonCard
+                  name={actionData.userCollection[1].name}
+                  imageUrl={actionData.userCollection[1].image_url}
+                  type={actionData.userCollection[1].type}
+                  hp={actionData.userCollection[1].hp}
+                  attack={actionData.userCollection[1].attack}
+                />
+              </div>
+              <div className="p-4">
+                <PokemonCard
+                  name={actionData.userCollection[2].name}
+                  imageUrl={actionData.userCollection[2].image_url}
+                  type={actionData.userCollection[2].type}
+                  hp={actionData.userCollection[2].hp}
+                  attack={actionData.userCollection[2].attack}
+                />
+              </div>
+              <div className="p-4">
+                <PokemonCard
+                  name={actionData.userCollection[3].name}
+                  imageUrl={actionData.userCollection[3].image_url}
+                  type={actionData.userCollection[3].type}
+                  hp={actionData.userCollection[3].hp}
+                  attack={actionData.userCollection[3].attack}
+                />
+              </div>
+              <div className="p-4">
+                <PokemonCard
+                  name={actionData.userCollection[4].name}
+                  imageUrl={actionData.userCollection[4].image_url}
+                  type={actionData.userCollection[4].type}
+                  hp={actionData.userCollection[4].hp}
+                  attack={actionData.userCollection[4].attack}
+                />
+              </div>
+            </div>
 
-      <h4>TRAINER POKEMON:</h4>
-      <div className={"grid grid-cols-5 w-1/2"}>
-        <PokemonCard
-          name={actionData.trainerCollection[0].name}
-          imageUrl={actionData.trainerCollection[0].image_url}
-          type={actionData.trainerCollection[0].type}
-          hp={actionData.trainerCollection[0].hp}
-          attack={actionData.trainerCollection[0].attack}
-        />
-        <PokemonCard
-          name={actionData.trainerCollection[1].name}
-          imageUrl={actionData.trainerCollection[1].image_url}
-          type={actionData.trainerCollection[1].type}
-          hp={actionData.trainerCollection[1].hp}
-          attack={actionData.trainerCollection[1].attack}
-        />
-        <PokemonCard
-          name={actionData.trainerCollection[2].name}
-          imageUrl={actionData.trainerCollection[2].image_url}
-          type={actionData.trainerCollection[2].type}
-          hp={actionData.trainerCollection[2].hp}
-          attack={actionData.trainerCollection[2].attack}
-        />{" "}
-        <PokemonCard
-          name={actionData.trainerCollection[3].name}
-          imageUrl={actionData.trainerCollection[3].image_url}
-          type={actionData.trainerCollection[3].type}
-          hp={actionData.trainerCollection[3].hp}
-          attack={actionData.trainerCollection[3].attack}
-        />{" "}
-        <PokemonCard
-          name={actionData.trainerCollection[4].name}
-          imageUrl={actionData.trainerCollection[4].image_url}
-          type={actionData.trainerCollection[4].type}
-          hp={actionData.trainerCollection[4].hp}
-          attack={actionData.trainerCollection[4].attack}
-        />
+            <div
+              className={
+                "bg-honeydew rounded-3xl text-onyx border-4 border-onyx"
+              }
+            >
+              <h4 className={"p-2 text-xl"}>TRAINER POKEMON:</h4>
+            </div>
+            <div className={"flex justify-evenly w-full"}>
+              <div className="p-4">
+                <PokemonCard
+                  name={actionData.trainerCollection[0].name}
+                  imageUrl={actionData.trainerCollection[0].image_url}
+                  type={actionData.trainerCollection[0].type}
+                  hp={actionData.trainerCollection[0].hp}
+                  attack={actionData.trainerCollection[0].attack}
+                />
+              </div>
+              <div className="p-4">
+                <PokemonCard
+                  name={actionData.trainerCollection[1].name}
+                  imageUrl={actionData.trainerCollection[1].image_url}
+                  type={actionData.trainerCollection[1].type}
+                  hp={actionData.trainerCollection[1].hp}
+                  attack={actionData.trainerCollection[1].attack}
+                />
+              </div>
+              <div className="p-4">
+                <PokemonCard
+                  name={actionData.trainerCollection[2].name}
+                  imageUrl={actionData.trainerCollection[2].image_url}
+                  type={actionData.trainerCollection[2].type}
+                  hp={actionData.trainerCollection[2].hp}
+                  attack={actionData.trainerCollection[2].attack}
+                />
+              </div>
+              <div className="p-4">
+                <PokemonCard
+                  name={actionData.trainerCollection[3].name}
+                  imageUrl={actionData.trainerCollection[3].image_url}
+                  type={actionData.trainerCollection[3].type}
+                  hp={actionData.trainerCollection[3].hp}
+                  attack={actionData.trainerCollection[3].attack}
+                />
+              </div>
+              <div className="p-4">
+                <PokemonCard
+                  name={actionData.trainerCollection[4].name}
+                  imageUrl={actionData.trainerCollection[4].image_url}
+                  type={actionData.trainerCollection[4].type}
+                  hp={actionData.trainerCollection[4].hp}
+                  attack={actionData.trainerCollection[4].attack}
+                />
+              </div>
+            </div>
+            <Outlet />
+          </div>
+        </div>
       </div>
-      <BattleComponent
-        enemyTeam={actionData.trainerBattleCollection}
-        playerTeam={actionData.userBattleCollection}
-      />
-      <Outlet />
-    </div>
+    </body>
   );
 }
