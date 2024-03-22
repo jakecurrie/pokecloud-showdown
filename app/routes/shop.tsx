@@ -143,29 +143,33 @@ export default function Shop() {
               alt=""
             />
 
-            <img
-              className="relative w-20 object-cover  m-4"
-              src={logoPic}
-              alt=""
-            />
+            <div className={"flex flex-row justify-between"}>
+              <div>
+                <img
+                  className="relative w-20 object-cover inline  m-4"
+                  src={logoPic}
+                  alt=""
+                />
+              </div>
+              <div>
+                <h4 className={"relative left bg-honeydew p-4 w-auto inline"}>
+                  Available Pokecoins : {availablePokecoins}
+                </h4>
+              </div>
 
-            <h4 className={"relative bg-honeydew p-4 w-auto inline"}>
-              Available Pokecoins : {availablePokecoins}
-            </h4>
-
-            <div className="absolute right-4 top-4 w-64 h-10 bg-biceblue border border-charcoal text-honeydew text-center rounded-lg px-4 py-2 mb-4">
-              <Link
-                to={{
-                  pathname: "/join",
-                  search: searchParams.toString(),
-                }}
-              >
-                Logout
-              </Link>
+              <div className="relative right-4 top-4 w-64 h-10 bg-biceblue border border-charcoal text-honeydew text-center rounded-lg px-4 py-2 mb-4">
+                <Link
+                  to={{
+                    pathname: "/join",
+                    search: searchParams.toString(),
+                  }}
+                >
+                  Logout
+                </Link>
+              </div>
             </div>
-
             <div
-              className="absolute top-1/4 w-full flex justify-evenly"
+              className="absolute top-24 w-full flex justify-evenly"
               id={"something"}
             >
               {bundles.map((bundle, index) => (
