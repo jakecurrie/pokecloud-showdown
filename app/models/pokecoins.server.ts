@@ -40,7 +40,7 @@ export async function changeBalance(
     });
 
     if (result.Items.length > 0) {
-      const currentBalance = result.Items[0].balance;
+      const currentBalance = result.Items[0].balance as number;
       const newBalance = currentBalance + amount;
 
       if (newBalance >= 0) {
