@@ -116,7 +116,7 @@ export default function Collections() {
   }
 
   return (
-    <body className="bg-biceblue">
+    <div className="bg-biceblue">
       <div className="h-screen flex flex-col items-center justify-center overflow-hidden relative">
         <div className="w-full md:w-3/4 lg:w-2/3 xl:w-full h-5/6 rounded-lg overflow-hidden relative border border-t-4 border-charcoal">
           <img
@@ -218,6 +218,6 @@ export default function Collections() {
           />
         </div>
       </div>
-    </body>
+    </div>
   );
 }
