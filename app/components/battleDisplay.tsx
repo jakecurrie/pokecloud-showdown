@@ -1,5 +1,16 @@
 import React, { useState } from 'react';
 import TimingSlider from '~/components/timingSlider';
+import {
+  AlertDialog,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogFooter,
+  AlertDialogAction,
+  AlertDialogCancel
+} from "~/components/ui/alert-dialog";
+import { Form } from "@remix-run/react";
 
 interface Pokemon {
   name: string;
@@ -10,14 +21,21 @@ interface Pokemon {
 interface Props {
   playerTeam: Pokemon[];
   enemyTeam: Pokemon[];
+  battleId: string
 }
 
-const BattleComponent: React.FC<Props> = ({ playerTeam, enemyTeam }) => {
+const BattleComponent: React.FC<Props> = ({ playerTeam, enemyTeam, battleId }) => {
   const [playerCurrent, setPlayerCurrent] = useState<number>(0);
   const [enemyCurrent, setEnemyCurrent] = useState<number>(0);
   const [battleMessage, setBattleMessage] = useState<string>('');
   const [resetKey, setResetKey] = useState<number>(0);
   const [gameOver, setGameOver] = useState<boolean>(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('');
+  const [battleWon, setBattleWon] = useState<boolean>(false);
+
+  console.log(`Battle ID: ${battleId}`);
+
 
   const playerPokemon = playerTeam[playerCurrent];
   const enemyPokemon = enemyTeam[enemyCurrent];
@@ -39,8 +57,11 @@ const BattleComponent: React.FC<Props> = ({ playerTeam, enemyTeam }) => {
         setEnemyCurrent(nextEnemy);
         setBattleMessage(`${enemyPokemon.name} fainted! Sending out next Pokémon...`);
       } else {
-        setGameOver(true);
+        setBattleWon(true);
+        setGameOver(true)
         setBattleMessage('You won the battle!');
+        setShowAlert(true);
+        setAlertMessage('Congratulations! You won the battle!');
         return;
       }
     }
@@ -61,6 +82,8 @@ const BattleComponent: React.FC<Props> = ({ playerTeam, enemyTeam }) => {
           } else {
             setGameOver(true);
             setBattleMessage('You lost the battle!');
+            setShowAlert(true);
+            setAlertMessage('You lost the battle. Better luck next time!');
           }
         }
       }
@@ -84,6 +107,32 @@ const BattleComponent: React.FC<Props> = ({ playerTeam, enemyTeam }) => {
         </>
       ) : (
         <p>{battleMessage}</p>
+      )}
+      {gameOver && (
+      <AlertDialog>
+        <AlertDialogTrigger asChild>
+          <button>See Battle Result</button>
+        </AlertDialogTrigger>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>
+              Battle Result
+            </AlertDialogTitle>
+          </AlertDialogHeader>
+          <Form method="post" action={`/battle/${battleId}/result`}>
+            <input type="hidden" name="battleId" value={battleId} />
+            <input type="hidden" name="won" value={battleWon ? "1" : "0"} />
+            <AlertDialogFooter>
+              <AlertDialogCancel asChild>
+                <button type="button">Close</button>
+              </AlertDialogCancel>
+              <AlertDialogAction asChild>
+                <button type="submit">Submit Result</button>
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </Form>
+        </AlertDialogContent>
+      </AlertDialog>
       )}
     </div>
   );
