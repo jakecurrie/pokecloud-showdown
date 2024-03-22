@@ -1,10 +1,10 @@
-import { ActionFunction, json } from "@remix-run/node";
+import { ActionFunction, json, LoaderFunction } from "@remix-run/node";
 import { Outlet, redirect, useActionData } from "@remix-run/react";
 
 import { getTrainerCollectionWithPokemonDetails } from "~/models/trainers.server";
 import { requireUserId } from "~/session.server";
 import { getPokemonById, Pokemon } from "~/models/pokemon.server";
-import { createBattle } from "~/models/battle.server";
+import { createBattle, getBattleById } from "~/models/battle.server";
 import PokemonCard from "~/components/pokecard";
 import BattleComponent from "../components/battleDisplay";
 
@@ -13,6 +13,23 @@ interface BattleDetails {
   hp: number;
   attack: number;
 }
+
+export const loader: LoaderFunction = async ({ params, request }) => {
+  const { battleId } = params;
+  const userId = await requireUserId(request);
+
+  if (!battleId) {
+    throw new Response("Battle ID is required", { status: 400 });
+  }
+
+  const battle = await getBattleById(userId, battleId);
+
+  if (!battle) {
+    throw new Response("Battle not found", { status: 404 });
+  }
+
+  return json({ battle });
+};
 
 export const action: ActionFunction = async ({ request }) => {
   const userId = await requireUserId(request);
@@ -116,10 +133,12 @@ export const action: ActionFunction = async ({ request }) => {
 
       console.log("Created battle");
     }
+
     redirect(`/battle/${battleId}`);
     return json({
       userCollection: userCollection,
       trainerCollection: trainerCollection,
+      battleId: battleId,
       userBattleCollection: userBattleCollection,
       trainerBattleCollection: trainerBattleCollection,
     });
@@ -211,6 +230,7 @@ export default function BattleTrainerId() {
       <BattleComponent
         enemyTeam={actionData.trainerBattleCollection}
         playerTeam={actionData.userBattleCollection}
+        battleId={actionData.battleId}
       />
       <Outlet />
     </div>
