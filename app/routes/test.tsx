@@ -1,5 +1,6 @@
 import { Outlet } from "@remix-run/react";
 import BattleComponent from "../components/battleDisplay";
+import NavBar from "~/components/navBar";
 
 const playerTeam = [
   { name: "Pikachu", hp: 150, attack: 80 },
@@ -13,7 +14,9 @@ const enemyTeam = [
 
 export default function BattleTestRoute() {
   return (
+
     <div>
+      <NavBar />
       <BattleComponent playerTeam={playerTeam} enemyTeam={enemyTeam} />
       <Outlet />
     </div>

@@ -1,7 +1,6 @@
 import { json, LoaderFunction, LoaderFunctionArgs } from "@remix-run/node";
 import {
   Form,
-  Link,
   useLoaderData,
   useNavigation,
   useSearchParams,
@@ -35,6 +34,7 @@ import {
   CollectionItemWithPokemon,
   getCollectionWithPokemonDetails,
 } from "~/models/collections.server";
+import NavBar from "~/components/navBar";
 
 export const loader: LoaderFunction = async ({
   request,
@@ -134,9 +134,10 @@ export default function Shop() {
 
   return (
     <div className="bg-biceblue">
+      <NavBar />
       <div>
-        <div className="h-screen flex flex-col items-center justify-center overflow-hidden relative">
-          <div className="w-full md:w-3/4 lg:w-2/3 xl:w-full h-5/6 rounded-lg overflow-hidden relative border border-t-4 border-charcoal">
+        <div className="h-screen">
+          <div className="w-full md:w-3/4 lg:w-2/3 xl:w-full h-5/6 rounded-lg overflow-hidden relative border top-20 border-t-4 border-charcoal">
             <img
               className="absolute inset-0 blur-sm w-full h-full object-cover"
               src={homePic}
@@ -155,17 +156,6 @@ export default function Shop() {
                 <h4 className={"relative left bg-honeydew p-4 w-auto inline"}>
                   Available Pokecoins : {availablePokecoins}
                 </h4>
-              </div>
-
-              <div className="relative right-4 top-4 w-64 h-10 bg-biceblue border border-charcoal text-honeydew text-center rounded-lg px-4 py-2 mb-4">
-                <Link
-                  to={{
-                    pathname: "/join",
-                    search: searchParams.toString(),
-                  }}
-                >
-                  Logout
-                </Link>
               </div>
             </div>
             <div

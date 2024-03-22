@@ -18,6 +18,7 @@ import {
 import { getAllTrainers, Trainer } from "~/models/trainers.server";
 import { requireUserId } from "~/session.server";
 import homePic from "../../public/images/battle.jpg";
+import NavBar from "~/components/navBar";
 
 interface BattleSetupProps {
   trainers: Trainer[];
@@ -69,8 +70,9 @@ export default function BattleSetup() {
 
   return (
     <body className="bg-biceblue">
-      <div className="h-screen flex flex-col items-center justify-center overflow-hidden relative">
-        <div className="w-full md:w-3/4 lg:w-2/3 xl:w-full h-5/6 rounded-lg overflow-hidden relative border border-t-4 border-charcoal">
+      <NavBar />
+      <div className="h-screen">
+        <div className="w-full md:w-3/4 lg:w-2/3 xl:w-full h-5/6 rounded-lg overflow-hidden relative border border-t-4 top-20 border-charcoal">
           <img
             className="absolute inset-0 blur-sm w-full h-full object-cover"
             src={homePic}

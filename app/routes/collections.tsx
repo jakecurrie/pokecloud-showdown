@@ -30,6 +30,7 @@ import {
   AlertDialogTitle,
 } from "~/components/ui/alert-dialog";
 import { getBattleStatsByUserId } from "~/models/battle.server";
+import NavBar from "~/components/navBar";
 
 export const meta: MetaFunction = () => [{ title: "PokeCloud Showdown" }];
 
@@ -117,8 +118,9 @@ export default function Collections() {
 
   return (
     <div className="bg-biceblue">
-      <div className="h-screen flex flex-col items-center justify-center overflow-hidden relative">
-        <div className="w-full md:w-3/4 lg:w-2/3 xl:w-full h-5/6 rounded-lg overflow-hidden relative border border-t-4 border-charcoal">
+      <NavBar />
+      <div className="h-screen">
+        <div className="w-full md:w-3/4 lg:w-2/3 xl:w-full h-5/6 rounded-lg overflow-hidden relative top-20 border border-t-4 border-charcoal">
           <img
             className="absolute inset-0 blur-sm w-full h-full object-cover"
             src={homePic}
