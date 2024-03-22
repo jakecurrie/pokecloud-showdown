@@ -18,6 +18,13 @@ export async function getBattlesByUserId(userId: string): Promise<Battle[]> {
   return result.Items as Battle[];
 }
 
+export async function getBattleById(userId: string, battleId: string): Promise<Battle | null> {
+  const db = await arc.tables();
+  const result = await db.battles.get({ userId, battleId });
+  console.log(`Battle for user ID ${userId} and battleId ${battleId}:`, result);
+  return result ? (result as Battle) : null;
+}
+
 export async function createBattle(battle: Battle): Promise<void> {
   const db = await arc.tables();
   await db.battles.put({
@@ -34,6 +41,7 @@ export async function updateBattleResult(
   won: number,
 ): Promise<void> {
   const db = await arc.tables();
+  console.log(`Updating battle result for userId: ${userId}, battleId: ${battleId}, won: ${won}`);
   await db.battles.update({
     Key: { userId, battleId },
     UpdateExpression: "SET won = :won",
