@@ -1,13 +1,14 @@
 import { ActionFunction, json, LoaderFunction } from "@remix-run/node";
 import { Outlet, redirect, useActionData } from "@remix-run/react";
 
+import PokemonCard from "~/components/pokecard";
+import { createBattle, getBattleById } from "~/models/battle.server";
+import { getPokemonById, Pokemon } from "~/models/pokemon.server";
 import { getTrainerCollectionWithPokemonDetails } from "~/models/trainers.server";
 import { requireUserId } from "~/session.server";
-import { getPokemonById, Pokemon } from "~/models/pokemon.server";
-import { createBattle, getBattleById } from "~/models/battle.server";
-import PokemonCard from "~/components/pokecard";
-import BattleComponent from "../components/battleDisplay";
+
 import homePic from "../../public/images/battle.jpg";
+import BattleComponent from "../components/battleDisplay";
 
 interface BattleDetails {
   name: string;

@@ -4,19 +4,20 @@ import {
   LoaderFunctionArgs,
   MetaFunction,
 } from "@remix-run/node";
+import { Link, useLoaderData, useSearchParams } from "@remix-run/react";
 
 import Button from "~/components/button";
 import GameStats from "~/components/gameStats";
-
-import homePic from "../../public/images/battle.jpg";
-import logoPic from "../../public/images/logo.png";
-import { Link, useLoaderData, useSearchParams } from "@remix-run/react";
-import { requireUserId } from "~/session.server";
 import { getBattleStatsByUserId } from "~/models/battle.server";
 import {
   CollectionItemWithPokemon,
   getCollectionWithPokemonDetails,
 } from "~/models/collections.server";
+import { requireUserId } from "~/session.server";
+
+import homePic from "../../public/images/battle.jpg";
+import logoPic from "../../public/images/logo.png";
+
 
 export const meta: MetaFunction = () => [{ title: "PokeCloud Showdown" }];
 

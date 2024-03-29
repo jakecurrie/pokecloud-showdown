@@ -1,18 +1,18 @@
-import * as React from "react"
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react"
 import { ArrowLeft, ArrowRight } from "lucide-react"
+import * as React from "react"
 
-import { cn } from "~/lib/utils"
 import { Button } from "~/components/ui/button"
+import { cn } from "~/lib/utils"
 
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
 type CarouselOptions = UseCarouselParameters[0]
 type CarouselPlugin = UseCarouselParameters[1]
 
-type CarouselProps = {
+interface CarouselProps {
   opts?: CarouselOptions
   plugins?: CarouselPlugin
   orientation?: "horizontal" | "vertical"
@@ -50,6 +50,7 @@ const Carousel = React.forwardRef<
       opts,
       setApi,
       plugins,
+      // eslint-disable-next-line react/prop-types
       className,
       children,
       ...props
@@ -151,6 +152,7 @@ Carousel.displayName = "Carousel"
 const CarouselContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
+// eslint-disable-next-line react/prop-types
 >(({ className, ...props }, ref) => {
   const { carouselRef, orientation } = useCarousel()
 
@@ -173,6 +175,7 @@ CarouselContent.displayName = "CarouselContent"
 const CarouselItem = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
+// eslint-disable-next-line react/prop-types
 >(({ className, ...props }, ref) => {
   const { orientation } = useCarousel()
 
@@ -195,6 +198,7 @@ CarouselItem.displayName = "CarouselItem"
 const CarouselPrevious = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
+// eslint-disable-next-line react/prop-types
 >(({ className, variant = "outline", size = "icon", ...props }, ref) => {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel()
 
@@ -224,6 +228,7 @@ CarouselPrevious.displayName = "CarouselPrevious"
 const CarouselNext = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
+// eslint-disable-next-line react/prop-types
 >(({ className, variant = "outline", size = "icon", ...props }, ref) => {
   const { orientation, scrollNext, canScrollNext } = useCarousel()
 

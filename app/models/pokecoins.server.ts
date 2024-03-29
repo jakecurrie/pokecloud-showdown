@@ -1,4 +1,5 @@
 import arc from "@architect/functions";
+
 import type { User } from "~/models/user.server";
 
 export interface Pokecoins {

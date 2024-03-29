@@ -21,6 +21,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
   const formData = await request.formData();
   const email = formData.get("email");
   const password = formData.get("password");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const redirectTo = safeRedirect(formData.get("/home"), "/");
   const remember = formData.get("remember");
 

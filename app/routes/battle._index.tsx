@@ -2,6 +2,7 @@ import { json, LoaderFunctionArgs } from "@remix-run/node";
 import { Form, useLoaderData } from "@remix-run/react";
 import { useState } from "react";
 
+import NavBar from "~/components/navBar";
 import PokemonSelectionGrid from "~/components/pokemonSelectionGrid";
 import TrainerCard from "~/components/trainercard";
 import {
@@ -17,8 +18,9 @@ import {
 } from "~/models/collections.server";
 import { getAllTrainers, Trainer } from "~/models/trainers.server";
 import { requireUserId } from "~/session.server";
+
 import homePic from "../../public/images/battle.jpg";
-import NavBar from "~/components/navBar";
+
 
 interface BattleSetupProps {
   trainers: Trainer[];

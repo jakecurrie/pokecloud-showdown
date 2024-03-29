@@ -5,8 +5,11 @@ import {
   useNavigation,
   useSearchParams,
 } from "@remix-run/react";
+import { useState } from "react";
 
 import CardPack from "~/components/cardPack";
+import GameStats from "~/components/gameStats";
+import NavBar from "~/components/navBar";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -17,6 +20,12 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "~/components/ui/alert-dialog";
+import { getBattleStatsByUserId } from "~/models/battle.server";
+import {
+  CollectionItemWithPokemon,
+  getCollectionWithPokemonDetails,
+} from "~/models/collections.server";
+import { getBalance } from "~/models/pokecoins.server";
 import {
   CardBundle,
   generateCardBundle,
@@ -24,17 +33,10 @@ import {
   Rarity,
 } from "~/models/shop.server";
 import { requireUserId } from "~/session.server";
+
 import homePic from "../../public/images/battle.jpg";
 import logoPic from "../../public/images/logo.png";
-import GameStats from "~/components/gameStats";
-import { getBalance } from "~/models/pokecoins.server";
-import { useState } from "react";
-import { getBattleStatsByUserId } from "~/models/battle.server";
-import {
-  CollectionItemWithPokemon,
-  getCollectionWithPokemonDetails,
-} from "~/models/collections.server";
-import NavBar from "~/components/navBar";
+
 
 export const loader: LoaderFunction = async ({
   request,
@@ -91,6 +93,7 @@ export const loader: LoaderFunction = async ({
 // }
 
 export default function Shop() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [searchParams] = useSearchParams();
   const [parentDialogDisabled, setParentDialogDisabled] = useState(false);
   const navigation = useNavigation();
@@ -127,6 +130,7 @@ export default function Shop() {
     totalBattles = 1;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handlePurchaseClick = () => {
     // Disable the parent dialog
     document.getElementById("something")?.blur();

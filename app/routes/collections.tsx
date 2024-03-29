@@ -9,19 +9,9 @@ import { useActionData, useLoaderData } from "@remix-run/react";
 
 import Button from "~/components/button";
 import GameStats from "~/components/gameStats";
-import PokemonGrid from "~/components/pokemonGrid";
+import NavBar from "~/components/navBar";
 import PokemonCard from "~/components/pokecard";
-import {
-  addCollectionItem,
-  CollectionItemWithPokemon,
-  getCollectionWithPokemonDetails,
-} from "~/models/collections.server";
-import { requireUserId } from "~/session.server";
-
-import homePic from "../../public/images/battle.jpg";
-import logoPic from "../../public/images/logo.png";
-import { changeBalance } from "~/models/pokecoins.server";
-import { getPokemonById } from "~/models/pokemon.server";
+import PokemonGrid from "~/components/pokemonGrid";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -30,7 +20,18 @@ import {
   AlertDialogTitle,
 } from "~/components/ui/alert-dialog";
 import { getBattleStatsByUserId } from "~/models/battle.server";
-import NavBar from "~/components/navBar";
+import {
+  addCollectionItem,
+  CollectionItemWithPokemon,
+  getCollectionWithPokemonDetails,
+} from "~/models/collections.server";
+import { changeBalance } from "~/models/pokecoins.server";
+import { getPokemonById } from "~/models/pokemon.server";
+import { requireUserId } from "~/session.server";
+
+import homePic from "../../public/images/battle.jpg";
+import logoPic from "../../public/images/logo.png";
+
 
 export const meta: MetaFunction = () => [{ title: "PokeCloud Showdown" }];
 

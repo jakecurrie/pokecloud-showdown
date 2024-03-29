@@ -2,6 +2,7 @@ import arc from '@architect/functions';
 
 import { getPokemonById, Pokemon } from "~/models/pokemon.server";
 import { Trainer } from "~/models/trainers.server";
+
 import type { User } from './user.server';
 
 export interface CollectionItem {

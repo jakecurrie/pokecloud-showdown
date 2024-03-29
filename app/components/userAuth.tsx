@@ -1,11 +1,12 @@
-import { useRef, useEffect } from "react";
-import { Form, Link, useActionData, useSearchParams } from "@remix-run/react";
-import { validateEmail, safeRedirect } from "~/utils";
-import { createUserSession, getUserId } from "~/session.server";
 import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
 import { json, redirect } from "@remix-run/node";
+import { Form, Link, useActionData, useSearchParams } from "@remix-run/react";
+import { useRef, useEffect } from "react";
+
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "~/components/ui/tabs";
 import { createUser, getUserByEmail, verifyLogin } from "~/models/user.server";
+import { createUserSession, getUserId } from "~/session.server";
+import { validateEmail, safeRedirect } from "~/utils";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const userId = await getUserId(request);
@@ -17,6 +18,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
   const formData = await request.formData();
   const email = formData.get("email");
   const password = formData.get("password");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const redirectTo = safeRedirect(formData.get("redirectTo"), "/");
   const formType = formData.get("formType");
 
@@ -120,7 +122,6 @@ export default function AuthPage() {
                     ref={emailRef}
                     id="email"
                     required
-                    autoFocus={true}
                     name="email"
                     type="email"
                     autoComplete="email"
@@ -172,6 +173,7 @@ export default function AuthPage() {
                   </label>
                 </div>
                 <div className="text-center text-sm text-gray-500">
+                  {/* eslint-disable-next-line react/no-unescaped-entities */}
                   Don't have an account?{" "}
                   <Link
                     className="text-blue-500 underline"
@@ -206,7 +208,6 @@ export default function AuthPage() {
                     ref={emailRef}
                     id="email"
                     required
-                    autoFocus={true}
                     name="email"
                     type="email"
                     autoComplete="email"

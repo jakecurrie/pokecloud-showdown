@@ -1,4 +1,6 @@
+import { Form } from "@remix-run/react";
 import React, { useState } from "react";
+
 import TimingSlider from "~/components/timingSlider";
 import {
   AlertDialog,
@@ -10,7 +12,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "~/components/ui/alert-dialog";
-import { Form } from "@remix-run/react";
+
 
 interface Pokemon {
   name: string;
@@ -34,7 +36,9 @@ const BattleComponent: React.FC<Props> = ({
   const [battleMessage, setBattleMessage] = useState<string>("");
   const [resetKey, setResetKey] = useState<number>(0);
   const [gameOver, setGameOver] = useState<boolean>(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [showAlert, setShowAlert] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [alertMessage, setAlertMessage] = useState("");
   const [battleWon, setBattleWon] = useState<boolean>(false);
 

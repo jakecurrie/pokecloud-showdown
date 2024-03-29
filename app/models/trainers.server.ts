@@ -1,6 +1,7 @@
 import arc from "@architect/functions";
-import { getPokemonById, Pokemon } from "~/models/pokemon.server";
+
 import { getCollectionItems } from "~/models/collections.server";
+import { getPokemonById, Pokemon } from "~/models/pokemon.server";
 
 export interface Trainer {
   id: `email#${string}`;

@@ -1,8 +1,8 @@
-import * as React from "react"
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog"
+import * as React from "react"
 
-import { cn } from "~/lib/utils"
 import { buttonVariants } from "~/components/ui/button"
+import { cn } from "~/lib/utils"
 
 const AlertDialog = AlertDialogPrimitive.Root
 
@@ -13,6 +13,7 @@ const AlertDialogPortal = AlertDialogPrimitive.Portal
 const AlertDialogOverlay = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Overlay>
+// eslint-disable-next-line react/prop-types
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Overlay
     className={cn(
@@ -28,6 +29,7 @@ AlertDialogOverlay.displayName = AlertDialogPrimitive.Overlay.displayName
 const AlertDialogContent = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Content>
+// eslint-disable-next-line react/prop-types
 >(({ className, ...props }, ref) => (
   <AlertDialogPortal>
     <AlertDialogOverlay />
@@ -44,6 +46,7 @@ const AlertDialogContent = React.forwardRef<
 AlertDialogContent.displayName = AlertDialogPrimitive.Content.displayName
 
 const AlertDialogHeader = ({
+                             // eslint-disable-next-line react/prop-types
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
@@ -58,6 +61,7 @@ const AlertDialogHeader = ({
 AlertDialogHeader.displayName = "AlertDialogHeader"
 
 const AlertDialogFooter = ({
+                             // eslint-disable-next-line react/prop-types
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
@@ -74,6 +78,7 @@ AlertDialogFooter.displayName = "AlertDialogFooter"
 const AlertDialogTitle = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Title>
+// eslint-disable-next-line react/prop-types
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Title
     ref={ref}
@@ -86,6 +91,7 @@ AlertDialogTitle.displayName = AlertDialogPrimitive.Title.displayName
 const AlertDialogDescription = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Description>,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Description>
+// eslint-disable-next-line react/prop-types
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Description
     ref={ref}
@@ -99,6 +105,7 @@ AlertDialogDescription.displayName =
 const AlertDialogAction = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Action>,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Action>
+// eslint-disable-next-line react/prop-types
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Action
     ref={ref}
@@ -111,6 +118,7 @@ AlertDialogAction.displayName = AlertDialogPrimitive.Action.displayName
 const AlertDialogCancel = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Cancel>,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Cancel>
+// eslint-disable-next-line react/prop-types
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Cancel
     ref={ref}

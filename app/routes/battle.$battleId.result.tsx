@@ -1,7 +1,8 @@
 import { ActionFunction, redirect } from "@remix-run/node";
-import { requireUserId } from "~/session.server";
+
 import { updateBattleResult } from "~/models/battle.server";
 import { changeBalance } from "~/models/pokecoins.server";
+import { requireUserId } from "~/session.server";
 
 export const action: ActionFunction = async ({ request, params }) => {
   const userId = await requireUserId(request);

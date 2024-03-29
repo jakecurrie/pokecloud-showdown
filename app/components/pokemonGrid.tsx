@@ -19,6 +19,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 };
 
 export default function PokemonGrid() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { collection, userId } = useLoaderData<{
     collection: CollectionItemWithPokemon[];
     userId: `email#${string}`;
