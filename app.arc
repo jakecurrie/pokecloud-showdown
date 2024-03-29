@@ -56,14 +56,4 @@ battles
   trainerId String
   won Number # 1 if won, else 0
 
-achievements
-  userId *String
-  achievementId **String
-  name String
-  badgeURL String # if we want to display a badge image somewhere for each achievement
-
-note
-  pk *String  # userId
-  sk **String # noteId
-
 
