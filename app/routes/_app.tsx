@@ -4,9 +4,9 @@ import NavBar from "~/components/navBar"
 
 export default function AppLayout() {
   return(
-    <main>
+    <div>
       <NavBar />
       <Outlet />
-    </main>
+    </div>
   )
 }
