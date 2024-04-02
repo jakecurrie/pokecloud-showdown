@@ -1,7 +1,9 @@
-import React from "react";
-import { LayoutGrid } from "~/components/ui/layoutGrid";
 import { Link } from "@remix-run/react";
+
 import { buttonVariants } from "~/components/ui/button";
+import { LayoutGrid } from "~/components/ui/layoutGrid";
+
+
 
 export function LayoutGridDemo() {
   return (
