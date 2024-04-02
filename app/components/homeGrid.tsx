@@ -1,5 +1,7 @@
 import React from "react";
 import { LayoutGrid } from "~/components/ui/layoutGrid";
+import { Link } from "@remix-run/react";
+import { buttonVariants } from "~/components/ui/button";
 
 export function LayoutGridDemo() {
   return (
@@ -14,9 +16,11 @@ const SkeletonOne = () => {
     <div>
       <p className="font-normal text-base text-white"></p>
       <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
-        A serene and tranquil retreat, this house in the woods offers a peaceful
-        escape from the hustle and bustle of city life.
+        Spend your hard-earned Pokecoins on card packs and grow your collection.
       </p>
+      <Link to="/shop" className={buttonVariants({ variant: "outline" })}>
+        Go To Shop
+      </Link>
     </div>
   );
 };
@@ -26,10 +30,11 @@ const SkeletonTwo = () => {
     <div>
       <p className="font-normal text-base text-white"></p>
       <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
-        Perched high above the world, this house offers breathtaking views and a
-        unique living experience. It&apos;s a place where the sky meets home,
-        and tranquility is a way of life.
+        View your collection of fierce Poke-warriors.
       </p>
+      <Link to="/collections" className={buttonVariants({ variant: "outline" })}>
+        View Your Collection
+      </Link>
     </div>
   );
 };
@@ -39,9 +44,11 @@ const SkeletonThree = () => {
     <div>
       <p className="font-normal text-base text-white"></p>
       <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
-        A house surrounded by greenery and nature&apos;s beauty. It&apos;s the
-        perfect place to relax, unwind, and enjoy life.
+        Blah blah blah
       </p>
+      <Link to="/blah" className={buttonVariants({ variant: "outline" })}>
+        This link goes nowhere
+      </Link>
     </div>
   );
 };
@@ -51,9 +58,11 @@ const SkeletonFour = () => {
     <div>
       <p className="font-normal text-base text-white"></p>
       <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
-        A house by the river is a place of peace and tranquility. It&apos;s the
-        perfect place to relax, unwind, and enjoy life.
+        Select an opponent and 5 of your most trusted Pokemon for a thrilling battle.
       </p>
+      <Link to="/battle" className={buttonVariants({ variant: "outline" })}>
+        Start A Battle
+      </Link>
     </div>
   );
 };
