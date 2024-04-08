@@ -55,7 +55,9 @@ const BattleComponent: React.FC<Props> = ({
 
     const damage = Math.round((playerPokemon.attack * attackStrength) / 100);
     enemyPokemon.hp = Math.max(enemyPokemon.hp - damage, 0);
-    setBattleMessage(`You dealt ${damage} damage to ${enemyPokemon.name}!`);
+    setBattleMessage(
+      `You dealt ${damage} damage to ${enemyPokemon.name.toUpperCase()}!`,
+    );
 
     if (enemyPokemon.hp <= 0) {
       const nextEnemy = enemyCurrent + 1;
@@ -91,7 +93,7 @@ const BattleComponent: React.FC<Props> = ({
 
         playerPokemon.hp = Math.max(playerPokemon.hp - enemyDamage, 0);
         setBattleMessage(
-          `${enemyPokemon.name} attacked you for ${enemyDamage} damage!`,
+          `${enemyPokemon.name.toUpperCase()} attacked you for ${enemyDamage} damage!`,
         );
 
         if (playerPokemon.hp <= 0) {
@@ -110,21 +112,23 @@ const BattleComponent: React.FC<Props> = ({
         }
       }
       resetSlider();
-    }, 1000);
+    }, 1500);
   };
 
   return (
-    <div>
+    <div className="w-96">
       {!gameOver ? (
         <>
-          <div>
+          <div className="p-2">
             <h3>
-              Your Pokémon: {playerPokemon.name} (HP: {playerPokemon.hp})
+              Your Pokémon: {playerPokemon.name.toUpperCase()} (HP:{" "}
+              {playerPokemon.hp})
             </h3>
           </div>
-          <div>
+          <div className="p-2">
             <h3>
-              Enemy Pokémon: {enemyPokemon.name} (HP: {enemyPokemon.hp})
+              Enemy Pokémon: {enemyPokemon.name.toUpperCase()} (HP:{" "}
+              {enemyPokemon.hp})
             </h3>
           </div>
           <p>{battleMessage}</p>
@@ -137,7 +141,9 @@ const BattleComponent: React.FC<Props> = ({
       {gameOver && (
         <AlertDialog>
           <AlertDialogTrigger asChild>
-            <button>See Battle Result</button>
+            <button className="mt-10 p-4 text-2xl bg-blue-800 text-white border-4 border-charcoal rounded-xl">
+              FINALIZE RESULT
+            </button>
           </AlertDialogTrigger>
           <AlertDialogContent>
             <AlertDialogHeader>
