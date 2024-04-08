@@ -1,8 +1,9 @@
 import { MetaFunction } from "@remix-run/node";
 
+import NavBar from "~/components/navBar";
+
 import leftSidePic1 from "../../public/images/huge-flex.png";
 import rightSidePic1 from "../../public/images/poke3.webp";
-import NavBar from "~/components/navBar";
 
 export const meta: MetaFunction = () => [{ title: "PokeCloud Showdown" }];
 

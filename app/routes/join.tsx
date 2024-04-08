@@ -1,10 +1,15 @@
-import { type ActionFunctionArgs, json, LoaderFunctionArgs, redirect } from "@remix-run/node";
+import {
+  type ActionFunctionArgs,
+  json,
+  LoaderFunctionArgs,
+  redirect,
+} from "@remix-run/node";
 import { Form, Link, useActionData, useSearchParams } from "@remix-run/react";
 import { useEffect, useRef } from "react";
 
-import { Button } from "~/components/ui/button"
-import { Input } from "~/components/ui/input"
-import { Label } from "~/components/ui/label"
+import { Button } from "~/components/ui/button";
+import { Input } from "~/components/ui/input";
+import { Label } from "~/components/ui/label";
 import { createUser, getUserByEmail } from "~/models/user.server";
 import { createUserSession, getUserId } from "~/session.server";
 import { safeRedirect, validateEmail } from "~/utils";
@@ -85,6 +90,7 @@ export default function JoinPage() {
   return (
     <div className="w-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:h-screen">
       <div className="hidden bg-muted lg:block">
+        {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
         <img
           src={homePic}
           alt="Image"
@@ -114,11 +120,11 @@ export default function JoinPage() {
                 aria-invalid={actionData?.errors?.email ? true : undefined}
                 aria-describedby="email-error"
               />
-              {actionData?.errors?.email && (
+              {actionData?.errors?.email ? (
                 <div className="pt-1 text-red-700" id="email-error">
                   {actionData.errors.email}
                 </div>
-              )}
+              ) : null}
             </div>
             <div className="grid gap-2">
               <div className="flex items-center">
@@ -133,11 +139,11 @@ export default function JoinPage() {
                 aria-invalid={actionData?.errors?.password ? true : undefined}
                 aria-describedby="password-error"
               />
-              {actionData?.errors?.password && (
+              {actionData?.errors?.password ? (
                 <div className="pt-1 text-red-700" id="password-error">
                   {actionData.errors.password}
                 </div>
-              )}
+              ) : null}
             </div>
             <input type="hidden" name="redirectTo" value={redirectTo} />
             <Button type="submit" className="w-full">
@@ -159,6 +165,5 @@ export default function JoinPage() {
         </Form>
       </div>
     </div>
-  )
+  );
 }
-

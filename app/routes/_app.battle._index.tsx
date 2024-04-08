@@ -151,7 +151,7 @@ export default function BattleSetup() {
                   />
                 </div>
               ))}
-              {selectedPokemon.length === 5 && selectedTrainer && (
+              {selectedPokemon.length === 5 && selectedTrainer ? (
                 <button
                   className={
                     "bg-honeydew rounded-3xl text-onyx border-4 border-onyx"
@@ -160,7 +160,7 @@ export default function BattleSetup() {
                 >
                   <h3 className={"p-4 text-xl"}>Start Battle</h3>
                 </button>
-              )}
+              ) : null}
               <input type="hidden" name={`battleId`} value={battleId} />
               <input
                 type="hidden"

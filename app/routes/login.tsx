@@ -1,10 +1,15 @@
-import { type ActionFunctionArgs, json, LoaderFunctionArgs, redirect } from "@remix-run/node";
+import {
+  type ActionFunctionArgs,
+  json,
+  LoaderFunctionArgs,
+  redirect,
+} from "@remix-run/node";
 import { Form, Link, useActionData, useSearchParams } from "@remix-run/react";
 import { useEffect, useRef } from "react";
 
-import { Button } from "~/components/ui/button"
-import { Input } from "~/components/ui/input"
-import { Label } from "~/components/ui/label"
+import { Button } from "~/components/ui/button";
+import { Input } from "~/components/ui/input";
+import { Label } from "~/components/ui/label";
 import { verifyLogin } from "~/models/user.server";
 import { createUserSession, getUserId } from "~/session.server";
 import { safeRedirect, validateEmail } from "~/utils";
@@ -62,7 +67,6 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     userId: user.id,
   });
 };
-
 
 export default function Dashboard() {
   const [searchParams] = useSearchParams();
@@ -147,6 +151,7 @@ export default function Dashboard() {
         </Form>
       </div>
       <div className="hidden bg-muted lg:block">
+        {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
         <img
           src={homePic}
           alt="Image"
@@ -156,5 +161,5 @@ export default function Dashboard() {
         />
       </div>
     </div>
-  )
+  );
 }
