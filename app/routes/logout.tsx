@@ -1,4 +1,5 @@
 import { ActionFunction } from "@remix-run/node";
+
 import { logout } from "~/session.server";
 
 export const action: ActionFunction = async ({ request }) => {
@@ -8,4 +9,3 @@ export const action: ActionFunction = async ({ request }) => {
 export default function Logout() {
   return null;
 }
-
