@@ -41,6 +41,7 @@ export const action: ActionFunction = async ({ request }) => {
 
   const battleId = battleData.battleId as string;
   const trainerId = battleData.trainerId as `email#${string}`;
+  const difficulty = +battleData.difficulty;
 
   if (!userId || !battleId) {
     return json({ error: "Invalid battle data" }, { status: 400 });
@@ -143,6 +144,7 @@ export const action: ActionFunction = async ({ request }) => {
       battleId: battleId,
       userBattleCollection: userBattleCollection,
       trainerBattleCollection: trainerBattleCollection,
+      difficulty: difficulty,
     });
   }
 };
@@ -171,6 +173,7 @@ export default function BattleTrainerId() {
               enemyTeam={actionData.trainerBattleCollection}
               playerTeam={actionData.userBattleCollection}
               battleId={actionData.battleId}
+              difficulty={+actionData.difficulty}
             />
           </div>
           <div className="absolute w-2/3 right-14 top-4 flex flex-col justify-evenly items-center content-center h-2/3">

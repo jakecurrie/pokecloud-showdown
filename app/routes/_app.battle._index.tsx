@@ -167,6 +167,11 @@ export default function BattleSetup() {
                 name={`trainerId`}
                 value={selectedTrainer?.id}
               />
+              <input
+                type="hidden"
+                name={`difficulty`}
+                value={selectedTrainer?.difficulty}
+              />
             </div>
           </Form>
         </div>

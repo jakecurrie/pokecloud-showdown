@@ -10,12 +10,8 @@ export const action: ActionFunction = async ({ request, params }) => {
   const battleData = Object.fromEntries(formData);
   const { battleId } = params;
   const won = formData.get("won") === "1";
-  const amount = battleData.reward.toString();
-  let reward: number;
-  if (amount == "250") {
-    reward = 250;
-    await changeBalance(userId, reward);
-  }
+  const reward = +battleData.reward;
+  await changeBalance(userId, reward);
 
   if (!userId || !battleId) {
     return new Response("Invalid battle data", { status: 400 });

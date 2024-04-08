@@ -23,12 +23,14 @@ interface Props {
   playerTeam: Pokemon[];
   enemyTeam: Pokemon[];
   battleId: string;
+  difficulty: number;
 }
 
 const BattleComponent: React.FC<Props> = ({
   playerTeam,
   enemyTeam,
   battleId,
+  difficulty,
 }) => {
   const [playerCurrent, setPlayerCurrent] = useState<number>(0);
   const [enemyCurrent, setEnemyCurrent] = useState<number>(0);
@@ -150,7 +152,9 @@ const BattleComponent: React.FC<Props> = ({
               <AlertDialogTitle>
                 Battle Result:{" "}
                 {battleWon ? (
-                  <p>You have won! And been awarded 250 Pokecoins</p>
+                  <p>
+                    You have won! And been awarded {100 * difficulty} Pokecoins
+                  </p>
                 ) : (
                   <p>Tough loss!</p>
                 )}
@@ -160,7 +164,7 @@ const BattleComponent: React.FC<Props> = ({
               <input
                 type="hidden"
                 name="reward"
-                value={battleWon ? "250" : ""}
+                value={battleWon ? `${100 * difficulty}` : ""}
               />
               <input type="hidden" name="battleId" value={battleId} />
               <input type="hidden" name="won" value={battleWon ? "1" : "0"} />
