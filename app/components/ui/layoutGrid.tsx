@@ -37,12 +37,14 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
               selected?.id === card.id
                 ? "rounded-lg cursor-pointer absolute inset-0 h-1/2 w-full md:w-1/2 m-auto z-50 flex justify-center items-center flex-wrap flex-col"
                 : lastSelected?.id === card.id
-                  ? "z-40 bg-white rounded-xl h-full w-full"
-                  : "bg-white rounded-xl h-full w-full"
+                ? "z-40 bg-white rounded-xl h-full w-full"
+                : "bg-white rounded-xl h-full w-full",
             )}
             layout
           >
-            {selected?.id === card.id && <SelectedCard selected={selected} />}
+            {selected?.id === card.id ? (
+              <SelectedCard selected={selected} />
+            ) : null}
             <BlurImage card={card} isSelected={selected?.id === card.id} />
           </motion.div>
         </div>
@@ -51,7 +53,7 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
         onClick={handleOutsideClick}
         className={cn(
           "absolute h-full w-full left-0 top-0 bg-black opacity-0 z-10",
-          selected?.id ? "pointer-events-auto" : "pointer-events-none"
+          selected?.id ? "pointer-events-auto" : "pointer-events-none",
         )}
         animate={{ opacity: selected?.id ? 0.3 : 0 }}
       />
@@ -59,7 +61,13 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
   );
 };
 
-const BlurImage = ({ card, isSelected }: { card: Card; isSelected: boolean }) => {
+const BlurImage = ({
+  card,
+  isSelected,
+}: {
+  card: Card;
+  isSelected: boolean;
+}) => {
   return (
     <div className="relative h-full w-full">
       <img
@@ -70,16 +78,12 @@ const BlurImage = ({ card, isSelected }: { card: Card; isSelected: boolean }) =>
       <div className="absolute inset-0 flex justify-center items-center">
         <p className="text-white text-lg font-bold">{card.title}</p>
       </div>
-      {isSelected && (
+      {isSelected ? (
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-      )}
+      ) : null}
     </div>
   );
 };
-
-
-
-
 
 const SelectedCard = ({ selected }: { selected: Card | null }) => {
   return (
