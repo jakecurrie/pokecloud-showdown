@@ -19,12 +19,22 @@ const GameStats: FC<GameStatsProps> = ({
   badges,
   pokemonCollected,
 }) => {
+  // Remove first 6 characters
+  const truncatedName = name.substring(6);
+
+  // Find index of '@' symbol
+  const atIndex = truncatedName.indexOf("@");
+
+  // Remove characters after and including '@' symbol
+  const finalName =
+    atIndex !== -1 ? truncatedName.substring(0, atIndex) : truncatedName;
+
   return (
     <div className="absolute w-full bottom-10">
       <div className="relative grid grid-cols-7 gap-4 bg-biceblue p-2 rounded-lg">
         <div className="bg-honeydew rounded-lg p-1 shadow-md text-center w-full">
           <h2 className="text-3xl pt-2">
-            <strong> {name} </strong>
+            <strong> {finalName} </strong>
           </h2>
         </div>
         <div>
