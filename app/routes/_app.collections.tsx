@@ -30,8 +30,6 @@ import { getPokemonById } from "~/models/pokemon.server";
 import { requireUserId } from "~/session.server";
 
 import homePic from "../../public/images/battle.jpg";
-import logoPic from "../../public/images/logo.png";
-
 
 export const meta: MetaFunction = () => [{ title: "PokeCloud Showdown" }];
 
@@ -119,22 +117,16 @@ export default function Collections() {
 
   return (
     <div className="bg-biceblue">
-      <NavBar />
-      <div className="h-screen">
+      <div className="absolute inset-0 h-screen">
+        <NavBar />
         <div className="w-full md:w-3/4 lg:w-2/3 xl:w-full h-5/6 rounded-lg overflow-hidden relative top-20 border border-t-4 border-charcoal">
           <img
             className="absolute inset-0 blur-sm w-full h-full object-cover"
             src={homePic}
             alt=""
           />
-
-          <img
-            className="absolute w-20 object-cover  m-4"
-            src={logoPic}
-            alt=""
-          />
           <div className="relative top-5 w-full flex justify-evenly">
-            <div className="relative top-20 flex flex-col gap-4">
+            <div className="relative top-8 flex flex-col gap-5">
               <div>
                 <Button name="BATTLE" clickURL="/battle" />
               </div>
@@ -145,7 +137,7 @@ export default function Collections() {
                 <Button name="SHOP" clickURL="/shop" />
               </div>
             </div>
-            <div className="max-w-screen-lg w-full px-4 h-96 overflow-y-scroll scroll">
+            <div className="max-w-screen-lg w-full px-4 h-96 overflow-auto">
               <PokemonGrid />
             </div>
             {bundle?.cardData ? (

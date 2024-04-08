@@ -44,8 +44,11 @@ const TimingSlider: React.FC<TimingSliderProps> = ({ onConfirm, resetKey }) => {
 
   return (
     <div className="relative w-72 h-5 bg-gray-300">
+      <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-green-400 via-yellow-400 to-red-600"></div>
+      <div className="absolute top-0 left-1/2 w-1/2 h-full bg-gradient-to-r from-red-600 via-yellow-400 to-green-400"></div>
+      <div className="absolute top-0 left-1/2 w-2 h-full bg-black"></div>
       <div
-        className="absolute w-2 h-5 bg-red-500"
+        className="absolute w-2 h-5 bg-blue-800"
         style={{ left: `${sliderPosition}%` }}
       ></div>
       <br />
@@ -56,10 +59,13 @@ const TimingSlider: React.FC<TimingSliderProps> = ({ onConfirm, resetKey }) => {
       >
         Attack
       </button>
-      {isStopped && <div className="mt-2">Attack Strength: {100 - 2 * Math.abs(sliderPosition - 50)}%</div>}
+      {isStopped ? (
+        <div className="mt-2">
+          Attack Strength: {100 - 2 * Math.abs(sliderPosition - 50)}%
+        </div>
+      ) : null}
     </div>
   );
 };
 
 export default TimingSlider;
-

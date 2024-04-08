@@ -13,7 +13,6 @@ import {
   AlertDialogTrigger,
 } from "~/components/ui/alert-dialog";
 
-
 interface Pokemon {
   name: string;
   hp: number;
@@ -79,7 +78,17 @@ const BattleComponent: React.FC<Props> = ({
       if (gameOver) return;
 
       if (enemyCurrent < enemyTeam.length) {
-        const enemyDamage = Math.round(enemyPokemon.attack * 0.5);
+        // Calculate enemy's damage between 25% to 75% of enemy's attack
+        const minDamagePercentage = 25;
+        const maxDamagePercentage = 75;
+        const randomDamagePercentage =
+          Math.floor(
+            Math.random() * (maxDamagePercentage - minDamagePercentage + 1),
+          ) + minDamagePercentage;
+        const enemyDamage = Math.round(
+          (enemyPokemon.attack * randomDamagePercentage) / 100,
+        );
+
         playerPokemon.hp = Math.max(playerPokemon.hp - enemyDamage, 0);
         setBattleMessage(
           `${enemyPokemon.name} attacked you for ${enemyDamage} damage!`,

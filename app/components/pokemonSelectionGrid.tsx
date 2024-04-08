@@ -8,13 +8,18 @@ interface PokemonSelectionGridProps {
   onSelectionChange: (selectedPokemon: CollectionItemWithPokemon[]) => void;
 }
 
-export default function PokemonSelectionGrid({ collection, onSelectionChange }: PokemonSelectionGridProps) {
+export default function PokemonSelectionGrid({
+  collection,
+  onSelectionChange,
+}: PokemonSelectionGridProps) {
   const [selectedPokemonIds, setSelectedPokemonIds] = useState<string[]>([]);
 
   const handleSelectPokemon = (pokemonId: string) => {
     let newSelectedPokemonIds: string[];
     if (selectedPokemonIds.includes(pokemonId)) {
-      newSelectedPokemonIds = selectedPokemonIds.filter((id) => id !== pokemonId);
+      newSelectedPokemonIds = selectedPokemonIds.filter(
+        (id) => id !== pokemonId,
+      );
     } else if (selectedPokemonIds.length < 5) {
       newSelectedPokemonIds = [...selectedPokemonIds, pokemonId];
     } else {
@@ -22,7 +27,9 @@ export default function PokemonSelectionGrid({ collection, onSelectionChange }: 
     }
 
     setSelectedPokemonIds(newSelectedPokemonIds);
-    const selectedPokemon = collection.filter((item) => newSelectedPokemonIds.includes(item.cardId));
+    const selectedPokemon = collection.filter((item) =>
+      newSelectedPokemonIds.includes(item.cardId),
+    );
     onSelectionChange(selectedPokemon);
   };
 
@@ -32,16 +39,22 @@ export default function PokemonSelectionGrid({ collection, onSelectionChange }: 
 
   return (
     <div className="flex justify-center">
-      <div className="max-w-screen-lg w-full px-4 h-2/3 overflow-y-scroll scroll">
+      <div className="max-w-screen-lg w-full px-4 h-2/3">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 justify-center">
           {collection.map(({ userId, cardId, pokemon }) => (
             <div
               key={`${userId}#${cardId}`}
               onClick={() => handleSelectPokemon(cardId)}
-              onKeyDown={(e) => e.key === 'Enter' && handleSelectPokemon(cardId)}
+              onKeyDown={(e) =>
+                e.key === "Enter" && handleSelectPokemon(cardId)
+              }
               role="button"
               tabIndex={0}
-              className={`cursor-pointer p-1 ${selectedPokemonIds.includes(cardId) ? "border-2 border-blue-500 rounded" : ""}`}
+              className={`cursor-pointer p-1 ${
+                selectedPokemonIds.includes(cardId)
+                  ? "border-2 border-blue-500 rounded"
+                  : ""
+              }`}
             >
               {pokemon ? (
                 <PokemonCard
@@ -61,7 +74,3 @@ export default function PokemonSelectionGrid({ collection, onSelectionChange }: 
     </div>
   );
 }
-
-
-
-

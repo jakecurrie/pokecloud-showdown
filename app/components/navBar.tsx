@@ -1,6 +1,6 @@
 import { Link } from "@remix-run/react";
 
-import logo from "../../public/images/logo.png"
+import logo from "../../public/images/logo.png";
 
 const NavBar = () => {
   return (
@@ -10,7 +10,7 @@ const NavBar = () => {
           to="/home"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <img src={logo} className="h-8" alt="Pokecloud logo" />
+          <img src={logo} className="h-12" alt="Pokecloud logo" />
           <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
             PokeCloud
           </span>

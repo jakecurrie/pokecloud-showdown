@@ -21,7 +21,6 @@ import { requireUserId } from "~/session.server";
 
 import homePic from "../../public/images/battle.jpg";
 
-
 interface BattleSetupProps {
   trainers: Trainer[];
   collection: CollectionItemWithPokemon[];
@@ -71,9 +70,9 @@ export default function BattleSetup() {
   const battleId = Date.now();
 
   return (
-    <body className="bg-biceblue">
-      <NavBar />
-      <div className="h-screen">
+    <div className="bg-biceblue">
+      <div className="absolute inset-0 h-screen">
+        <NavBar />
         <div className="w-full md:w-3/4 lg:w-2/3 xl:w-full h-5/6 rounded-lg overflow-hidden relative border border-t-4 top-20 border-charcoal">
           <img
             className="absolute inset-0 blur-sm w-full h-full object-cover"
@@ -98,7 +97,7 @@ export default function BattleSetup() {
               >
                 <CarouselContent className="-mt-1 h-[300px]">
                   {trainers.map((trainer) => (
-                    <CarouselItem key={trainer.id} className="pt-1">
+                    <CarouselItem key={trainer.id} className="mt-0.5 p-1">
                       <div
                         onClick={() => handleSelectTrainer(trainer)}
                         onKeyDown={(e) =>
@@ -172,6 +171,6 @@ export default function BattleSetup() {
           </Form>
         </div>
       </div>
-    </body>
+    </div>
   );
 }
