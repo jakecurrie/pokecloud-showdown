@@ -35,8 +35,6 @@ import {
 import { requireUserId } from "~/session.server";
 
 import homePic from "../../public/images/battle.jpg";
-import logoPic from "../../public/images/logo.png";
-
 
 export const loader: LoaderFunction = async ({
   request,
@@ -60,37 +58,6 @@ export const loader: LoaderFunction = async ({
     collection,
   });
 };
-
-// export async function action({ request }: ActionFunctionArgs) {
-//   const userId = await requireUserId(request);
-//   const formData = await request.formData();
-//   const cardData = Object.fromEntries(formData);
-//   const price = -+cardData.price;
-//
-//   await changeBalance(userId, price);
-//
-//   await addCollectionItem({
-//     cardId: cardData.card1.toString(),
-//     userId: userId,
-//   });
-//   await addCollectionItem({
-//     cardId: cardData.card2.toString(),
-//     userId: userId,
-//   });
-//   await addCollectionItem({
-//     cardId: cardData.card3.toString(),
-//     userId: userId,
-//   });
-//   await addCollectionItem({
-//     cardId: cardData.card4.toString(),
-//     userId: userId,
-//   });
-//   await addCollectionItem({
-//     cardId: cardData.card5.toString(),
-//     userId: userId,
-//   });
-//   return redirect("/collections");
-// }
 
 export default function Shop() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -148,14 +115,7 @@ export default function Shop() {
               alt=""
             />
 
-            <div className={"flex flex-row justify-between"}>
-              <div>
-                <img
-                  className="relative w-20 object-cover inline  m-4"
-                  src={logoPic}
-                  alt=""
-                />
-              </div>
+            <div className={"flex flex-row justify-end"}>
               <div>
                 <h4 className={"relative left bg-honeydew p-4 w-auto inline"}>
                   Available Pokecoins : {availablePokecoins}
@@ -163,7 +123,7 @@ export default function Shop() {
               </div>
             </div>
             <div
-              className="absolute top-24 w-full flex justify-evenly"
+              className="absolute top-14 w-full flex justify-evenly"
               id={"something"}
             >
               {bundles.map((bundle, index) => (
@@ -184,7 +144,7 @@ export default function Shop() {
                           epicChance={bundleTiers[index].distribution.Epic}
                           description={bundleTiers[index].description}
                         />
-                        <div className="bg-honeydew rounded-3xl text-onyx border-4 border-onyx">
+                        <div className="mt-4 bg-honeydew rounded-3xl text-onyx border-4 border-onyx">
                           <h3>Tier {bundle.tier} Pack</h3>
                           <h2>Cost: {bundle.price} PokeCoins</h2>
                         </div>
